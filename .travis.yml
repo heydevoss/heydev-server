@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "stable"
+
+# keep the npm cache around to speed up installs
+cache:
+  directories:
+  - "node_modules"
+
+install:
+  npm install
+
+script:
+  npm start
+
+# TODO: add eslint-config, tests and deploy build stages
+# REF: https://docs.travis-ci.com/user/build-stages/
