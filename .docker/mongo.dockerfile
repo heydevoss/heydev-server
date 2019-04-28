@@ -1,0 +1,5 @@
+FROM mongo:latest
+
+ENV PORT 27017
+
+EXPOSE $PORT
