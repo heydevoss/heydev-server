@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js",
-    "test": "echo \"Sucess: no test implemented yet\" && exit 0"
+    "start": "nodemon --exec babel-node src/index.js"
   },
   "repository": {
     "type": "git",
