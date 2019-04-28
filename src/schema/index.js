@@ -6,10 +6,10 @@ import {
   GraphQLSchema
 } from 'graphql';
 
+// Getting resolvers for queries and mutations
 import resolvers from '../resolvers';
 
-console.log(resolvers.Query.users);
-
+// Creating a type User for the Schema
 const UserType = new GraphQLObjectType({
   name: 'User',
   fields: () => ({
@@ -18,6 +18,7 @@ const UserType = new GraphQLObjectType({
   })
 });
 
+// Creating a root Query with its resolvers.
 const RootQuery = new GraphQLObjectType({
   name: 'Query',
   fields: {
