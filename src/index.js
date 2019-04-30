@@ -9,6 +9,7 @@ import authRouter from './githubAuth/route';
 
 import schema from './schema';
 import models from './models';
+import config from './githubAuth/data';
 
 const app = express();
 app.use(cors());
@@ -25,6 +26,8 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app, path: '/graphql' });
 
-app.listen({ port: 5000 }, () => {
-  console.log('Apollo Server listening on http://localhost:5000/graphql');
+const { port } = config.host;
+
+app.listen({ port }, () => {
+  console.log(`Server listening on http://localhost:${port}`);
 });
