@@ -15,7 +15,6 @@ const router = express.Router();
 const stateKey = 'github-auth-state';
 
 router.get('/login', (req, res) => {
-  console.log('/login');
   const state = generateRandomState(16);
   res.cookie(stateKey, state);
   
@@ -30,7 +29,6 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/callback', (req, res) => {
-  console.log('/callback');
   const storedState = req.cookies ? req.cookies[stateKey] : null;
   const { state } = req.query;
   
@@ -44,7 +42,6 @@ router.get('/callback', (req, res) => {
 });
 
 const requestAccessToken = (req, res) => {
-  console.log('requestAccessToken()');
   res.clearCookie(stateKey);
   const { code } = req.query;
 
@@ -64,10 +61,10 @@ const requestAccessToken = (req, res) => {
 
     if (!error & response.statusCode === 200) {
       const { access_token } = body;
-      url = getClientURL(config.client.successPath + '/' + access_token)
+      url = getClientURL(`${config.client.successPath}/${access_token}`);
     } else {
       const queryString = querystring.stringify({ error: 'invalid_token' });
-      url = getClientURL(config.client.errorPath + '?' + queryString);
+      url = getClientURL(`${config.client.errorPath}?${queryString}`);
     }
 
     res.redirect(url);
