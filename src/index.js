@@ -5,11 +5,11 @@ import cookieParser from 'cookie-parser';
 
 import { ApolloServer } from 'apollo-server-express';
 
-import authRouter from './githubAuth/route';
+import authRouter from './auth/route';
 
 import schema from './schema';
 import models from './models';
-import config from './githubAuth/data';
+import config from './auth/data';
 
 const app = express();
 app.use(cors());
