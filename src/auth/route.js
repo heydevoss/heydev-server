@@ -24,7 +24,7 @@ router.get('/login', (req, res) => {
     state
   });
   
-  const url = getAuthBaseURL('/authorize?' + queryString);
+  const url = getAuthBaseURL(`/authorize?${queryString}`);
   res.redirect(url);
 });
 
@@ -36,7 +36,7 @@ router.get('/callback', (req, res) => {
     requestAccessToken(req, res);
   } else {
     const queryString = querystring.stringify({ error: 'state_mismatch' });
-    const url = getClientURL(config.client.errorPath + '?' + queryString);
+    const url = getClientURL(`${config.client.errorPath}?${queryString}`);
     res.redirect(url);
   }
 });
