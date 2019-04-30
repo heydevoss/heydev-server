@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 
 import { ApolloServer } from 'apollo-server-express';
 
-import authRouter from './routes/githubAuth';
+import authRouter from './githubAuth/route';
 
 import schema from './schema';
 import models from './models';
