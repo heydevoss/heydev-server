@@ -4,7 +4,7 @@ import {
   GraphQLString,
   GraphQLInt,
   GraphQLList,
-  GraphQLSchema
+  GraphQLSchema,
 } from 'graphql';
 
 // Getting resolvers for queries and mutations
@@ -26,11 +26,11 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     me: {
       type: UserType,
-      resolve: resolvers.Query.me
-    }
-  }
+      resolve: resolvers.Query.me,
+    },
+  },
 });
 
 export default new GraphQLSchema({
-  query: RootQuery
+  query: RootQuery,
 });
