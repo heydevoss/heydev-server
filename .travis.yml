@@ -9,10 +9,12 @@ cache:
 
 install:
   npm install
-  npm run check-lint
 
-script:
-  npm start
+jobs:
+  include:
+    - stage: tests
+      name: "Lint"
+      script: npm run check-lint
 
-# TODO: add eslint-config, tests and deploy build stages
+# TODO: tests and deploy build stages
 # REF: https://docs.travis-ci.com/user/build-stages/
