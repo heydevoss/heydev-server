@@ -2,6 +2,7 @@ import {
   GraphQLObjectType,
   GraphQLID,
   GraphQLString,
+  GraphQLInt,
   GraphQLList,
   GraphQLSchema
 } from 'graphql';
@@ -14,7 +15,8 @@ const UserType = new GraphQLObjectType({
   name: 'User',
   fields: () => ({
     id: { type: GraphQLID },
-    username: { type: GraphQLString }
+    login: { type: GraphQLString },
+    totalRepos: { type: GraphQLInt }
   })
 });
 
@@ -22,17 +24,6 @@ const UserType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
   name: 'Query',
   fields: {
-    users: {
-      type: new GraphQLList(UserType),
-      resolve: resolvers.Query.users
-    },
-
-    user: {
-      type: UserType,
-      args: { id: { type: GraphQLID } },
-      resolve: resolvers.Query.user
-    },
-
     me: {
       type: UserType,
       resolve: resolvers.Query.me
