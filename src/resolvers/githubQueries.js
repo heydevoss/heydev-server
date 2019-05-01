@@ -12,83 +12,103 @@ const me = () => {
   });
 }
 
-const organization = (login) => {
+const getOrganizationData = (inputs, data, variables) => {
   return JSON.stringify({
-    query: `query getRepoOwner($login: String!) {
+    query: `query getRepoOwner(${inputs}) {
       repositoryOwner(login: $login) {
         ... on Organization {
-          id
-          login
-          name
+          ${data}
         }
       }
     }`,
-    variables: {
-      login
+    variables
+  })
+}
+
+const organization = (login) => {
+  const inputs = `$login: String!`;
+  const data = `
+    id
+    name
+    login
+    membersWithRole {
+      totalCount
     }
-  });
+    repositories {
+      totalCount
+    }
+    teams {
+      totalCount
+    }
+  `;
+  const variables = { login };
+
+  return getOrganizationData(inputs, data, variables);
 }
 
 const organizationTeams = (login, pagination) => {
-  return JSON.stringify({
-    query: `query getRepoOwner($login: String! $pagination: Int!) {
-      repositoryOwner(login: $login) {
-        ... on Organization {
-          teams(first: $pagination) {
-            pageInfo {
-              hasNextPage
-              endCursor
-            }
-            edges {
-              node {
-                id
-                name
-                url
-              }
-            }
-          }
-        }
-      }
-    }`,
-    variables: {
-      login,
-      pagination
+  const inputs = `$login: String! $pagination: Int!`;
+  const data = `
+  teams(first: $pagination) {
+    nodes {
+      id
+      name
+      url
     }
-  });
+  }`;
+
+  const variables = { login, pagination };
+
+  return getOrganizationData(inputs, data, variables);
 }
 
-const organizationTeamsHasNextPage = (login, pagination, cursor) => {
-  return JSON.stringify({
-    query: `query getRepoOwner($login: String!, $pagination: Int!, $cursor: String!) {
-      repositoryOwner(login: $login) {
-        ... on Organization {
-          teams(first: $pagination, after: $cursor) {
-            pageInfo {
-              hasNextPage
-              endCursor
-            }
-            edges {
-              node {
-                id
-                name
-                url
-              }
-            }
-          }
-        }
+const organizationMembers = (login, pagination) => {
+  const inputs = `$login: String! $pagination: Int!`;
+  const data = `
+  membersWithRole(first: $pagination) {
+    edges {
+      role
+      node {
+        id
+        name
+        login
+        url
       }
-    }`,
-    variables: {
-      login,
-      pagination,
-      cursor
     }
-  });
+  }`;
+
+  const variables = { login, pagination };
+
+  return getOrganizationData(inputs, data, variables);
+}
+
+const organizationRepositories = (login, pagination) => {
+  const inputs = `$login: String! $pagination: Int!`;
+  const data = `
+  repositories(first: $pagination) {
+    nodes {
+      id
+      nameWithOwner
+      forkCount
+      viewerCanAdminister,
+      issues(states: OPEN) {
+        totalCount
+      }
+      stargazers {
+        totalCount
+      }
+    }
+  }
+  `;
+
+  const variables = { login, pagination };
+  return getOrganizationData(inputs, data, variables);
 }
 
 export default {
   me,
   organization,
   organizationTeams,
-  organizationTeamsHasNextPage
+  organizationMembers,
+  organizationRepositories
 }

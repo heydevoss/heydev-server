@@ -21,7 +21,7 @@ const server = new ApolloServer({
     const token = req.headers.authorization || '';
 
     if (!token) {
-      throw new Error("An authentication token is required!");
+      throw new Error('An authentication token is required!');
     }
 
     return {

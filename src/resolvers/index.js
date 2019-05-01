@@ -1,6 +1,58 @@
 import fetchData from './githubDataFetcher';
 import githubQueries from './githubQueries';
 
+const addTeamsToArray = (teams, teamsArray) => {
+  teams.forEach((team) => {
+    const teamId = team.id;
+    const teamName = team.name;
+    const teamUrl = team.url;
+
+    teamsArray.push({
+      id: teamId,
+      name: teamName,
+      url: teamUrl
+    });
+  });
+}
+
+const addMembersToArray = (members, membersArray) => {
+  members.forEach((member) => {
+    const memberRole = member.role;
+    const memberId = member.node.id;
+    const memberName = member.node.name;
+    const memberLogin = member.node.login;
+    const memberUrl = member.node.url;
+
+    membersArray.push({
+      id: memberId,
+      role: memberRole,
+      name: memberName,
+      login: memberLogin,
+      url: memberUrl
+    });
+  });
+}
+
+const addReposToArray = (repos, reposArray) => {
+  repos.forEach((repo) => {
+    const repoName = repo.nameWithOwner;
+    const repoId = repo.id;
+    const repoForks = repo.forkCount;
+    const repoViewerAdmin = repo.viewerCanAdminister;
+    const repoIssues = repo.issues.totalCount;
+    const repoStars = repo.stargazers.totalCount;
+
+    reposArray.push({
+      id: repoId,
+      name: repoName,
+      viewerCanAdminister: repoViewerAdmin,
+      totalForks: repoForks,
+      totalOpenIssues: repoIssues,
+      totalStars: repoStars
+    });
+  });
+}
+
 export default {
   Query: {
     me: async (parent, args, { token }) => {
@@ -19,48 +71,46 @@ export default {
 
     teams: async (parent, args, { token }) => {
       const login = parent.login;
+      const pagination = args.maxNumberOfTeams;
       const teamsArray = [];
 
-      let pagination = 3;
-      let body = githubQueries.organizationTeams(login, pagination);
-      let data = await fetchData(body, token);
+      const body = githubQueries.organizationTeams(login, pagination);
+      const data = await fetchData(body, token);
 
-      let nextPage = data.data.repositoryOwner.teams.pageInfo.hasNextPage;
-      let lastEndCursor = data.data.repositoryOwner.teams.pageInfo.endCursor;
-
-      // After, we need to define pagination, this can get very inefficient
-      do {
-        const teams = data.data.repositoryOwner.teams.edges;
-        
-        teams.forEach(team => {
-          const teamId = team.node.id;
-          const teamName = team.node.name;
-          const teamUrl = team.node.url;
-
-          teamsArray.push({
-            id: teamId,
-            name: teamName,
-            url: teamUrl
-          });
-        });
-
-        nextPage = data.data.repositoryOwner.teams.pageInfo.hasNextPage;
-
-        if (nextPage) {
-          pagination *= 2;
-
-          body = githubQueries.organizationTeamsHasNextPage(login, pagination, lastEndCursor);
-          data = await fetchData(body, token);
-
-          lastEndCursor = data.data.repositoryOwner.teams.pageInfo.endCursor;
-        }
-        
-      } while(nextPage);
+      const teams = data.data.repositoryOwner.teams.nodes;
+      addTeamsToArray(teams, teamsArray);
 
       return teamsArray;
     },
 
-    // Organization resolver (fetch data from github)
+    members: async (parent, args, { token }) => {
+      const login = parent.login;
+      const pagination = args.maxNumberOfMembers;
+      const membersArray = [];
+
+      const body = githubQueries.organizationMembers(login, pagination);
+      const data = await fetchData(body, token);
+
+      const members = data.data.repositoryOwner.membersWithRole.edges;
+      addMembersToArray(members, membersArray);
+
+      return membersArray;
+    },
+
+    repositories: async (parent, args, { token }) => {
+      const login = parent.login;
+      const pagination = args.maxNumberOfRepositories;
+      const reposArray = [];
+
+      const body = githubQueries.organizationRepositories(login, pagination);
+      const data = await fetchData(body, token);
+
+      const repos = data.data.repositoryOwner.repositories.nodes;
+      addReposToArray(repos, reposArray);
+
+      return reposArray;
+    },
+
     organization: async (parent, args, { token }) => {
       const body = githubQueries.organization(args.login);
       const data = await fetchData(body, token);
@@ -70,7 +120,10 @@ export default {
       return (org) ? {
         id: org.id,
         login: org.login,
-        name: org.name
+        name: org.name,
+        totalMembers: org.membersWithRole.totalCount,
+        totalRepos: org.repositories.totalCount,
+        totalTeams: org.teams.totalCount,
       } : null;
     }
   },
