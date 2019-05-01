@@ -26,7 +26,17 @@ const TeamType = new GraphQLObjectType({
     name: { type: GraphQLString },
     url: { type: GraphQLString }
   })
-})
+});
+
+const OrganizationMemberType = new GraphQLObjectType({
+  name: 'OrganizationMember',
+  fields: () => ({
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    login: { type: GraphQLString },
+    url: { type: GraphQLString }
+  })
+});
 
 const OrganizationType = new GraphQLObjectType({
   name: 'Organization',
@@ -37,6 +47,10 @@ const OrganizationType = new GraphQLObjectType({
     teams: {
       type: new GraphQLList(TeamType),
       resolve: resolvers.Query.teams
+    },
+    members: {
+      type: new GraphQLList(OrganizationMemberType),
+      resolve: resolvers.Query.members
     }
   })
 })

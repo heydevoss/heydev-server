@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.use('/auth', authRouter);
 
 const server = new ApolloServer({
-  schema: schema,
+  schema,
   context: ({ req }) => {
     const token = req.headers.authorization || '';
 
@@ -27,7 +27,7 @@ const server = new ApolloServer({
     return {
       token
     };
-  }
+  },
 });
 
 server.applyMiddleware({ app, path: '/graphql' });

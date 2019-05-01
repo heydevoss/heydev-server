@@ -26,7 +26,7 @@ const organization = (login) => {
     variables: {
       login
     }
-  })
+  });
 }
 
 const organizationTeams = (login, pagination) => {
