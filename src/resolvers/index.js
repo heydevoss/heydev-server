@@ -8,6 +8,6 @@ export default {
     },
     me: (parent, args, { me }) => {
       return me;
-    }
+    },
   },
 };

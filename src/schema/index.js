@@ -3,7 +3,7 @@ import {
   GraphQLID,
   GraphQLString,
   GraphQLList,
-  GraphQLSchema
+  GraphQLSchema,
 } from 'graphql';
 
 // Getting resolvers for queries and mutations
@@ -14,8 +14,8 @@ const UserType = new GraphQLObjectType({
   name: 'User',
   fields: () => ({
     id: { type: GraphQLID },
-    username: { type: GraphQLString }
-  })
+    username: { type: GraphQLString },
+  }),
 });
 
 // Creating a root Query with its resolvers.
@@ -24,22 +24,22 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     users: {
       type: new GraphQLList(UserType),
-      resolve: resolvers.Query.users
+      resolve: resolvers.Query.users,
     },
 
     user: {
       type: UserType,
       args: { id: { type: GraphQLID } },
-      resolve: resolvers.Query.user
+      resolve: resolvers.Query.user,
     },
 
     me: {
       type: UserType,
-      resolve: resolvers.Query.me
-    }
-  }
+      resolve: resolvers.Query.me,
+    },
+  },
 });
 
 export default new GraphQLSchema({
-  query: RootQuery
+  query: RootQuery,
 });

@@ -1,4 +1,4 @@
-let users = {
+const users = {
   1: {
     id: '1',
     username: 'Robin Wieruch',
@@ -12,5 +12,5 @@ let users = {
 };
 
 export default {
-  users
+  users,
 };
