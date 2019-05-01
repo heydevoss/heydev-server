@@ -2,41 +2,57 @@ import {
   GraphQLObjectType,
   GraphQLID,
   GraphQLString,
+  GraphQLInt,
   GraphQLList,
+  GraphQLNonNull,
   GraphQLSchema,
 } from 'graphql';
 
-// Getting resolvers for queries and mutations
 import resolvers from '../resolvers';
 
-// Creating a type User for the Schema
 const UserType = new GraphQLObjectType({
   name: 'User',
   fields: () => ({
     id: { type: GraphQLID },
-    username: { type: GraphQLString },
-  }),
+    login: { type: GraphQLString },
+    totalRepos: { type: GraphQLInt }
+  })
 });
 
-// Creating a root Query with its resolvers.
+const TeamType = new GraphQLObjectType({
+  name: 'Team',
+  fields: () => ({
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    url: { type: GraphQLString }
+  })
+})
+
+const OrganizationType = new GraphQLObjectType({
+  name: 'Organization',
+  fields: () => ({
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    login: { type: GraphQLString },
+    teams: {
+      type: new GraphQLList(TeamType),
+      resolve: resolvers.Query.teams
+    }
+  })
+})
+
 const RootQuery = new GraphQLObjectType({
   name: 'Query',
   fields: {
-    users: {
-      type: new GraphQLList(UserType),
-      resolve: resolvers.Query.users,
-    },
-
-    user: {
-      type: UserType,
-      args: { id: { type: GraphQLID } },
-      resolve: resolvers.Query.user,
-    },
-
     me: {
       type: UserType,
-      resolve: resolvers.Query.me,
+      resolve: resolvers.Query.me
     },
+    organization: {
+      type: OrganizationType,
+      args: { login: { type: new GraphQLNonNull(GraphQLString) } },
+      resolve: resolvers.Query.organization
+    }
   },
 });
 
