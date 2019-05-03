@@ -17,8 +17,10 @@ const TeamMemberType = new GraphQLObjectType({
   })
 });
 
-export default new GraphQLObjectType({
+const TeamType = new GraphQLObjectType({
   name: 'Team',
+  description: '',
+
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
@@ -38,3 +40,5 @@ export default new GraphQLObjectType({
     }
   })
 });
+
+export default TeamType;

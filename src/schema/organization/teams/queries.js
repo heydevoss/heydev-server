@@ -4,16 +4,16 @@ import {
   GraphQLNonNull,
 } from 'graphql';
 
-import OrganizationMemberType from './OrganizationMemberType';
-import resolvers from './resolvers';
+import TeamType from './types';
+import resolvers  from './resolvers';
 
 export default {
-  type: new GraphQLList(OrganizationMemberType),
+  type: new GraphQLList(TeamType),
   args: {
-    maxNumberOfMembers: {
+    maxNumberOfTeams: {
       type: new GraphQLNonNull(GraphQLInt),
       description: 'Max number of results from this query'
     },
   },
-  resolve: resolvers.Query.members
-};
+  resolve: resolvers.Query.teams,
+}

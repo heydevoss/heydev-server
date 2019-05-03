@@ -1,4 +1,4 @@
-import UserType from './UserType';
+import UserType from './types';
 import resolvers from './resolvers';
 
 const me = {
