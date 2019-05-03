@@ -3,8 +3,6 @@ import {
   GraphQLID,
   GraphQLString,
   GraphQLInt,
-  GraphQLList,
-  GraphQLNonNull,
 } from 'graphql';
 
 import members from './members';
@@ -17,6 +15,9 @@ export default new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     login: { type: GraphQLString },
+    avatarUrl: { type: GraphQLString },
+    url: { type: GraphQLString },
+    websiteUrl: { type: GraphQLString },
     totalMembers: { type: GraphQLInt },
     totalRepos: { type: GraphQLInt },
     totalTeams: { type: GraphQLInt },

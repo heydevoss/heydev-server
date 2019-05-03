@@ -31,6 +31,9 @@ const organization = (login) => {
     id
     name
     login
+    avatarUrl
+    url
+    websiteUrl
     membersWithRole {
       totalCount
     }
@@ -54,10 +57,30 @@ const organizationTeams = (login, pagination) => {
       id
       name
       url
+      slug
+      members {
+        totalCount
+      }
     }
   }`;
 
   const variables = { login, pagination };
+
+  return getOrganizationData(inputs, data, variables);
+}
+
+const organizationTeamMembers = (login, slug, pagination) => {
+  const inputs = `$login: String! $slug: String! $pagination: Int!`;
+  const data = `team(slug: $slug) {
+    members(first: $pagination) {
+      nodes {
+        id
+        login
+      }
+    }
+  }`;
+
+  const variables = { login, slug, pagination };
 
   return getOrganizationData(inputs, data, variables);
 }
@@ -110,5 +133,6 @@ export default {
   organization,
   organizationTeams,
   organizationMembers,
-  organizationRepositories
+  organizationRepositories,
+  organizationTeamMembers
 }

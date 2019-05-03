@@ -22,7 +22,10 @@ export default new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
+    slug: { type: GraphQLString },
     url: { type: GraphQLString },
+    totalMembers: { type: GraphQLInt },
+    repoLogin: { type: GraphQLString },
     members: {
       type: new GraphQLList(TeamMemberType),
       args: {
