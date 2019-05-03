@@ -14,10 +14,12 @@ router.get('/login', (req, res) => {
   const state = generateRandomState(16);
   res.cookie(stateKey, state);
 
+  const scope = 'repo read:org';
   const queryString = querystring.stringify({
     client_id: config.github.clientId,
     redirect_uri: config.github.redirectUrl,
     state,
+    scope
   });
 
   const url = getAuthBaseURL(`/authorize?${queryString}`);
