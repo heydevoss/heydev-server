@@ -7,7 +7,7 @@ import {
 
 const UserType =  new GraphQLObjectType({
   name: 'User',
-  description: 'A user is an individual account on GitHub that owns repositories and can make new content.',
+  description: 'An individual account on GitHub that owns repositories and can make new content.',
 
   fields: () => ({
     id: { type: GraphQLID },
