@@ -3,7 +3,7 @@ import express from 'express';
 import querystring from 'querystring';
 import request from 'request';
 
-import config from './data';
+import config from './config';
 
 import { generateRandomState, getAuthBaseURL, getClientURL } from './util';
 
@@ -14,12 +14,11 @@ router.get('/login', (req, res) => {
   const state = generateRandomState(16);
   res.cookie(stateKey, state);
 
-  const scope = 'repo read:org';
   const queryString = querystring.stringify({
     client_id: config.github.clientId,
     redirect_uri: config.github.redirectUrl,
-    state,
-    scope
+    state: state,
+    scope: config.github.scope
   });
 
   const url = getAuthBaseURL(`/authorize?${queryString}`);
@@ -58,6 +57,7 @@ const requestAccessToken = (req, res) => {
     let url;
     if (!error && response.statusCode === 200) {
       const { access_token } = body;
+      console.log(access_token);
       url = getClientURL(`${config.client.successPath}/${access_token}`);
     } else {
       const queryString = querystring.stringify({ error: 'invalid_token' });

@@ -4,6 +4,7 @@ let port;
 if (process.env.NODE_ENV === 'production') port = process.env.PORT;
 
 config.github = {
+  scope: 'repo read:org',
   clientId: `${process.env.GITHUB_APP_CLIENT_ID}`,
   clientSecret: `${process.env.GITHUB_APP_CLIENT_SECRET}`,
   redirectUrl: `${process.env.GITHUB_APP_CALLBACK_URL}`,

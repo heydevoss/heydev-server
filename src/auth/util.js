@@ -1,4 +1,4 @@
-import config from './data';
+import config from './config';
 
 export const generateRandomState = length => {
   let state = '';
