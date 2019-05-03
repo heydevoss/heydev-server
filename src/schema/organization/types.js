@@ -23,9 +23,9 @@ const OrganizationType = new GraphQLObjectType({
     totalMembers: { type: GraphQLInt },
     totalRepos: { type: GraphQLInt },
     totalTeams: { type: GraphQLInt },
-    teams,
-    members,
-    repositories,
+    teams: teams,
+    members: members,
+    repositories: repositories,
   })
 });
 
