@@ -3,7 +3,7 @@ import express from 'express';
 import querystring from 'querystring';
 import request from 'request';
 
-import config from './data';
+import config from '../config';
 
 import { generateRandomState, getAuthBaseURL, getClientURL } from './util';
 
@@ -14,12 +14,11 @@ router.get('/login', (req, res) => {
   const state = generateRandomState(16);
   res.cookie(stateKey, state);
 
-  const scope = 'repo read:org';
   const queryString = querystring.stringify({
     client_id: config.github.clientId,
     redirect_uri: config.github.redirectUrl,
-    state,
-    scope
+    state: state,
+    scope: config.github.scope
   });
 
   const url = getAuthBaseURL(`/authorize?${queryString}`);

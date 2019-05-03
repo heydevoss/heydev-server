@@ -8,7 +8,7 @@ import { ApolloServer } from 'apollo-server-express';
 import authRouter from './auth/route';
 
 import schema from './schema';
-import config from './auth/data';
+import config from './config';
 
 const app = express();
 app.use(cors());
