@@ -8,7 +8,6 @@ import { ApolloServer } from 'apollo-server-express';
 import authRouter from './auth/route';
 
 import schema from './schema';
-import models from './models';
 import config from './auth/data';
 
 const app = express();
@@ -18,9 +17,10 @@ app.use('/auth', authRouter);
 
 const server = new ApolloServer({
   schema,
-  context: {
-    models,
-    me: models.users[1],
+  context: ({ req }) => {
+    const token = req.headers.authorization || '';
+
+    return { token };
   },
 });
 
