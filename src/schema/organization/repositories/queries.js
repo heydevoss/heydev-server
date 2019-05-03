@@ -7,7 +7,7 @@ import {
 import RepositoryType from './types';
 import resolvers from './resolvers';
 
-export default {
+const repositories = {
   type: new GraphQLList(RepositoryType),
   args: {
     maxNumberOfRepositories: {
@@ -17,3 +17,5 @@ export default {
   },
   resolve: resolvers.Query.repositories
 }
+
+export default repositories;

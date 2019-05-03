@@ -7,7 +7,7 @@ import {
 import TeamType from './types';
 import resolvers  from './resolvers';
 
-export default {
+const teams = {
   type: new GraphQLList(TeamType),
   args: {
     maxNumberOfTeams: {
@@ -17,3 +17,5 @@ export default {
   },
   resolve: resolvers.Query.teams,
 }
+
+export default teams;

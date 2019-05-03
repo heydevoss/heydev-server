@@ -7,7 +7,7 @@ import {
 import OrganizationMemberType from './types';
 import resolvers from './resolvers';
 
-export default {
+const members = {
   type: new GraphQLList(OrganizationMemberType),
   args: {
     maxNumberOfMembers: {
@@ -17,3 +17,5 @@ export default {
   },
   resolve: resolvers.Query.members
 };
+
+export default members;
