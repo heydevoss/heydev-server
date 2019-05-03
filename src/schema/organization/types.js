@@ -11,7 +11,7 @@ import teams from './teams/queries'
 
 const OrganizationType = new GraphQLObjectType({
   name: 'Organization',
-  description: '',
+  description: 'An account on GitHub, with one or more owners, that has repositories, members and teams.',
 
   fields: () => ({
     id: { type: GraphQLID },

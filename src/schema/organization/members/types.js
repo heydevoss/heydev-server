@@ -6,7 +6,7 @@ import {
 
 const OrganizationMemberType = new GraphQLObjectType({
   name: 'OrganizationMember',
-  description: '',
+  description: 'A user within an organization.',
 
   fields: () => ({
     id: { type: GraphQLID },

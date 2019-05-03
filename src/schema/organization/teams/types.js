@@ -11,6 +11,8 @@ import resolvers from './resolvers';
 
 const TeamMemberType = new GraphQLObjectType({
   name: 'TeamMember',
+  description: 'A user who is a member of a team.',
+
   fields: () => ({
     id: { type: GraphQLID },
     login: { type: GraphQLString }
@@ -19,7 +21,7 @@ const TeamMemberType = new GraphQLObjectType({
 
 const TeamType = new GraphQLObjectType({
   name: 'Team',
-  description: '',
+  description: 'A team of users in an organization.',
 
   fields: () => ({
     id: { type: GraphQLID },

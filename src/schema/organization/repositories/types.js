@@ -8,7 +8,7 @@ import {
 
 const RepositoryType =  new GraphQLObjectType({
   name: 'Repository',
-  description: '',
+  description: 'A repository contains the content for a project.',
 
   fields: () => ({
     id: { type: GraphQLID },
