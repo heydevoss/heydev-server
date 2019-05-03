@@ -3,7 +3,7 @@ import express from 'express';
 import querystring from 'querystring';
 import request from 'request';
 
-import config from './config';
+import config from '../config';
 
 import { generateRandomState, getAuthBaseURL, getClientURL } from './util';
 
