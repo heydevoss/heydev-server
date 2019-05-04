@@ -3,7 +3,7 @@ import express from 'express';
 import querystring from 'querystring';
 import request from 'request';
 
-import config from './config';
+import config from '../config';
 
 import { generateRandomState, getAuthBaseURL, getClientURL } from './util';
 
@@ -57,7 +57,6 @@ const requestAccessToken = (req, res) => {
     let url;
     if (!error && response.statusCode === 200) {
       const { access_token } = body;
-      console.log(access_token);
       url = getClientURL(`${config.client.successPath}/${access_token}`);
     } else {
       const queryString = querystring.stringify({ error: 'invalid_token' });
