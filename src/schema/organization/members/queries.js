@@ -4,16 +4,18 @@ import {
   GraphQLNonNull,
 } from 'graphql';
 
-import RepositoryType from './RepositoryType';
+import OrganizationMemberType from './types';
 import resolvers from './resolvers';
 
-export default {
-  type: new GraphQLList(RepositoryType),
+const members = {
+  type: new GraphQLList(OrganizationMemberType),
   args: {
-    maxNumberOfRepositories: {
+    maxNumberOfMembers: {
       type: new GraphQLNonNull(GraphQLInt),
       description: 'Max number of results from this query'
     },
   },
-  resolve: resolvers.Query.repositories
-}
+  resolve: resolvers.Query.members
+};
+
+export default members;

@@ -4,8 +4,10 @@ import {
   GraphQLString,
 } from 'graphql';
 
-export default new GraphQLObjectType({
+const OrganizationMemberType = new GraphQLObjectType({
   name: 'OrganizationMember',
+  description: 'A user within an organization.',
+
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
@@ -14,3 +16,6 @@ export default new GraphQLObjectType({
     url: { type: GraphQLString }
   })
 });
+
+export default OrganizationMemberType;
+

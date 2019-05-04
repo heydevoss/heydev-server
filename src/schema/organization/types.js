@@ -5,12 +5,14 @@ import {
   GraphQLInt,
 } from 'graphql';
 
-import members from './members';
-import repositories from './repositories';
-import teams from './teams'
+import members from './members/queries';
+import repositories from './repositories/queries';
+import teams from './teams/queries'
 
-export default new GraphQLObjectType({
+const OrganizationType = new GraphQLObjectType({
   name: 'Organization',
+  description: 'An account on GitHub, with one or more owners, that has repositories, members and teams.',
+
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
@@ -21,8 +23,10 @@ export default new GraphQLObjectType({
     totalMembers: { type: GraphQLInt },
     totalRepos: { type: GraphQLInt },
     totalTeams: { type: GraphQLInt },
-    teams,
-    members,
-    repositories,
+    teams: teams,
+    members: members,
+    repositories: repositories,
   })
 });
+
+export default OrganizationType;

@@ -1,5 +1,5 @@
-import fetchData from '../../model/githubDataFetcher';
-import githubQueries from '../../model/githubQueries';
+import fetchData from '../../github/dataFetcher';
+import githubQueries from '../../github/queries';
 
 export default {
   Query: {

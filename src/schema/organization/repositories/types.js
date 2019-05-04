@@ -6,8 +6,10 @@ import {
   GraphQLBoolean,
 } from 'graphql';
 
-export default new GraphQLObjectType({
+const RepositoryType =  new GraphQLObjectType({
   name: 'Repository',
+  description: 'A repository contains the content for a project.',
+
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
@@ -17,3 +19,5 @@ export default new GraphQLObjectType({
     totalStars: { type: GraphQLInt },
   })
 });
+
+export default RepositoryType;

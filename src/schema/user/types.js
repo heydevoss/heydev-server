@@ -5,11 +5,15 @@ import {
   GraphQLInt,
 } from 'graphql';
 
-export default new GraphQLObjectType({
+const UserType =  new GraphQLObjectType({
   name: 'User',
+  description: 'An individual account on GitHub that owns repositories and can make new content.',
+
   fields: () => ({
     id: { type: GraphQLID },
     login: { type: GraphQLString },
     totalRepos: { type: GraphQLInt }
   })
 });
+
+export default UserType;
