@@ -21,11 +21,13 @@ app.use('/auth', authRouter);
 
 const server = new ApolloServer({
   schema,
-  context: ({ req, res }) => {
+  context: ({ req }) => {
     const token = req.headers.authorization || '';
 
     if (!validateToken(token)) {
-      throw new AuthenticationError('This endpoint requires you to be authenticated.');
+      throw new AuthenticationError(
+        'This endpoint requires you to be authenticated.'
+      );
     }
 
     return { token };
