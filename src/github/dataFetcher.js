@@ -12,9 +12,9 @@ const makePostRequest = async (url, headers, body) => {
   return data;
 }
 
-const generateHeaders = (authenticationToken) => {
+const generateHeaders = (authorization) => {
   const headers = {
-    authorization: `Bearer ${authenticationToken}`
+    authorization,
   }
 
   return headers;
