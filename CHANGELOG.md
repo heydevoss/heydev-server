@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0] - 2019-05-06
 
-- Plataform initial setup
-- Creation of a Github OAuth app
-- Github API integration and authentication
+### Added
+- Definition of schema that contains following informations: teams, repositories, members of organization and user github data.
+- Linter configuration
+- Travis configuration
+- Dockerfiles for node and mongo
+- Dockercompose to orchestrating mongo and node services
+- Apollo-Server configuration
+- `.env` file to config server and front connection, and github oauth parameters.
