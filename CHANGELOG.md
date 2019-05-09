@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2019-05-06
 
 ### Added
-- Definition of schema that contains following informations: teams, repositories, members of organization and user github data.
+- Definition of schema that contains following informations: teams, repositories and members of an organization and user.
+- Github Api V4 connection.
 - Linter configuration
 - Travis configuration
 - Dockerfiles for node and mongo
