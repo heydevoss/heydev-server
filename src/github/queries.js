@@ -7,6 +7,7 @@ const me = () => {
         repositories {
           totalCount
         }
+        bio
       }
     }`
   });
