@@ -8,11 +8,11 @@ export default {
       const data = await fetchData(body, token);
   
       const viewer = data.data.viewer;
-  
       return {
         id: viewer.id,
         login: viewer.login,
-        totalRepos: viewer.repositories.totalCount
+        totalRepos: viewer.repositories.totalCount,
+        bio: viewer.bio
       }
     }
   }
