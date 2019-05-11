@@ -12,7 +12,8 @@ export default {
       return {
         id: viewer.id,
         login: viewer.login,
-        totalRepos: viewer.repositories.totalCount
+        totalRepos: viewer.repositories.totalCount,
+        name: viewer.name
       }
     }
   }
