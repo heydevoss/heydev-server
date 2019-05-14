@@ -1,22 +1,45 @@
 import fetchData from '../../github/dataFetcher';
 import githubQueries from '../../github/queries';
 
+const sumPullRequests = (prs) => {
+  let sum = 0;
+  prs.forEach(element => {
+    sum += element.pullRequests.totalCount;
+  });
+
+  return sum;
+}
+
 export default {
   Query: {
     pullRequests : async (parent, args, { token }) => {
-      console.log(token);
-      const body = githubQueries.totalPROrganization(parent.login, 3);
-      const data = await fetchData(body, token);
+      const pagination = 80;
 
-      const repositories = data.data.repositoryOwner.repositories;
+      let body = githubQueries.totalPROrganization(parent.login, pagination);
+      let data = await fetchData(body, token);
       
-      let hasNext = repositories.pageInfo.hasNextPage;
+      let hasNext = true;
+
+      let totalPullRequests = 0;
       
-      // do {
+      do {
+        let repositories = data.data.repositoryOwner.repositories;
 
-      // } while (hasNext);
+        const prs = repositories.nodes;
+        const pageInfo = repositories.pageInfo;
+        const cursor = pageInfo.endCursor;
 
-      return 0;
+        hasNext = pageInfo.hasNextPage;
+
+        totalPullRequests += sumPullRequests(prs);
+
+        if (hasNext) {
+          body = githubQueries.totalPROrganizationAfter(parent.login, pagination, cursor);
+          data = await fetchData(body, token);
+        }
+      } while (hasNext);
+
+      return totalPullRequests;
     },
 
     organization: async (parent, args, { token }) => {
