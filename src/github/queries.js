@@ -49,6 +49,46 @@ const organization = (login) => {
   return getOrganizationData(inputs, data, variables);
 }
 
+const totalPROrganization = (login, pagination) => {
+  const inputs = `$login: String! $pagination: Int!`;
+  const data = `
+    repositories(first: $pagination) {
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      nodes {
+        pullRequests(states: [OPEN, CLOSED, MERGED]) {
+          totalCount
+        }
+      }
+    }
+  `;
+
+  const variables = { login, pagination };
+  return getOrganizationData(inputs, data, variables);
+}
+
+const totalPROrganizationAfter = (login, pagination, cursor) => {
+  const inputs = `$login: String! $pagination: Int! $cursor: String!`;
+  const data = `
+    repositories(first: $pagination after: $cursor) {
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      nodes {
+        pullRequests(states: [OPEN, CLOSED, MERGED]) {
+          totalCount
+        }
+      }
+    }
+  `;
+
+  const variables = { login, pagination, cursor };
+  return getOrganizationData(inputs, data, variables);
+}
+
 const organizationTeams = (login, pagination) => {
   const inputs = `$login: String! $pagination: Int!`;
   const data = `
@@ -134,5 +174,7 @@ export default {
   organizationTeams,
   organizationMembers,
   organizationRepositories,
-  organizationTeamMembers
+  organizationTeamMembers,
+  totalPROrganization,
+  totalPROrganizationAfter,
 }
