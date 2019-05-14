@@ -58,7 +58,7 @@ const totalPROrganization = (login, pagination) => {
         endCursor
       }
       nodes {
-        pullRequests(states: [OPEN, CLOSED, MERGED]) {
+        pullRequests {
           totalCount
         }
       }
@@ -78,7 +78,7 @@ const totalPROrganizationAfter = (login, pagination, cursor) => {
         endCursor
       }
       nodes {
-        pullRequests(states: [OPEN, CLOSED, MERGED]) {
+        pullRequests {
           totalCount
         }
       }
