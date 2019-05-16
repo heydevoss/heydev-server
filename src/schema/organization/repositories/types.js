@@ -17,6 +17,7 @@ const RepositoryType =  new GraphQLObjectType({
     totalForks: { type: GraphQLInt },
     totalOpenIssues: { type: GraphQLInt },
     totalStars: { type: GraphQLInt },
+    totalCommits: { type: GraphQLInt },
   })
 });
 
