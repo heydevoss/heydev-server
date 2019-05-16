@@ -10,13 +10,16 @@ const addReposToArray = (repos, reposArray) => {
     const repoIssues = repo.issues.totalCount;
     const repoStars = repo.stargazers.totalCount;
 
+    const numberofCommits = repo.object.history.totalCount;
+
     reposArray.push({
       id: repoId,
       name: repoName,
       viewerCanAdminister: repoViewerAdmin,
       totalForks: repoForks,
       totalOpenIssues: repoIssues,
-      totalStars: repoStars
+      totalStars: repoStars,
+      totalCommits: numberofCommits,
     });
   });
 }
