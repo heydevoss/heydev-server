@@ -9,7 +9,7 @@ config.github = {
   clientSecret: `${process.env.GITHUB_OAUTH_APP_CLIENT_SECRET}`,
   redirectUrl: `${process.env.GITHUB_OAUTH_APP_CALLBACK_URL}`,
   baseAuthUrl: 'https://github.com/login/oauth',
-  organization: `${process.env.GITHUB_ORGANIZATION_LOGIN}`
+  organization: `${process.env.GITHUB_ORGANIZATION_LOGIN}`,
 };
 
 config.client = {

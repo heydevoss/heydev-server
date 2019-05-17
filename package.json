@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js",
     "check-lint": "prettier --list-different 'src/*.js' && eslint 'src/*.js'",
-    "lint": "prettier --write src && eslint --fix src"
+    "lint": "prettier --write 'src/*.js' && eslint --fix 'src/*.js'"
   },
   "repository": {
     "type": "git",
