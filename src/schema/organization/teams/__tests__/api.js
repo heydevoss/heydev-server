@@ -15,18 +15,18 @@ import gql from 'graphql-tag';
  *                   of the desired `organization`
  * */
 const teams = gql`
-query teams($login: String!, $maxNumberOfTeams: Int!) {
+  query teams($login: String!, $maxNumberOfTeams: Int!) {
     organization(login: $login) {
-        teams(maxNumberOfTeams: $maxNumberOfTeams) {
-            id,
-            name,
-            slug,
-            url,
-            totalMembers,
-            repoLogin
-        }
+      teams(maxNumberOfTeams: $maxNumberOfTeams) {
+        id
+        name
+        slug
+        url
+        totalMembers
+        repoLogin
+      }
     }
-}
+  }
 `;
 
 /**
@@ -39,13 +39,13 @@ query teams($login: String!, $maxNumberOfTeams: Int!) {
  *                   of the desired `organization`
  * */
 const teamsName = gql`
-query teams($login: String!, $maxNumberOfTeams: Int!) {
+  query teamsName($login: String!, $maxNumberOfTeams: Int!) {
     organization(login: $login) {
-        teams(maxNumberOfTeams: $maxNumberOfTeams) {
-            name
-        }
+      teams(maxNumberOfTeams: $maxNumberOfTeams) {
+        name
+      }
     }
-}
+  }
 `;
 
 /**
@@ -58,14 +58,14 @@ query teams($login: String!, $maxNumberOfTeams: Int!) {
  *                   of the desired `organization`
  * */
 const teamsIdUrl = gql`
-query teams($login: String!, $maxNumberOfTeams: Int!) {
+  query teamsIdUrl($login: String!, $maxNumberOfTeams: Int!) {
     organization(login: $login) {
-        teams(maxNumberOfTeams: $maxNumberOfTeams) {
-            id,
-            url
-        }
+      teams(maxNumberOfTeams: $maxNumberOfTeams) {
+        id
+        url
+      }
     }
-}
+  }
 `;
 
 /**
@@ -79,15 +79,18 @@ query teams($login: String!, $maxNumberOfTeams: Int!) {
  *                   of the desired `organization`
  * */
 const teamsSlugTotalMembersRepoLogin = gql`
-query teams($login: String!, $maxNumberOfTeams: Int!) {
+  query teamsSlugTotalMembersRepoLogin(
+    $login: String!
+    $maxNumberOfTeams: Int!
+  ) {
     organization(login: $login) {
-        teams(maxNumberOfTeams: $maxNumberOfTeams) {
-            slug,
-            totalMembers,
-            repoLogin
-        }
+      teams(maxNumberOfTeams: $maxNumberOfTeams) {
+        slug
+        totalMembers
+        repoLogin
+      }
     }
-}
+  }
 `;
 
 /**
@@ -102,16 +105,19 @@ query teams($login: String!, $maxNumberOfTeams: Int!) {
  *                   of the desired `organization`
  * */
 const teamsNameSlugTotalMembersRepoLogin = gql`
-query teams($login: String!, $maxNumberOfTeams: Int!) {
+  query teamsNameSlugTotalMembersRepoLogin(
+    $login: String!
+    $maxNumberOfTeams: Int!
+  ) {
     organization(login: $login) {
-        teams(maxNumberOfTeams: $maxNumberOfTeams) {
-            name,
-            slug,
-            totalMembers,
-            repoLogin
-        }
+      teams(maxNumberOfTeams: $maxNumberOfTeams) {
+        name
+        slug
+        totalMembers
+        repoLogin
+      }
     }
-}
+  }
 `;
 
 /**
@@ -127,17 +133,20 @@ query teams($login: String!, $maxNumberOfTeams: Int!) {
  *                   of the desired `organization`
  * */
 const teamsNameUrlSlugTotalMembersRepoLogin = gql`
-query teams($login: String!, $maxNumberOfTeams: Int!) {
+  query teamsNameUrlSlugTotalMembersRepoLogin(
+    $login: String!
+    $maxNumberOfTeams: Int!
+  ) {
     organization(login: $login) {
-        teams(maxNumberOfTeams: $maxNumberOfTeams) {
-            name,
-            url,
-            slug,
-            totalMembers,
-            repoLogin
-        }
+      teams(maxNumberOfTeams: $maxNumberOfTeams) {
+        name
+        url
+        slug
+        totalMembers
+        repoLogin
+      }
     }
-}
+  }
 `;
 
 /**
@@ -150,16 +159,20 @@ query teams($login: String!, $maxNumberOfTeams: Int!) {
  *                    of the desired `team`
  * */
 const teamsMembers = gql`
-query teams($login: String!, $maxNumberOfTeams: Int!, $maxNumberOfMembers: Int!) {
+  query teamsMembers(
+    $login: String!
+    $maxNumberOfTeams: Int!
+    $maxNumberOfMembers: Int!
+  ) {
     organization(login: $login) {
-        teams(maxNumberOfTeams: $maxNumberOfTeams) {
-            teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
-                id,
-                login
-            }
+      teams(maxNumberOfTeams: $maxNumberOfTeams) {
+        teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
+          id
+          login
         }
+      }
     }
-}
+  }
 `;
 
 /**
@@ -171,15 +184,19 @@ query teams($login: String!, $maxNumberOfTeams: Int!, $maxNumberOfMembers: Int!)
  *                    of the desired `team`
  * */
 const teamsMembersLogin = gql`
-query teams($login: String!, $maxNumberOfTeams: Int!, $maxNumberOfMembers: Int!) {
+  query teamsMembersLogin(
+    $login: String!
+    $maxNumberOfTeams: Int!
+    $maxNumberOfMembers: Int!
+  ) {
     organization(login: $login) {
-        teams(maxNumberOfTeams: $maxNumberOfTeams) {
-            teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
-                login
-            }
+      teams(maxNumberOfTeams: $maxNumberOfTeams) {
+        teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
+          login
         }
+      }
     }
-}
+  }
 `;
 
 /**
@@ -191,25 +208,29 @@ query teams($login: String!, $maxNumberOfTeams: Int!, $maxNumberOfMembers: Int!)
  *                    of the desired `team`
  * */
 const teamsMembersId = gql`
-query teams($login: String!, $maxNumberOfTeams: Int!, $maxNumberOfMembers: Int!) {
+  query teamsMembersId(
+    $login: String!
+    $maxNumberOfTeams: Int!
+    $maxNumberOfMembers: Int!
+  ) {
     organization(login: $login) {
-        teams(maxNumberOfTeams: $maxNumberOfTeams) {
-            teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
-                id
-            }
+      teams(maxNumberOfTeams: $maxNumberOfTeams) {
+        teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
+          id
         }
+      }
     }
-}
+  }
 `;
 
 export {
-    teams,
-    teamsName,
-    teamsIdUrl,
-    teamsSlugTotalMembersRepoLogin,
-    teamsNameSlugTotalMembersRepoLogin,
-    teamsNameUrlSlugTotalMembersRepoLogin,
-    teamsMembers,
-    teamsMembersLogin,
-    teamsMembersId,
+  teams,
+  teamsName,
+  teamsIdUrl,
+  teamsSlugTotalMembersRepoLogin,
+  teamsNameSlugTotalMembersRepoLogin,
+  teamsNameUrlSlugTotalMembersRepoLogin,
+  teamsMembers,
+  teamsMembersLogin,
+  teamsMembersId,
 };
