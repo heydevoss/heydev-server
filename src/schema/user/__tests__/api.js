@@ -78,6 +78,21 @@ query {
     }
 }
 `
+
+/**
+ * Query for test the obtaining `email` from User
+ *
+ * @returns {UserObject} an object containing:
+ *                   `email`
+ *                   of the token passed
+**/
+const userEmail = gql`
+query {
+    me {
+        email
+    }
+}
+`
 /**
  * Query for test the obtaining of two user atributtes
  *
@@ -101,5 +116,6 @@ export {
     userName,
     userLocation,
     userBio,
+    userEmail,
     userLoginTotalRepos
 }

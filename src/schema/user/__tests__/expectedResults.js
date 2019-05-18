@@ -28,9 +28,17 @@ const userBio =
     }
 }
 
+const userEmail = 
+{
+    "me": {
+        "email": "jadsonluan1@gmail.com"
+    }
+}
+
 export {
     user,
     userName,
     userLocation,
-    userBio
+    userBio,
+    userEmail
 };
