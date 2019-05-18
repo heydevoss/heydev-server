@@ -35,6 +35,21 @@ query {
 `
 
 /**
+ * Query for test the obtaining of user's name
+ *
+ * @returns {UserObject} an object containing:
+ *                   `name`
+ *                   of the token passed
+**/
+const userName = gql`
+query {
+    me {
+        name
+    }
+}
+`
+
+/**
  * Query for test the obtaining of two user atributtes
  *
  * @returns {UserObject} an object containing:
@@ -54,5 +69,6 @@ query {
 export {
     user,
     userLogin,
+    userName,
     userLoginTotalRepos
 }

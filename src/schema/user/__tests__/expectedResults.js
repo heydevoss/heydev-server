@@ -1,11 +1,20 @@
-const expectedResponse =
+const user =
 {
     "me": {
-        "id": "MDQ6VXNlcjE0MTEzNDgw",
-        "login": "fanny",
-        "totalRepos": 95
+        "id": "MDQ6VXNlcjEzNDg4MDI1",
+        "login": "jadsonluan",
+        "totalRepos": 41
     }
 }
 
+const userName =
+{
+    "me": {
+        "name": "Jadson Luan"
+    }
+}
 
-export default expectedResponse
+export {
+    user,
+    userName
+};
