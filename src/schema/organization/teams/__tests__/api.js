@@ -86,7 +86,7 @@ teams(maxNumberOfTeams: $maxNumberOfTeams) {
  *                   of the desired `organization`
  * */
 const teamsNameSlugTotalMembersRepoLogin = gql`
-teams(maxNumberOfTeams: $maxNumberOfTeams){
+teams(maxNumberOfTeams: $maxNumberOfTeams) {
     name,
     slug,
     totalMembers,
