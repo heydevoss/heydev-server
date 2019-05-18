@@ -1,12 +1,11 @@
-const me =
+const expectedResponse =
 {
-    "data": {
-        "me": {
-            "id": "MDQ6VXNlcjE0MTEzNDgw",
-            "login": "fanny",
-            "totalRepos": 95
-        }
+    "me": {
+        "id": "MDQ6VXNlcjE0MTEzNDgw",
+        "login": "fanny",
+        "totalRepos": 95
     }
 }
 
-export default me
+
+export default expectedResponse
