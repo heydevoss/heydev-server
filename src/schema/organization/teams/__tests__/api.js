@@ -39,7 +39,7 @@ query teams($login: String!, $maxNumberOfTeams: Int!) {
  *                   of the desired `organization`
  * */
 const teamsName = gql`
-query {
+query teams($login: String!, $maxNumberOfTeams: Int!) {
     organization(login: $login) {
         teams(maxNumberOfTeams: $maxNumberOfTeams) {
             name
@@ -58,7 +58,7 @@ query {
  *                   of the desired `organization`
  * */
 const teamsIdUrl = gql`
-query {
+query teams($login: String!, $maxNumberOfTeams: Int!) {
     organization(login: $login) {
         teams(maxNumberOfTeams: $maxNumberOfTeams) {
             id,
@@ -79,7 +79,7 @@ query {
  *                   of the desired `organization`
  * */
 const teamsSlugTotalMembersRepoLogin = gql`
-query {
+query teams($login: String!, $maxNumberOfTeams: Int!) {
     organization(login: $login) {
         teams(maxNumberOfTeams: $maxNumberOfTeams) {
             slug,
@@ -102,7 +102,7 @@ query {
  *                   of the desired `organization`
  * */
 const teamsNameSlugTotalMembersRepoLogin = gql`
-query {
+query teams($login: String!, $maxNumberOfTeams: Int!) {
     organization(login: $login) {
         teams(maxNumberOfTeams: $maxNumberOfTeams) {
             name,
@@ -127,7 +127,7 @@ query {
  *                   of the desired `organization`
  * */
 const teamsNameUrlSlugTotalMembersRepoLogin = gql`
-query {
+query teams($login: String!, $maxNumberOfTeams: Int!) {
     organization(login: $login) {
         teams(maxNumberOfTeams: $maxNumberOfTeams) {
             name,
@@ -150,7 +150,7 @@ query {
  *                    of the desired `team`
  * */
 const teamsMembers = gql`
-query {
+query teams($login: String!, $maxNumberOfTeams: Int!, $maxNumberOfMembers: Int!) {
     organization(login: $login) {
         teams(maxNumberOfTeams: $maxNumberOfTeams) {
             teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
@@ -171,7 +171,7 @@ query {
  *                    of the desired `team`
  * */
 const teamsMembersLogin = gql`
-query {
+query teams($login: String!, $maxNumberOfTeams: Int!, $maxNumberOfMembers: Int!) {
     organization(login: $login) {
         teams(maxNumberOfTeams: $maxNumberOfTeams) {
             teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
@@ -191,7 +191,7 @@ query {
  *                    of the desired `team`
  * */
 const teamsMembersId = gql`
-query {
+query teams($login: String!, $maxNumberOfTeams: Int!, $maxNumberOfMembers: Int!) {
     organization(login: $login) {
         teams(maxNumberOfTeams: $maxNumberOfTeams) {
             teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
