@@ -120,7 +120,7 @@ teams(maxNumberOfTeams: $maxNumberOfTeams) {
  * Query for test the obtaining of all teams members atributtes
  *
  * @param {int} maxNumberOfMembers max number of results from this query
- * @returns {TeamMemberType} an object containing:
+ * @returns {TeamMemberObject} an object containing:
  *                   `id`
  *                   `login`
  *                    of the desired `team`
@@ -136,7 +136,7 @@ teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
  * Query for test the obtaining of one team member atributte
  *
  * @param {int} maxNumberOfMembers max number of results from this query
- * @returns {TeamMemberType} an object containing:
+ * @returns {TeamMemberObject} an object containing:
  *                   `login`
  *                    of the desired `team`
  * */
@@ -150,7 +150,7 @@ teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
  * Query for test the obtaining of one team member atributte
  *
  * @param {int} maxNumberOfMembers max number of results from this query
- * @returns {TeamMemberType} an object containing:
+ * @returns {TeamMemberObject} an object containing:
  *                   `id`
  *                    of the desired `team`
  * */
