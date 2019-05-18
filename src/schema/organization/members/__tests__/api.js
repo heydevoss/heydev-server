@@ -14,13 +14,17 @@ import gql from 'graphql-tag';
  *                   of the desired `organization`
  * */
 const members = gql`
-members(maxNumberOfMembers: $maxNumberOfMembers) {
-    id,
-    name,
-    login,
-    role,
-    url
-}
+  query members($login: String!, $maxNumberOfMembers: Int!) {
+    organization(login: $login) {
+      members(maxNumberOfMembers: $maxNumberOfMembers) {
+        id
+        name
+        login
+        role
+        url
+      }
+    }
+  }
 `;
 
 /**
@@ -32,9 +36,13 @@ members(maxNumberOfMembers: $maxNumberOfMembers) {
  *                   of the desired `organization`
  * */
 const membersName = gql`
-members(maxNumberOfMembers: $maxNumberOfMembers) {
-    name
-}
+  query membersName($login: String!, $maxNumberOfMembers: Int!) {
+    organization(login: $login) {
+      members(maxNumberOfMembers: $maxNumberOfMembers) {
+        name
+      }
+    }
+  }
 `;
 
 /**
@@ -47,10 +55,14 @@ members(maxNumberOfMembers: $maxNumberOfMembers) {
  *                   of the desired `organization`
  * */
 const membersIdLogin = gql`
-members(maxNumberOfMembers: $maxNumberOfMembers) {
-    id,
-    login
-}
+  query membersIdLogin($login: String!, $maxNumberOfMembers: Int!) {
+    organization(login: $login) {
+      members(maxNumberOfMembers: $maxNumberOfMembers) {
+        id
+        login
+      }
+    }
+  }
 `;
 
 /**
@@ -64,11 +76,15 @@ members(maxNumberOfMembers: $maxNumberOfMembers) {
  *                   of the desired `organization`
  * */
 const membersLoginRoleUrl = gql`
-members(maxNumberOfMembers: $maxNumberOfMembers) {
-    role,
-    login,
-    url
-}
+  query membersLoginRoleUrl($login: String!, $maxNumberOfMembers: Int!) {
+    organization(login: $login) {
+      members(maxNumberOfMembers: $maxNumberOfMembers) {
+        role
+        login
+        url
+      }
+    }
+  }
 `;
 
 /**
@@ -83,18 +99,22 @@ members(maxNumberOfMembers: $maxNumberOfMembers) {
  *                   of the desired `organization`
  * */
 const membersNameLoginRoleUrl = gql`
-members(maxNumberOfMembers: $maxNumberOfMembers) {
-    name,
-    login,
-    role,
-    url
-}
+  query membersNameLoginRoleUrl($login: String!, $maxNumberOfMembers: Int!) {
+    organization(login: $login) {
+      members(maxNumberOfMembers: $maxNumberOfMembers) {
+        name
+        login
+        role
+        url
+      }
+    }
+  }
 `;
 
 export {
-    members,
-    membersName,
-    membersIdLogin,
-    membersLoginRoleUrl,
-    membersNameLoginRoleUrl
+  members,
+  membersName,
+  membersIdLogin,
+  membersLoginRoleUrl,
+  membersNameLoginRoleUrl,
 };
