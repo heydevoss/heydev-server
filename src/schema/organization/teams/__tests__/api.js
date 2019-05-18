@@ -12,7 +12,7 @@ import gql from 'graphql-tag';
  *                   `url`
  *                   `totalMembers`
  *                   `repoLogin`
- *                   the desired `organization`
+ *                   of the desired `organization`
  * */
 const teams = gql`
 teams(maxNumberOfTeams: $maxNumberOfTeams){
@@ -32,7 +32,7 @@ teams(maxNumberOfTeams: $maxNumberOfTeams){
  * @param {int} maxNumberOfTeams max number of results from this query
  * @returns {TeamObject} an object containing:
  *                   `name`
- *                   the desired `organization`
+ *                   of the desired `organization`
  * */
 const teamsName = gql`
 teams(maxNumberOfTeams: $maxNumberOfTeams){
@@ -47,7 +47,7 @@ teams(maxNumberOfTeams: $maxNumberOfTeams){
  * @returns {TeamObject} an object containing:
  *                   `id`
  *                   `url`
- *                   the desired `organization`
+ *                   of the desired `organization`
  * */
 const teamsIdUrl = gql`
 teams(maxNumberOfTeams: $maxNumberOfTeams){
@@ -63,7 +63,7 @@ teams(maxNumberOfTeams: $maxNumberOfTeams){
  *                   `slug`
  *                   `totalMembers`
  *                   `repoLogin`
- *                   the desired `organization`
+ *                   of the desired `organization`
  * */
 const teamsSlugTotalMembersRepoLogin = gql`
 teams(maxNumberOfTeams: $maxNumberOfTeams){
