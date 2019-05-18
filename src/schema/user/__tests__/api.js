@@ -50,7 +50,7 @@ query {
 `
 
 /**
- * Query for test the obtaining of user's location
+ * Query for test the obtaining `location` from User
  *
  * @returns {UserObject} an object containing:
  *                   `location`
