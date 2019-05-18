@@ -15,13 +15,17 @@ import gql from 'graphql-tag';
  *                   of the desired `organization`
  * */
 const teams = gql`
-teams(maxNumberOfTeams: $maxNumberOfTeams) {
-    id,
-    name,
-    slug,
-    url,
-    totalMembers,
-    repoLogin
+query teams($login: String!, $maxNumberOfTeams: Int!) {
+    organization(login: $login) {
+        teams(maxNumberOfTeams: $maxNumberOfTeams) {
+            id,
+            name,
+            slug,
+            url,
+            totalMembers,
+            repoLogin
+        }
+    }
 }
 `;
 
@@ -35,8 +39,12 @@ teams(maxNumberOfTeams: $maxNumberOfTeams) {
  *                   of the desired `organization`
  * */
 const teamsName = gql`
-teams(maxNumberOfTeams: $maxNumberOfTeams) {
-    name
+query {
+    organization(login: $login) {
+        teams(maxNumberOfTeams: $maxNumberOfTeams) {
+            name
+        }
+    }
 }
 `;
 
@@ -50,9 +58,13 @@ teams(maxNumberOfTeams: $maxNumberOfTeams) {
  *                   of the desired `organization`
  * */
 const teamsIdUrl = gql`
-teams(maxNumberOfTeams: $maxNumberOfTeams) {
-    id,
-    url
+query {
+    organization(login: $login) {
+        teams(maxNumberOfTeams: $maxNumberOfTeams) {
+            id,
+            url
+        }
+    }
 }
 `;
 
@@ -67,10 +79,14 @@ teams(maxNumberOfTeams: $maxNumberOfTeams) {
  *                   of the desired `organization`
  * */
 const teamsSlugTotalMembersRepoLogin = gql`
-teams(maxNumberOfTeams: $maxNumberOfTeams) {
-    slug,
-    totalMembers,
-    repoLogin
+query {
+    organization(login: $login) {
+        teams(maxNumberOfTeams: $maxNumberOfTeams) {
+            slug,
+            totalMembers,
+            repoLogin
+        }
+    }
 }
 `;
 
@@ -86,11 +102,15 @@ teams(maxNumberOfTeams: $maxNumberOfTeams) {
  *                   of the desired `organization`
  * */
 const teamsNameSlugTotalMembersRepoLogin = gql`
-teams(maxNumberOfTeams: $maxNumberOfTeams) {
-    name,
-    slug,
-    totalMembers,
-    repoLogin
+query {
+    organization(login: $login) {
+        teams(maxNumberOfTeams: $maxNumberOfTeams) {
+            name,
+            slug,
+            totalMembers,
+            repoLogin
+        }
+    }
 }
 `;
 
@@ -107,12 +127,16 @@ teams(maxNumberOfTeams: $maxNumberOfTeams) {
  *                   of the desired `organization`
  * */
 const teamsNameUrlSlugTotalMembersRepoLogin = gql`
-teams(maxNumberOfTeams: $maxNumberOfTeams) {
-    name,
-    url,
-    slug,
-    totalMembers,
-    repoLogin
+query {
+    organization(login: $login) {
+        teams(maxNumberOfTeams: $maxNumberOfTeams) {
+            name,
+            url,
+            slug,
+            totalMembers,
+            repoLogin
+        }
+    }
 }
 `;
 
@@ -126,9 +150,15 @@ teams(maxNumberOfTeams: $maxNumberOfTeams) {
  *                    of the desired `team`
  * */
 const teamsMembers = gql`
-teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
-    id,
-    login
+query {
+    organization(login: $login) {
+        teams(maxNumberOfTeams: $maxNumberOfTeams) {
+            teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
+                id,
+                login
+            }
+        }
+    }
 }
 `;
 
@@ -141,8 +171,14 @@ teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
  *                    of the desired `team`
  * */
 const teamsMembersLogin = gql`
-teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
-    login
+query {
+    organization(login: $login) {
+        teams(maxNumberOfTeams: $maxNumberOfTeams) {
+            teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
+                login
+            }
+        }
+    }
 }
 `;
 
@@ -155,8 +191,14 @@ teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
  *                    of the desired `team`
  * */
 const teamsMembersId = gql`
-teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
-    id
+query {
+    organization(login: $login) {
+        teams(maxNumberOfTeams: $maxNumberOfTeams) {
+            teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
+                id
+            }
+        }
+    }
 }
 `;
 
