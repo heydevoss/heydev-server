@@ -9,6 +9,7 @@ import gql from 'graphql-tag';
  *                   `id`
  *                   `name`
  *                   `viewerCanAdminister`
+ *                   `totalForks`
  *                   `totalOpenIssues`
  *                   `totalStars`
  *                   of the desired `organization`
