@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 // TODO: test for two or more oganizations.
 
 /**
- * Query for test the obtaining of all team atributtes
+ * Query for test the obtaining of all teams atributtes
  *
  * @param {int} maxNumberOfTeams max number of results from this query
  * @returns {TeamObject} an object containing:
@@ -15,7 +15,7 @@ import gql from 'graphql-tag';
  *                   of the desired `organization`
  * */
 const teams = gql`
-teams(maxNumberOfTeams: $maxNumberOfTeams){
+teams(maxNumberOfTeams: $maxNumberOfTeams) {
     id,
     name,
     slug,
@@ -35,13 +35,13 @@ teams(maxNumberOfTeams: $maxNumberOfTeams){
  *                   of the desired `organization`
  * */
 const teamsName = gql`
-teams(maxNumberOfTeams: $maxNumberOfTeams){
+teams(maxNumberOfTeams: $maxNumberOfTeams) {
     name
 }
 `;
 
 /**
- * Query for test the obtaining of two team atributtes
+ * Query for test the obtaining of two teams atributtes
  *
  * @param {int} maxNumberOfTeams max number of results from this query
  * @returns {TeamObject} an object containing:
@@ -50,13 +50,14 @@ teams(maxNumberOfTeams: $maxNumberOfTeams){
  *                   of the desired `organization`
  * */
 const teamsIdUrl = gql`
-teams(maxNumberOfTeams: $maxNumberOfTeams){
-    name
+teams(maxNumberOfTeams: $maxNumberOfTeams) {
+    id,
+    Url
 }
 `;
 
 /**
- * Query for test the obtaining of three team atributtes
+ * Query for test the obtaining of three teams atributtes
  *
  * @param {int} maxNumberOfTeams max number of results from this query
  * @returns {TeamObject} an object containing:
@@ -66,13 +67,57 @@ teams(maxNumberOfTeams: $maxNumberOfTeams){
  *                   of the desired `organization`
  * */
 const teamsSlugTotalMembersRepoLogin = gql`
-teams(maxNumberOfTeams: $maxNumberOfTeams){
-    name
+teams(maxNumberOfTeams: $maxNumberOfTeams) {
+    slug,
+    totalMembers,
+    repoLogin
 }
 `;
 
 /**
- * Query for test the obtaining of all members atributtes
+ * Query for test the obtaining of four team atributtes
+ *
+ * @param {int} maxNumberOfTeams max number of results from this query
+ * @returns {TeamObject} an object containing:
+ *                   `name`
+ *                   `slug`
+ *                   `totalMembers`
+ *                   `repoLogin`
+ *                   of the desired `organization`
+ * */
+const teamsNameSlugTotalMembersRepoLogin = gql`
+teams(maxNumberOfTeams: $maxNumberOfTeams){
+    name,
+    slug,
+    totalMembers,
+    repoLogin
+}
+`;
+
+/**
+ * Query for test the obtaining of five team atributtes
+ *
+ * @param {int} maxNumberOfTeams max number of results from this query
+ * @returns {TeamObject} an object containing:
+ *                   `name`
+ *                   `url`
+ *                   `slug`
+ *                   `totalMembers`
+ *                   `repoLogin`
+ *                   of the desired `organization`
+ * */
+const teamsNameUrlSlugTotalMembersRepoLogin = gql`
+teams(maxNumberOfTeams: $maxNumberOfTeams) {
+    name,
+    url,
+    slug,
+    totalMembers,
+    repoLogin
+}
+`;
+
+/**
+ * Query for test the obtaining of all teams members atributtes
  *
  * @param {int} maxNumberOfMembers max number of results from this query
  * @returns {TeamMemberType} an object containing:
@@ -81,14 +126,14 @@ teams(maxNumberOfTeams: $maxNumberOfTeams){
  *                    of the desired `team`
  * */
 const teamsMembers = gql`
-teamsMembers(maxNumberOfMembers: $maxNumberOfMembers){
+teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
     id,
     login
 }
 `;
 
 /**
- * Query for test the obtaining of one member atributte
+ * Query for test the obtaining of one team member atributte
  *
  * @param {int} maxNumberOfMembers max number of results from this query
  * @returns {TeamMemberType} an object containing:
@@ -96,13 +141,13 @@ teamsMembers(maxNumberOfMembers: $maxNumberOfMembers){
  *                    of the desired `team`
  * */
 const teamsMembersLogin = gql`
-teamsMembers(maxNumberOfMembers: $maxNumberOfMembers){
+teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
     login
 }
 `;
 
 /**
- * Query for test the obtaining of one member atributte
+ * Query for test the obtaining of one team member atributte
  *
  * @param {int} maxNumberOfMembers max number of results from this query
  * @returns {TeamMemberType} an object containing:
@@ -110,7 +155,7 @@ teamsMembers(maxNumberOfMembers: $maxNumberOfMembers){
  *                    of the desired `team`
  * */
 const teamsMembersId = gql`
-teamsMembers(maxNumberOfMembers: $maxNumberOfMembers){
+teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
     id
 }
 `;
@@ -120,6 +165,8 @@ export {
     teamsName,
     teamsIdUrl,
     teamsSlugTotalMembersRepoLogin,
+    teamsNameSlugTotalMembersRepoLogin,
+    teamsNameUrlSlugTotalMembersRepoLogin,
     teamsMembers,
     teamsMembersLogin,
     teamsMembersId,
