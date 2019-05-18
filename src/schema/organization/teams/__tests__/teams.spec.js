@@ -6,6 +6,7 @@ import testServer from '../../../../testUtils/integration/serverFactory';
 describe('Team type tests', () => {
   const login = 'opendevufcg';
   const maxNumberOfTeams = 10;
+  const maxNumberOfMembers = 10;
   const { query } = createTestClient(testServer);
 
   it('teams: Team', async () => {
@@ -54,5 +55,29 @@ describe('Team type tests', () => {
       variables: { login, maxNumberOfTeams },
     });
     expect(data).toEqual(expectedResult.teamsNameUrlSlugTotalMembersRepoLogin);
+  });
+
+  it('teams { name, members { id, login } }: Team', async () => {
+    const { data } = await query({
+      query: queries.teamsMembers,
+      variables: { login, maxNumberOfTeams, maxNumberOfMembers },
+    });
+    expect(data).toEqual(expectedResult.teamsMembers);
+  });
+
+  it('teams { name, members { login } }: Team', async () => {
+    const { data } = await query({
+      query: queries.teamsMembersLogin,
+      variables: { login, maxNumberOfTeams, maxNumberOfMembers },
+    });
+    expect(data).toEqual(expectedResult.teamsMembersLogin);
+  });
+
+  it('teams { name, members { id } }: Team', async () => {
+    const { data } = await query({
+      query: queries.teamsMembersId,
+      variables: { login, maxNumberOfTeams, maxNumberOfMembers },
+    });
+    expect(data).toEqual(expectedResult.teamsMembersId);
   });
 });

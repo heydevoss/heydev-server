@@ -367,6 +367,488 @@ const teamsNameUrlSlugTotalMembersRepoLogin = {
   },
 };
 
+const teamsMembers = {
+    "organization": {
+        "teams": [
+          {
+            "name": "blog",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjExNzI4NjU1",
+                "login": "JuanBarros2"
+              },
+              {
+                "id": "MDQ6VXNlcjIwNzE0MTQ4",
+                "login": "JRobsonJr"
+              }
+            ]
+          },
+          {
+            "name": "css",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjMwNzAwNTk2",
+                "login": "hericlesme"
+              },
+              {
+                "id": "MDQ6VXNlcjM4NDMxMjE5",
+                "login": "pedroespindula"
+              }
+            ]
+          },
+          {
+            "name": "glossario-ufcg",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjExNzI4NzQ2",
+                "login": "JoseRenan"
+              },
+              {
+                "id": "MDQ6VXNlcjIzNzQ4MDcz",
+                "login": "juliobguedes"
+              },
+              {
+                "id": "MDQ6VXNlcjI1NTA2Mzg3",
+                "login": "paulojbleitao"
+              },
+              {
+                "id": "MDQ6VXNlcjM4NDMxMjE5",
+                "login": "pedroespindula"
+              }
+            ]
+          },
+          {
+            "name": "IssueAi",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjY4Njc5NTg=",
+                "login": "thayannevls"
+              },
+              {
+                "id": "MDQ6VXNlcjExNzI4NzQ2",
+                "login": "JoseRenan"
+              },
+              {
+                "id": "MDQ6VXNlcjI1NTA2Mzg3",
+                "login": "paulojbleitao"
+              }
+            ]
+          },
+          {
+            "name": "Racharia",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjY4Njc5NTg=",
+                "login": "thayannevls"
+              },
+              {
+                "id": "MDQ6VXNlcjExNzI4NjU1",
+                "login": "JuanBarros2"
+              },
+              {
+                "id": "MDQ6VXNlcjE0MTEzNDgw",
+                "login": "fanny"
+              }
+            ]
+          },
+          {
+            "name": "react",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjExNzI4NzQ2",
+                "login": "JoseRenan"
+              },
+              {
+                "id": "MDQ6VXNlcjIwNzE0MTQ4",
+                "login": "JRobsonJr"
+              },
+              {
+                "id": "MDQ6VXNlcjIzNzQ4MDcz",
+                "login": "juliobguedes"
+              },
+              {
+                "id": "MDQ6VXNlcjI1NTA2Mzg3",
+                "login": "paulojbleitao"
+              },
+              {
+                "id": "MDQ6VXNlcjMwNzAwNTk2",
+                "login": "hericlesme"
+              }
+            ]
+          },
+          {
+            "name": "RoadMap",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjExNzI4NjU1",
+                "login": "JuanBarros2"
+              },
+              {
+                "id": "MDQ6VXNlcjE0MTEzNDgw",
+                "login": "fanny"
+              }
+            ]
+          },
+          {
+            "name": "site",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjY4Njc5NTg=",
+                "login": "thayannevls"
+              },
+              {
+                "id": "MDQ6VXNlcjExNzI4NjU1",
+                "login": "JuanBarros2"
+              },
+              {
+                "id": "MDQ6VXNlcjE5MzkwODIw",
+                "login": "LukeHxH"
+              }
+            ]
+          },
+          {
+            "name": "Tamburetei",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjY4Njc5NTg=",
+                "login": "thayannevls"
+              },
+              {
+                "id": "MDQ6VXNlcjE5MzkwODIw",
+                "login": "LukeHxH"
+              },
+              {
+                "id": "MDQ6VXNlcjMwMjQ3NTE5",
+                "login": "SpinnelSun"
+              }
+            ]
+          },
+          {
+            "name": "vue",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjY4Njc5NTg=",
+                "login": "thayannevls"
+              },
+              {
+                "id": "MDQ6VXNlcjExNzI4NjU1",
+                "login": "JuanBarros2"
+              },
+              {
+                "id": "MDQ6VXNlcjE0MTEzNDgw",
+                "login": "fanny"
+              },
+              {
+                "id": "MDQ6VXNlcjMwMjQ3NTE5",
+                "login": "SpinnelSun"
+              }
+            ]
+          }
+        ]
+    }
+};
+
+const teamsMembersLogin = {
+    "organization": {
+        "teams": [
+          {
+            "name": "blog",
+            "members": [
+              {
+                "login": "JuanBarros2"
+              },
+              {
+                "login": "JRobsonJr"
+              }
+            ]
+          },
+          {
+            "name": "css",
+            "members": [
+              {
+                "login": "hericlesme"
+              },
+              {
+                "login": "pedroespindula"
+              }
+            ]
+          },
+          {
+            "name": "glossario-ufcg",
+            "members": [
+              {
+                "login": "JoseRenan"
+              },
+              {
+                "login": "juliobguedes"
+              },
+              {
+                "login": "paulojbleitao"
+              },
+              {
+                "login": "pedroespindula"
+              }
+            ]
+          },
+          {
+            "name": "IssueAi",
+            "members": [
+              {
+                "login": "thayannevls"
+              },
+              {
+                "login": "JoseRenan"
+              },
+              {
+                "login": "paulojbleitao"
+              }
+            ]
+          },
+          {
+            "name": "Racharia",
+            "members": [
+              {
+                "login": "thayannevls"
+              },
+              {
+                "login": "JuanBarros2"
+              },
+              {
+                "login": "fanny"
+              }
+            ]
+          },
+          {
+            "name": "react",
+            "members": [
+              {
+                "login": "JoseRenan"
+              },
+              {
+                "login": "JRobsonJr"
+              },
+              {
+                "login": "juliobguedes"
+              },
+              {
+                "login": "paulojbleitao"
+              },
+              {
+                "login": "hericlesme"
+              }
+            ]
+          },
+          {
+            "name": "RoadMap",
+            "members": [
+              {
+                "login": "JuanBarros2"
+              },
+              {
+                "login": "fanny"
+              }
+            ]
+          },
+          {
+            "name": "site",
+            "members": [
+              {
+                "login": "thayannevls"
+              },
+              {
+                "login": "JuanBarros2"
+              },
+              {
+                "login": "LukeHxH"
+              }
+            ]
+          },
+          {
+            "name": "Tamburetei",
+            "members": [
+              {
+                "login": "thayannevls"
+              },
+              {
+                "login": "LukeHxH"
+              },
+              {
+                "login": "SpinnelSun"
+              }
+            ]
+          },
+          {
+            "name": "vue",
+            "members": [
+              {
+                "login": "thayannevls"
+              },
+              {
+                "login": "JuanBarros2"
+              },
+              {
+                "login": "fanny"
+              },
+              {
+                "login": "SpinnelSun"
+              }
+            ]
+          }
+        ]
+    }
+};
+
+
+const teamsMembersId = {
+    "organization": {
+        "teams": [
+          {
+            "name": "blog",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjExNzI4NjU1",
+              },
+              {
+                "id": "MDQ6VXNlcjIwNzE0MTQ4",
+              }
+            ]
+          },
+          {
+            "name": "css",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjMwNzAwNTk2",
+              },
+              {
+                "id": "MDQ6VXNlcjM4NDMxMjE5",
+              }
+            ]
+          },
+          {
+            "name": "glossario-ufcg",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjExNzI4NzQ2",
+              },
+              {
+                "id": "MDQ6VXNlcjIzNzQ4MDcz",
+              },
+              {
+                "id": "MDQ6VXNlcjI1NTA2Mzg3",
+              },
+              {
+                "id": "MDQ6VXNlcjM4NDMxMjE5",
+              }
+            ]
+          },
+          {
+            "name": "IssueAi",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjY4Njc5NTg=",
+              },
+              {
+                "id": "MDQ6VXNlcjExNzI4NzQ2",
+              },
+              {
+                "id": "MDQ6VXNlcjI1NTA2Mzg3",
+              }
+            ]
+          },
+          {
+            "name": "Racharia",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjY4Njc5NTg=",
+              },
+              {
+                "id": "MDQ6VXNlcjExNzI4NjU1",
+              },
+              {
+                "id": "MDQ6VXNlcjE0MTEzNDgw",
+              }
+            ]
+          },
+          {
+            "name": "react",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjExNzI4NzQ2",
+              },
+              {
+                "id": "MDQ6VXNlcjIwNzE0MTQ4",
+              },
+              {
+                "id": "MDQ6VXNlcjIzNzQ4MDcz",
+              },
+              {
+                "id": "MDQ6VXNlcjI1NTA2Mzg3",
+              },
+              {
+                "id": "MDQ6VXNlcjMwNzAwNTk2",
+              }
+            ]
+          },
+          {
+            "name": "RoadMap",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjExNzI4NjU1",
+              },
+              {
+                "id": "MDQ6VXNlcjE0MTEzNDgw",
+              }
+            ]
+          },
+          {
+            "name": "site",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjY4Njc5NTg=",
+              },
+              {
+                "id": "MDQ6VXNlcjExNzI4NjU1",
+              },
+              {
+                "id": "MDQ6VXNlcjE5MzkwODIw",
+              }
+            ]
+          },
+          {
+            "name": "Tamburetei",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjY4Njc5NTg=",
+              },
+              {
+                "id": "MDQ6VXNlcjE5MzkwODIw",
+              },
+              {
+                "id": "MDQ6VXNlcjMwMjQ3NTE5",
+              }
+            ]
+          },
+          {
+            "name": "vue",
+            "members": [
+              {
+                "id": "MDQ6VXNlcjY4Njc5NTg=",
+              },
+              {
+                "id": "MDQ6VXNlcjExNzI4NjU1",
+              },
+              {
+                "id": "MDQ6VXNlcjE0MTEzNDgw",
+              },
+              {
+                "id": "MDQ6VXNlcjMwMjQ3NTE5",
+              }
+            ]
+          }
+        ]
+    }
+};
+
 export {
   teams,
   teamsName,
@@ -374,4 +856,7 @@ export {
   teamsSlugTotalMembersRepoLogin,
   teamsNameSlugTotalMembersRepoLogin,
   teamsNameUrlSlugTotalMembersRepoLogin,
+  teamsMembers,
+  teamsMembersLogin,
+  teamsMembersId
 };

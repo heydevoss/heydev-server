@@ -166,7 +166,8 @@ const teamsMembers = gql`
   ) {
     organization(login: $login) {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
-        teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
+        name,
+        members(maxNumberOfMembers: $maxNumberOfMembers) {
           id
           login
         }
@@ -191,7 +192,8 @@ const teamsMembersLogin = gql`
   ) {
     organization(login: $login) {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
-        teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
+        name,
+        members(maxNumberOfMembers: $maxNumberOfMembers) {
           login
         }
       }
@@ -215,7 +217,8 @@ const teamsMembersId = gql`
   ) {
     organization(login: $login) {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
-        teamsMembers(maxNumberOfMembers: $maxNumberOfMembers) {
+        name,
+        members(maxNumberOfMembers: $maxNumberOfMembers) {
           id
         }
       }
