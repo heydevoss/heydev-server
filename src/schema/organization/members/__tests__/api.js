@@ -2,10 +2,10 @@ import gql from 'graphql-tag';
 // TODO: test for two or more oganizations.
 
 /**
- * Query for test the obtaining of all team atributtes
+ * Query for test the obtaining of all members atributtes
  *
  * @param {int} maxNumberOfMembers max number of results from this query
- * @returns {TeamMemberObject} an object containing:
+ * @returns {OrganizationMemberObject} an object containing:
  *                   `id`
  *                   `name`
  *                   `login`
@@ -14,7 +14,7 @@ import gql from 'graphql-tag';
  *                   of the desired `organization`
  * */
 const members = gql`
-members(maxNumberOfMembers: $maxNumberOfMembers){
+members(maxNumberOfMembers: $maxNumberOfMembers) {
     id,
     name,
     login,
@@ -24,47 +24,47 @@ members(maxNumberOfMembers: $maxNumberOfMembers){
 `;
 
 /**
- * Query for test the obtaining of one team atributte
+ * Query for test the obtaining of one member atributte
  *
  * @param {int} maxNumberOfMembers max number of results from this query
- * @returns {TeamMemberObject} an object containing:
+ * @returns {OrganizationMemberObject} an object containing:
  *                   `name`
  *                   of the desired `organization`
  * */
 const membersName = gql`
-members(maxNumberOfMembers: $maxNumberOfMembers){
+members(maxNumberOfMembers: $maxNumberOfMembers) {
     name,
 }
 `;
 
 /**
- * Query for test the obtaining of two team atributtes
+ * Query for test the obtaining of two members atributtes
  *
  * @param {int} maxNumberOfMembers max number of results from this query
- * @returns {TeamMemberObject} an object containing:
+ * @returns {OrganizationMemberObject} an object containing:
  *                   `id`
  *                   `login`
  *                   of the desired `organization`
  * */
 const membersIdLogin = gql`
-members(maxNumberOfMembers: $maxNumberOfMembers){
+members(maxNumberOfMembers: $maxNumberOfMembers) {
     id,
     login
 }
 `;
 
 /**
- * Query for test the obtaining of three team atributtes
+ * Query for test the obtaining of three members atributtes
  *
  * @param {int} maxNumberOfMembers max number of results from this query
- * @returns {TeamMemberObject} an object containing:
+ * @returns {OrganizationMemberObject} an object containing:
  *                   `login`
  *                   `role`
  *                   `url`
  *                   of the desired `organization`
  * */
 const membersLoginRoleUrl = gql`
-members(maxNumberOfMembers: $maxNumberOfMembers){
+members(maxNumberOfMembers: $maxNumberOfMembers) {
     role,
     login,
     url
@@ -72,10 +72,10 @@ members(maxNumberOfMembers: $maxNumberOfMembers){
 `;
 
 /**
- * Query for test the obtaining of four team atributtes
+ * Query for test the obtaining of four members atributtes
  *
  * @param {int} maxNumberOfMembers max number of results from this query
- * @returns {TeamMemberObject} an object containing:
+ * @returns {OrganizationMemberObject} an object containing:
  *                   `name`
  *                   `login`
  *                   `role`
@@ -83,7 +83,7 @@ members(maxNumberOfMembers: $maxNumberOfMembers){
  *                   of the desired `organization`
  * */
 const membersNameLoginRoleUrl = gql`
-members(maxNumberOfMembers: $maxNumberOfMembers){
+members(maxNumberOfMembers: $maxNumberOfMembers) {
     name,
     login,
     role,
