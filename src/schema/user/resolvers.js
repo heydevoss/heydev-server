@@ -12,6 +12,7 @@ export default {
       return {
         id: viewer.id,
         login: viewer.login,
+        name: viewer.name,
         totalRepos: viewer.repositories.totalCount
       }
     }

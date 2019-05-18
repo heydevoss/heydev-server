@@ -4,6 +4,7 @@ const me = () => {
       viewer {
         id
         login
+        name
         repositories {
           totalCount
         }
