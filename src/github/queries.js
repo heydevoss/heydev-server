@@ -7,6 +7,7 @@ const me = () => {
         name
         location
         bio
+        email
         repositories {
           totalCount
         }

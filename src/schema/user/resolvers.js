@@ -15,6 +15,7 @@ export default {
         name: viewer.name,
         location: viewer.location,
         bio: viewer.bio,
+        email: viewer.email,
         totalRepos: viewer.repositories.totalCount
       }
     }
