@@ -71,9 +71,56 @@ teams(maxNumberOfTeams: $maxNumberOfTeams){
 }
 `;
 
+/**
+ * Query for test the obtaining of all members atributtes
+ *
+ * @param {int} maxNumberOfMembers max number of results from this query
+ * @returns {TeamMemberType} an object containing:
+ *                   `id`
+ *                   `login`
+ *                    of the desired `team`
+ * */
+const teamsMembers = gql`
+teamsMembers(maxNumberOfMembers: $maxNumberOfMembers){
+    id,
+    login
+}
+`;
+
+/**
+ * Query for test the obtaining of one member atributte
+ *
+ * @param {int} maxNumberOfMembers max number of results from this query
+ * @returns {TeamMemberType} an object containing:
+ *                   `login`
+ *                    of the desired `team`
+ * */
+const teamsMembersLogin = gql`
+teamsMembers(maxNumberOfMembers: $maxNumberOfMembers){
+    login
+}
+`;
+
+/**
+ * Query for test the obtaining of one member atributte
+ *
+ * @param {int} maxNumberOfMembers max number of results from this query
+ * @returns {TeamMemberType} an object containing:
+ *                   `id`
+ *                    of the desired `team`
+ * */
+const teamsMembersId = gql`
+teamsMembers(maxNumberOfMembers: $maxNumberOfMembers){
+    id
+}
+`;
+
 export {
     teams,
     teamsName,
     teamsIdUrl,
-    teamsSlugTotalMembersRepoLogin
+    teamsSlugTotalMembersRepoLogin,
+    teamsMembers,
+    teamsMembersLogin,
+    teamsMembersId,
 };
