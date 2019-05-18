@@ -14,6 +14,7 @@ const UserType =  new GraphQLObjectType({
     login: { type: GraphQLString },
     name: { type: GraphQLString },
     location: { type: GraphQLString },
+    bio: { type: GraphQLString },
     totalRepos: { type: GraphQLInt }
   })
 });

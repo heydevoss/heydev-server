@@ -6,6 +6,7 @@ const me = () => {
         login
         name
         location
+        bio
         repositories {
           totalCount
         }
