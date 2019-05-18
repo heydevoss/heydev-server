@@ -1,12 +1,13 @@
-import gql from 'graphql-tag'
-const me = gql`
-query {
-    me {
-        id
-        login,
-        totalRepos
-    }
-}
-`
+import gql from 'graphql-tag';
 
-export default me
+const me = gql`
+  query {
+    me {
+      id
+      login
+      totalRepos
+    }
+  }
+`;
+
+export default me;

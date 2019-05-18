@@ -8,9 +8,9 @@ const me = () => {
           totalCount
         }
       }
-    }`
+    }`,
   });
-}
+};
 
 const getOrganizationData = (inputs, data, variables) => {
   return JSON.stringify({
@@ -21,11 +21,11 @@ const getOrganizationData = (inputs, data, variables) => {
         }
       }
     }`,
-    variables
-  })
-}
+    variables,
+  });
+};
 
-const organization = (login) => {
+const organization = login => {
   const inputs = `$login: String!`;
   const data = `
     id
@@ -47,7 +47,7 @@ const organization = (login) => {
   const variables = { login };
 
   return getOrganizationData(inputs, data, variables);
-}
+};
 
 const organizationTeams = (login, pagination) => {
   const inputs = `$login: String! $pagination: Int!`;
@@ -67,7 +67,7 @@ const organizationTeams = (login, pagination) => {
   const variables = { login, pagination };
 
   return getOrganizationData(inputs, data, variables);
-}
+};
 
 const organizationTeamMembers = (login, slug, pagination) => {
   const inputs = `$login: String! $slug: String! $pagination: Int!`;
@@ -83,7 +83,7 @@ const organizationTeamMembers = (login, slug, pagination) => {
   const variables = { login, slug, pagination };
 
   return getOrganizationData(inputs, data, variables);
-}
+};
 
 const organizationMembers = (login, pagination) => {
   const inputs = `$login: String! $pagination: Int!`;
@@ -103,7 +103,7 @@ const organizationMembers = (login, pagination) => {
   const variables = { login, pagination };
 
   return getOrganizationData(inputs, data, variables);
-}
+};
 
 const organizationRepositories = (login, pagination) => {
   const inputs = `$login: String! $pagination: Int!`;
@@ -126,7 +126,7 @@ const organizationRepositories = (login, pagination) => {
 
   const variables = { login, pagination };
   return getOrganizationData(inputs, data, variables);
-}
+};
 
 export default {
   me,
@@ -134,5 +134,5 @@ export default {
   organizationTeams,
   organizationMembers,
   organizationRepositories,
-  organizationTeamMembers
-}
+  organizationTeamMembers,
+};

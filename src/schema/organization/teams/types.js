@@ -15,8 +15,8 @@ const TeamMemberType = new GraphQLObjectType({
 
   fields: () => ({
     id: { type: GraphQLID },
-    login: { type: GraphQLString }
-  })
+    login: { type: GraphQLString },
+  }),
 });
 
 const TeamType = new GraphQLObjectType({
@@ -35,12 +35,12 @@ const TeamType = new GraphQLObjectType({
       args: {
         maxNumberOfMembers: {
           type: new GraphQLNonNull(GraphQLInt),
-          description: 'Max number of results from this query'
+          description: 'Max number of results from this query',
         },
       },
-      resolve: resolvers.Query.teamMembers
-    }
-  })
+      resolve: resolvers.Query.teamMembers,
+    },
+  }),
 });
 
 export default TeamType;

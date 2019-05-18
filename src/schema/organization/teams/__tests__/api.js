@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 // TODO: test for two or more oganizations.
 
 /**
@@ -13,7 +13,7 @@ import gql from 'graphql-tag'
  *                   `totalMembers`
  *                   `repoLogin`
  *                   the desired `organization`
-**/
+ * */
 const teams = gql`
 teams(maxNumberOfTeams: $maxNumberOfTeams){
     id,
@@ -23,7 +23,7 @@ teams(maxNumberOfTeams: $maxNumberOfTeams){
     totalMembers,
     repoLogin
 }
-`
+`;
 
 /**
  * Query for test the obtaining of one team atributte,
@@ -33,12 +33,12 @@ teams(maxNumberOfTeams: $maxNumberOfTeams){
  * @returns {TeamObject} an object containing:
  *                   `name`
  *                   the desired `organization`
-**/
+ * */
 const teamsName = gql`
 teams(maxNumberOfTeams: $maxNumberOfTeams){
     name
 }
-`
+`;
 
 /**
  * Query for test the obtaining of two team atributtes
@@ -48,12 +48,12 @@ teams(maxNumberOfTeams: $maxNumberOfTeams){
  *                   `id`
  *                   `url`
  *                   the desired `organization`
-**/
+ * */
 const teamsIdUrl = gql`
 teams(maxNumberOfTeams: $maxNumberOfTeams){
     name
 }
-`
+`;
 
 /**
  * Query for test the obtaining of three team atributtes
@@ -64,16 +64,16 @@ teams(maxNumberOfTeams: $maxNumberOfTeams){
  *                   `totalMembers`
  *                   `repoLogin`
  *                   the desired `organization`
-**/
+ * */
 const teamsSlugTotalMembersRepoLogin = gql`
 teams(maxNumberOfTeams: $maxNumberOfTeams){
     name
 }
-`
+`;
 
 export {
     teams,
     teamsName,
     teamsIdUrl,
     teamsSlugTotalMembersRepoLogin
-}
+};
