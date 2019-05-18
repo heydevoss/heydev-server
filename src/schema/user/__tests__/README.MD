@@ -17,6 +17,7 @@ To be able to use the tests correctly, you will need to define a github token th
 │   ├── README.MD
 │   └── user.spec.js
 ```
-`/api.js`: contains all operations that client can do.
-`/expectedResults.js`: expected results for operations.
-`/user.spec.js`: describe all test cases for this entity
+
+`/api.js`: contains all operations that client can do.  
+`/expectedResults.js`: expected results for operations.  
+`/user.spec.js`: describe all test cases for this entity.  
