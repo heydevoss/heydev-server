@@ -7,6 +7,6 @@ describe('User type tests', () => {
   it('me: User', async () => {
     const { query } = createTestClient(testServer);
     const { data } = await query({ query: user });
-    expect(user).toEqual(expectedResponse)
+    expect(data).toEqual(expectedResponse)
   });
 });

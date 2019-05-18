@@ -12,8 +12,8 @@ import gql from 'graphql-tag'
 const user = gql`
 query {
     me {
-      id
-      login
+      id,
+      login,
       totalRepos
     }
   }
