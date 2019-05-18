@@ -16,6 +16,7 @@ export default {
         location: viewer.location,
         bio: viewer.bio,
         email: viewer.email,
+        websiteUrl: viewer.websiteUrl,
         totalRepos: viewer.repositories.totalCount
       }
     }

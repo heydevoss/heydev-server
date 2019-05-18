@@ -8,6 +8,7 @@ const me = () => {
         location
         bio
         email
+        websiteUrl
         repositories {
           totalCount
         }
