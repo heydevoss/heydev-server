@@ -19,7 +19,7 @@ members(maxNumberOfMembers: $maxNumberOfMembers) {
     name,
     login,
     role,
-    url,
+    url
 }
 `;
 
@@ -33,7 +33,7 @@ members(maxNumberOfMembers: $maxNumberOfMembers) {
  * */
 const membersName = gql`
 members(maxNumberOfMembers: $maxNumberOfMembers) {
-    name,
+    name
 }
 `;
 
