@@ -52,7 +52,7 @@ teams(maxNumberOfTeams: $maxNumberOfTeams) {
 const teamsIdUrl = gql`
 teams(maxNumberOfTeams: $maxNumberOfTeams) {
     id,
-    Url
+    url
 }
 `;
 
