@@ -35,7 +35,7 @@ query {
 `
 
 /**
- * Query for test the obtaining of user's name
+ * Query for test the obtaining the `name` from User
  *
  * @returns {UserObject} an object containing:
  *                   `name`
