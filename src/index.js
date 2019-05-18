@@ -23,18 +23,12 @@ const server = new ApolloServer({
   schema,
   context: ({ req }) => {
     const token = req.headers.authorization || '';
-
-    if (!validateToken(token)) {
-      throw new AuthenticationError(
-        'This endpoint requires you to be authenticated.'
-      );
-    }
-
     return { token };
   },
+  introspection: true
 });
 
-server.applyMiddleware({ app, path: '/graphql' });
+server.applyMiddleware({ app, path: '/graphql', playgroundPath: '/graphql-playground' });
 
 const { port } = config.host;
 
