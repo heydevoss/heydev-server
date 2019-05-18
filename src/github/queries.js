@@ -5,6 +5,7 @@ const me = () => {
         id
         login
         name
+        location
         repositories {
           totalCount
         }
