@@ -50,7 +50,6 @@ query {
     }
 }
 `
-
 export {
     user,
     userLogin,
