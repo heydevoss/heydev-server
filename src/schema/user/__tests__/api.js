@@ -65,7 +65,7 @@ query {
 `
 
 /**
- * Query for test the obtaining of user's bio
+ * Query for test the obtaining `bio` from User
  *
  * @returns {UserObject} an object containing:
  *                   `bio`
