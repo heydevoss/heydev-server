@@ -27,7 +27,7 @@ config.host = {
 };
 
 config.test = {
-  token: `${process.env.GITHUB_TOKEN}`
-}
+  token: `${process.env.GITHUB_TOKEN}`,
+};
 
 export default config;
