@@ -3,16 +3,12 @@ import cors from 'cors';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 
-import { ApolloServer, AuthenticationError } from 'apollo-server-express';
+import { ApolloServer } from 'apollo-server-express';
 
 import authRouter from './auth/route';
 
 import schema from './schema';
 import config from './config';
-
-function validateToken(token) {
-  return token && token.split(' ')[0].toLowerCase() === 'bearer';
-}
 
 const app = express();
 app.use(cors());
@@ -25,10 +21,9 @@ const server = new ApolloServer({
     const token = req.headers.authorization || '';
     return { token };
   },
-  introspection: true
 });
 
-server.applyMiddleware({ app, path: '/graphql', playgroundPath: '/graphql-playground' });
+server.applyMiddleware({ app, path: '/graphql' });
 
 const { port } = config.host;
 
