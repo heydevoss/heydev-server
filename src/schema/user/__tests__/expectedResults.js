@@ -35,10 +35,18 @@ const userEmail =
     }
 }
 
+const userWebsiteUrl = 
+{
+    "me": {
+        "websiteUrl": ""
+    }
+}
+
 export {
     user,
     userName,
     userLocation,
     userBio,
-    userEmail
+    userEmail,
+    userWebsiteUrl
 };

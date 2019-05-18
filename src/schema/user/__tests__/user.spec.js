@@ -30,6 +30,11 @@ describe('User type tests', () => {
     const response = await query({ query: queries.userEmail });
     expect(response.data).toEqual(expectedResponse.userEmail);
   });
+
+  it('me { websiteUrl } : User', async () => {
+    const response = await query({ query: queries.userWebsiteUrl });
+    expect(response.data).toEqual(expectedResponse.userWebsiteUrl);
+  });
 });
 
 

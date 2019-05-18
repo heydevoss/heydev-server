@@ -93,6 +93,21 @@ query {
     }
 }
 `
+
+/**
+ * Query for test the obtaining `websiteUrl` from User
+ *
+ * @returns {UserObject} an object containing:
+ *                   `websiteUrl`
+ *                   of the token passed
+**/
+const userWebsiteUrl = gql`
+query {
+    me {
+        websiteUrl
+    }
+}
+`
 /**
  * Query for test the obtaining of two user atributtes
  *
@@ -117,5 +132,6 @@ export {
     userLocation,
     userBio,
     userEmail,
+    userWebsiteUrl,
     userLoginTotalRepos
 }
