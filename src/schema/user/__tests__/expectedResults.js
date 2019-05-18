@@ -21,8 +21,16 @@ const userLocation =
     }
 }
 
+const userBio = 
+{
+    "me": {
+        "bio": "A Computer Science undergraduate student."
+    }
+}
+
 export {
     user,
     userName,
-    userLocation
+    userLocation,
+    userBio
 };

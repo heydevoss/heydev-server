@@ -65,6 +65,20 @@ query {
 `
 
 /**
+ * Query for test the obtaining of user's bio
+ *
+ * @returns {UserObject} an object containing:
+ *                   `bio`
+ *                   of the token passed
+**/
+const userBio = gql`
+query {
+    me {
+        bio
+    }
+}
+`
+/**
  * Query for test the obtaining of two user atributtes
  *
  * @returns {UserObject} an object containing:
@@ -86,5 +100,6 @@ export {
     userLogin,
     userName,
     userLocation,
+    userBio,
     userLoginTotalRepos
 }

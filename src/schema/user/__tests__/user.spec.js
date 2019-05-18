@@ -20,6 +20,11 @@ describe('User type tests', () => {
     const response = await query({ query: queries.userLocation });
     expect(response.data).toEqual(expectedResponse.userLocation);
   });
+
+  it('me { bio } : User', async () => {
+    const response = await query({ query: queries.userBio });
+    expect(response.data).toEqual(expectedResponse.userBio);
+  });
 });
 
 
