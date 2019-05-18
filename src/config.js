@@ -26,4 +26,8 @@ config.host = {
   production: process.env.NODE_ENV === 'production',
 };
 
+config.test = {
+  token: `${process.env.GITHUB_TOKEN}`,
+};
+
 export default config;
