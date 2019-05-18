@@ -14,7 +14,15 @@ const userName =
     }
 }
 
+const userLocation =
+{
+    "me": {
+        "location": "Campina Grande"
+    }
+}
+
 export {
     user,
-    userName
+    userName,
+    userLocation
 };

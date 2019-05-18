@@ -50,6 +50,21 @@ query {
 `
 
 /**
+ * Query for test the obtaining of user's location
+ *
+ * @returns {UserObject} an object containing:
+ *                   `location`
+ *                   of the token passed
+**/
+const userLocation = gql`
+query {
+    me {
+        location
+    }
+}
+`
+
+/**
  * Query for test the obtaining of two user atributtes
  *
  * @returns {UserObject} an object containing:
@@ -70,5 +85,6 @@ export {
     user,
     userLogin,
     userName,
+    userLocation,
     userLoginTotalRepos
 }
