@@ -6,7 +6,7 @@ import { createTestClient } from 'apollo-server-testing'
 describe('User type tests', () => {
   it('me: User', async () => {
     const { query } = createTestClient(testServer);
-    const response = await query({ query: user });
-    expect(response.data).toEqual(expectedResponse)
+    const { data } = await query({ query: user });
+    expect(user).toEqual(expectedResponse)
   });
 });

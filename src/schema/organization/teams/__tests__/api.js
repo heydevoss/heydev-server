@@ -12,6 +12,7 @@ import gql from 'graphql-tag';
  *                   `url`
  *                   `totalMembers`
  *                   `repoLogin`
+<<<<<<< HEAD
  *                   of the desired `organization`
  * */
 const teams = gql`
@@ -27,6 +28,19 @@ const teams = gql`
       }
     }
   }
+=======
+ *                   the desired `organization`
+ * */
+const teams = gql`
+teams(maxNumberOfTeams: $maxNumberOfTeams){
+    id,
+    name,
+    slug,
+    url,
+    totalMembers,
+    repoLogin
+}
+>>>>>>> Fix conflicts
 `;
 
 /**
@@ -36,6 +50,7 @@ const teams = gql`
  * @param {int} maxNumberOfTeams max number of results from this query
  * @returns {TeamObject} an object containing:
  *                   `name`
+<<<<<<< HEAD
  *                   of the desired `organization`
  * */
 const teamsName = gql`
@@ -46,6 +61,14 @@ const teamsName = gql`
       }
     }
   }
+=======
+ *                   the desired `organization`
+ * */
+const teamsName = gql`
+teams(maxNumberOfTeams: $maxNumberOfTeams){
+    name
+}
+>>>>>>> Fix conflicts
 `;
 
 /**
@@ -55,6 +78,7 @@ const teamsName = gql`
  * @returns {TeamObject} an object containing:
  *                   `id`
  *                   `url`
+<<<<<<< HEAD
  *                   of the desired `organization`
  * */
 const teamsIdUrl = gql`
@@ -66,6 +90,14 @@ const teamsIdUrl = gql`
       }
     }
   }
+=======
+ *                   the desired `organization`
+ * */
+const teamsIdUrl = gql`
+teams(maxNumberOfTeams: $maxNumberOfTeams){
+    name
+}
+>>>>>>> Fix conflicts
 `;
 
 /**
@@ -76,6 +108,7 @@ const teamsIdUrl = gql`
  *                   `slug`
  *                   `totalMembers`
  *                   `repoLogin`
+<<<<<<< HEAD
  *                   of the desired `organization`
  * */
 const teamsSlugTotalMembersRepoLogin = gql`
@@ -237,3 +270,19 @@ export {
   teamsMembersLogin,
   teamsMembersId,
 };
+=======
+ *                   the desired `organization`
+ * */
+const teamsSlugTotalMembersRepoLogin = gql`
+teams(maxNumberOfTeams: $maxNumberOfTeams){
+    name
+}
+`;
+
+export {
+    teams,
+    teamsName,
+    teamsIdUrl,
+    teamsSlugTotalMembersRepoLogin
+};
+>>>>>>> Fix conflicts
