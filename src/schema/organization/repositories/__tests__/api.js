@@ -25,7 +25,7 @@ repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
 `;
 
 /**
- * Query for test the obtaining of one repositories atributte
+ * Query for test the obtaining of one repository atributte
  *
  * @param {int} maxNumberOfRepositories max number of results from this query
  * @returns {RepositoryObject} an object containing:
@@ -50,7 +50,7 @@ repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
 const repositoriesNameViewerCanAdminister = gql`
 repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
     name,
-    viewerCanAdminister,
+    viewerCanAdminister
 }
 `;
 
@@ -59,14 +59,14 @@ repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
  *
  * @param {int} maxNumberOfRepositories max number of results from this query
  * @returns {RepositoryObject} an object containing:
- *                   `id`
+ *                   `totalForks`
  *                   `totalOpenIssues`
  *                   `totalStars`
  *                   of the desired `organization`
  * */
-const repositoriesIdTotalOpenIssuesTotalStars = gql`
+const repositoriesTotalForksTotalOpenIssuesTotalStars = gql`
 repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
-    id,
+    totalForks,
     totalOpenIssues,
     totalStars
 }
@@ -78,15 +78,15 @@ repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
  * @param {int} maxNumberOfRepositories max number of results from this query
  * @returns {RepositoryObject} an object containing:
  *                   `id`
- *                   `name`
+ *                   `totalForks`
  *                   `totalOpenIssues`
  *                   `totalStars`
  *                   of the desired `organization`
  * */
-const repositoriesIdNameTotalOpenIssuesTotalStars = gql`
+const repositoriesIdTotalForksTotalOpenIssuesTotalStars = gql`
 repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
     id,
-    name,
+    totalForks,
     totalOpenIssues,
     totalStars
 }
@@ -96,6 +96,6 @@ export {
     repositories,
     repositoriesName,
     repositoriesNameViewerCanAdminister,
-    repositoriesIdTotalOpenIssuesTotalStars,
-    repositoriesIdNameTotalOpenIssuesTotalStars
+    repositoriesTotalForksTotalOpenIssuesTotalStars,
+    repositoriesIdTotalForksTotalOpenIssuesTotalStars
 };
