@@ -5,7 +5,7 @@ import testServer from '../../../../testUtils/integration/serverFactory';
 import { getPropFromList } from '../../../../testUtils/integration/dataExtractor';
 
 describe('Repository type tests', () => {
-  const login = 'panelinhadees';
+  const login = 'panelinhadees'
   const maxNumberOfRepositories = 4;
   const { query } = createTestClient(testServer);
 
