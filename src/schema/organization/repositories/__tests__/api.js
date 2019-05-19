@@ -15,14 +15,18 @@ import gql from 'graphql-tag';
  *                   of the desired `organization`
  * */
 const repositories = gql`
-repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
-    id,
-    name,
-    viewerCanAdminister,
-    totalForks,
-    totalOpenIssues,
-    totalStars
-}
+  query repositories($login: String!, $maxNumberOfRepositories: Int!) {
+    organization(login: $login) {
+      repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
+        id
+        name
+        viewerCanAdminister
+        totalForks
+        totalOpenIssues
+        totalStars
+      }
+    }
+  }
 `;
 
 /**
@@ -34,9 +38,13 @@ repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
  *                   of the desired `organization`
  * */
 const repositoriesName = gql`
-repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
-    name
-}
+  query repositoriesName($login: String!, $maxNumberOfRepositories: Int!) {
+    organization(login: $login) {
+      repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
+        name
+      }
+    }
+  }
 `;
 
 /**
@@ -49,10 +57,17 @@ repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
  *                   of the desired `organization`
  * */
 const repositoriesNameViewerCanAdminister = gql`
-repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
-    name,
-    viewerCanAdminister
-}
+  query repositoriesNameViewerCanAdminister(
+    $login: String!
+    $maxNumberOfRepositories: Int!
+  ) {
+    organization(login: $login) {
+      repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
+        name
+        viewerCanAdminister
+      }
+    }
+  }
 `;
 
 /**
@@ -66,11 +81,18 @@ repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
  *                   of the desired `organization`
  * */
 const repositoriesTotalForksTotalOpenIssuesTotalStars = gql`
-repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
-    totalForks,
-    totalOpenIssues,
-    totalStars
-}
+  query repositoriesTotalForksTotalOpenIssuesTotalStars(
+    $login: String!
+    $maxNumberOfRepositories: Int!
+  ) {
+    organization(login: $login) {
+      repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
+        totalForks
+        totalOpenIssues
+        totalStars
+      }
+    }
+  }
 `;
 
 /**
@@ -85,18 +107,25 @@ repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
  *                   of the desired `organization`
  * */
 const repositoriesIdTotalForksTotalOpenIssuesTotalStars = gql`
-repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
-    id,
-    totalForks,
-    totalOpenIssues,
-    totalStars
-}
+  query repositoriesIdTotalForksTotalOpenIssuesTotalStars(
+    $login: String!
+    $maxNumberOfRepositories: Int!
+  ) {
+    organization(login: $login) {
+      repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
+        id
+        totalForks
+        totalOpenIssues
+        totalStars
+      }
+    }
+  }
 `;
 
 export {
-    repositories,
-    repositoriesName,
-    repositoriesNameViewerCanAdminister,
-    repositoriesTotalForksTotalOpenIssuesTotalStars,
-    repositoriesIdTotalForksTotalOpenIssuesTotalStars
+  repositories,
+  repositoriesName,
+  repositoriesNameViewerCanAdminister,
+  repositoriesTotalForksTotalOpenIssuesTotalStars,
+  repositoriesIdTotalForksTotalOpenIssuesTotalStars,
 };
