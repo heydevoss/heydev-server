@@ -2,11 +2,12 @@ import { createTestClient } from 'apollo-server-testing';
 import * as queries from './api';
 import * as expectedResult from './expectedResults';
 import testServer from '../../../../testUtils/integration/serverFactory';
-import { getPropFromList } from '../../../../testUtils/integration/dataExtractor';
+import { getPropsFromList } from '../../../../testUtils/integration/dataExtractor';
 
 describe('Member type tests', () => {
   const login = 'panelinhadees';
   const maxNumberOfMembers = 10;
+  const membersPath = ['organization', 'members'];
   const { query } = createTestClient(testServer);
 
   it('members: OrganizationMember', async () => {
@@ -22,7 +23,12 @@ describe('Member type tests', () => {
       query: queries.membersName,
       variables: { login, maxNumberOfMembers },
     });
-    const expectedResultMembersName = getPropFromList(expectedResult.members, ['organization', 'members'], ['name'])
+    
+    const expectedResultMembersName = getPropsFromList(
+      expectedResult.members,
+      membersPath,
+      ['name']
+    );
     expect(data).toEqual(expectedResultMembersName);
   });
 
@@ -31,7 +37,12 @@ describe('Member type tests', () => {
       query: queries.membersIdLogin,
       variables: { login, maxNumberOfMembers },
     });
-    const expectedResultMembersIdLogin = getPropFromList(expectedResult.members, ['organization', 'members'], ['id', 'login'])
+
+    const expectedResultMembersIdLogin = getPropsFromList(
+      expectedResult.members,
+      membersPath,
+      ['id', 'login']
+    );
     expect(data).toEqual(expectedResultMembersIdLogin);
   });
 
@@ -40,7 +51,12 @@ describe('Member type tests', () => {
       query: queries.membersLoginRoleUrl,
       variables: { login, maxNumberOfMembers },
     });
-    const expectedResultMembersLoginRoleUrl = getPropFromList(expectedResult.members, ['organization', 'members'], ['login', 'role', 'url'])
+
+    const expectedResultMembersLoginRoleUrl = getPropsFromList(
+      expectedResult.members,
+      membersPath,
+      ['login', 'role', 'url']
+    );
     expect(data).toEqual(expectedResultMembersLoginRoleUrl);
   });
 
@@ -49,7 +65,12 @@ describe('Member type tests', () => {
       query: queries.membersNameLoginRoleUrl,
       variables: { login, maxNumberOfMembers },
     });
-    const expectedResultMembersNameLoginRoleUrl = getPropFromList(expectedResult.members, ['organization', 'members'], ['name', 'login', 'role', 'url'])
+
+    const expectedResultMembersNameLoginRoleUrl = getPropsFromList(
+      expectedResult.members,
+      membersPath,
+      ['name', 'login', 'role', 'url']
+    );
     expect(data).toEqual(expectedResultMembersNameLoginRoleUrl);
   });
 });

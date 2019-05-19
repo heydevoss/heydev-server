@@ -7,7 +7,7 @@
     "test": "jest '.spec.js'",
     "start": "nodemon --exec babel-node src/index.js",
     "check-lint": "prettier --list-different 'src/*.js' && eslint 'src/*.js'",
-    "lint": "prettier --write 'src/*.js' && eslint --fix 'src/*.js'"
+    "lint": "prettier --write 'src/schema/organization/members/**/*.js' && eslint --fix 'src/schema/organization/members/**/*.js'"
   },
   "repository": {
     "type": "git",
