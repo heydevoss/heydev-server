@@ -9,17 +9,19 @@ export default {
 
       const org = data.data.repositoryOwner;
 
-      return (org) ? {
-        id: org.id,
-        login: org.login,
-        name: org.name,
-        avatarUrl: org.avatarUrl,
-        url: org.url,
-        websiteUrl: org.websiteUrl,
-        totalMembers: org.membersWithRole.totalCount,
-        totalRepos: org.repositories.totalCount,
-        totalTeams: org.teams.totalCount,
-      } : null;
-    }
-  }
-}
+      return org
+        ? {
+            id: org.id,
+            login: org.login,
+            name: org.name,
+            avatarUrl: org.avatarUrl,
+            url: org.url,
+            websiteUrl: org.websiteUrl,
+            totalMembers: org.membersWithRole.totalCount,
+            totalRepos: org.repositories.totalCount,
+            totalTeams: org.teams.totalCount,
+          }
+        : null;
+    },
+  },
+};

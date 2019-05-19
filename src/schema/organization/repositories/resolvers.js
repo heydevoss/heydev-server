@@ -2,7 +2,7 @@ import fetchData from '../../../github/dataFetcher';
 import githubQueries from '../../../github/queries';
 
 const addReposToArray = (repos, reposArray) => {
-  repos.forEach((repo) => {
+  repos.forEach(repo => {
     const repoName = repo.nameWithOwner;
     const repoId = repo.id;
     const repoForks = repo.forkCount;
@@ -22,12 +22,12 @@ const addReposToArray = (repos, reposArray) => {
       totalCommits: numberofCommits,
     });
   });
-}
+};
 
 export default {
   Query: {
     repositories: async (parent, args, { token }) => {
-      const login = parent.login;
+      const { login } = parent;
       const pagination = args.maxNumberOfRepositories;
       const reposArray = [];
 
@@ -39,5 +39,5 @@ export default {
 
       return reposArray;
     },
-  }
-}
+  },
+};

@@ -1,8 +1,4 @@
-import {
-  GraphQLInt,
-  GraphQLList,
-  GraphQLNonNull,
-} from 'graphql';
+import { GraphQLInt, GraphQLList, GraphQLNonNull } from 'graphql';
 
 import OrganizationMemberType from './types';
 import resolvers from './resolvers';
@@ -12,10 +8,10 @@ const members = {
   args: {
     maxNumberOfMembers: {
       type: new GraphQLNonNull(GraphQLInt),
-      description: 'Max number of results from this query'
+      description: 'Max number of results from this query',
     },
   },
-  resolve: resolvers.Query.members
+  resolve: resolvers.Query.members,
 };
 
 export default members;

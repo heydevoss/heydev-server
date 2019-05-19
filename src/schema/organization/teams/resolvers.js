@@ -2,17 +2,16 @@ import fetchData from '../../../github/dataFetcher';
 import githubQueries from '../../../github/queries';
 
 const addMembersToArray = (members, membersArray) => {
-  members.forEach((member) => {
-
+  members.forEach(member => {
     membersArray.push({
       id: member.id,
       login: member.login,
     });
   });
-}
+};
 
 const addTeamsToArray = (teams, teamsArray, login) => {
-  teams.forEach((team) => {
+  teams.forEach(team => {
     const teamId = team.id;
     const teamName = team.name;
     const teamUrl = team.url;
@@ -28,12 +27,12 @@ const addTeamsToArray = (teams, teamsArray, login) => {
       totalMembers: teamTotalMembers,
     });
   });
-}
+};
 
 export default {
   Query: {
     teams: async (parent, args, { token }) => {
-      const login = parent.login;
+      const { login } = parent;
       const pagination = args.maxNumberOfTeams;
       const teamsArray = [];
 
@@ -48,17 +47,21 @@ export default {
 
     teamMembers: async (parent, args, { token }) => {
       const login = parent.repoLogin;
-      const slug = parent.slug;
+      const { slug } = parent;
       const pagination = args.maxNumberOfMembers;
       const teamMembersArray = [];
 
-      const body = githubQueries.organizationTeamMembers(login, slug, pagination);
+      const body = githubQueries.organizationTeamMembers(
+        login,
+        slug,
+        pagination
+      );
       const data = await fetchData(body, token);
 
       const members = data.data.repositoryOwner.team.members.nodes;
       addMembersToArray(members, teamMembersArray);
 
       return teamMembersArray;
-    }
-  }
-}
+    },
+  },
+};

@@ -12,12 +12,12 @@ import gql from 'graphql-tag'
 const user = gql`
 query {
     me {
-        id
-        login,
-        totalRepos
+      id,
+      login,
+      totalRepos
     }
-}
-`
+  }
+`;
 
 /**
  * Query for test the obtaining of one user atributter
@@ -50,7 +50,6 @@ query {
     }
 }
 `
-
 export {
     user,
     userLogin,

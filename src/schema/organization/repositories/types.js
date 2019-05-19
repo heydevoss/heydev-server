@@ -6,7 +6,7 @@ import {
   GraphQLBoolean,
 } from 'graphql';
 
-const RepositoryType =  new GraphQLObjectType({
+const RepositoryType = new GraphQLObjectType({
   name: 'Repository',
   description: 'A repository contains the content for a project.',
 
@@ -18,7 +18,7 @@ const RepositoryType =  new GraphQLObjectType({
     totalOpenIssues: { type: GraphQLInt },
     totalStars: { type: GraphQLInt },
     totalCommits: { type: GraphQLInt },
-  })
+  }),
 });
 
 export default RepositoryType;
