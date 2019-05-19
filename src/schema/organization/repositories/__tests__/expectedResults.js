@@ -6,7 +6,7 @@ const repositories = {
         name: 'panelinhadees/server',
         viewerCanAdminister: true,
         totalForks: 0,
-        totalOpenIssues: 19,
+        totalOpenIssues: 17,
         totalStars: 5,
       },
       {
@@ -14,7 +14,7 @@ const repositories = {
         name: 'panelinhadees/client',
         viewerCanAdminister: true,
         totalForks: 0,
-        totalOpenIssues: 13,
+        totalOpenIssues: 11,
         totalStars: 6,
       },
       {

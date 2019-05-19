@@ -2,11 +2,12 @@ import { createTestClient } from 'apollo-server-testing';
 import * as queries from './api';
 import * as expectedResult from './expectedResults';
 import testServer from '../../../../testUtils/integration/serverFactory';
-import { getPropFromList } from '../../../../testUtils/integration/dataExtractor';
+import { getPropsFromList } from '../../../../testUtils/integration/dataExtractor';
 
 describe('Repository type tests', () => {
   const login = 'panelinhadees'
   const maxNumberOfRepositories = 4;
+  const repositoriesPath =  ['organization', 'repositories'];
   const { query } = createTestClient(testServer);
 
   it('repositories: Repository', async () => {
@@ -22,9 +23,10 @@ describe('Repository type tests', () => {
       query: queries.repositoriesName,
       variables: { login, maxNumberOfRepositories },
     });
-    const expectedResultRepositoriesName = getPropFromList(
+
+    const expectedResultRepositoriesName = getPropsFromList(
       expectedResult.repositories,
-      ['organization', 'repositories'],
+      repositoriesPath,
       ['name']
     );
     expect(data).toEqual(expectedResultRepositoriesName);
@@ -35,9 +37,10 @@ describe('Repository type tests', () => {
       query: queries.repositoriesNameViewerCanAdminister,
       variables: { login, maxNumberOfRepositories },
     });
-    const expectedResultRepositoriesNameViewerCanAdminister = getPropFromList(
+
+    const expectedResultRepositoriesNameViewerCanAdminister = getPropsFromList(
       expectedResult.repositories,
-      ['organization', 'repositories'],
+      repositoriesPath,
       ['name', 'viewerCanAdminister']
     );
     expect(data).toEqual(expectedResultRepositoriesNameViewerCanAdminister);
@@ -48,9 +51,10 @@ describe('Repository type tests', () => {
       query: queries.repositoriesTotalForksTotalOpenIssuesTotalStars,
       variables: { login, maxNumberOfRepositories },
     });
-    const expectedResultRepositoriesTotalForksTotalOpenIssuesTotalStars = getPropFromList(
+
+    const expectedResultRepositoriesTotalForksTotalOpenIssuesTotalStars = getPropsFromList(
       expectedResult.repositories,
-      ['organization', 'repositories'],
+      repositoriesPath,
       ['totalForks', 'totalOpenIssues', 'totalStars']
     );
     expect(data).toEqual(
@@ -63,9 +67,10 @@ describe('Repository type tests', () => {
       query: queries.repositoriesIdTotalForksTotalOpenIssuesTotalStars,
       variables: { login, maxNumberOfRepositories },
     });
-    const expectedResultRepositoriesIdTotalForksTotalOpenIssuesTotalStars = getPropFromList(
+
+    const expectedResultRepositoriesIdTotalForksTotalOpenIssuesTotalStars = getPropsFromList(
       expectedResult.repositories,
-      ['organization', 'repositories'],
+      repositoriesPath,
       ['id', 'totalForks', 'totalOpenIssues', 'totalStars']
     );
     expect(data).toEqual(
