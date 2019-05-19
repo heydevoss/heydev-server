@@ -2,7 +2,7 @@ import fetchData from '../../../github/dataFetcher';
 import githubQueries from '../../../github/queries';
 
 const addMembersToArray = (members, membersArray) => {
-  members.forEach((member) => {
+  members.forEach(member => {
     const memberRole = member.role;
     const memberId = member.node.id;
     const memberName = member.node.name;
@@ -14,15 +14,15 @@ const addMembersToArray = (members, membersArray) => {
       role: memberRole,
       name: memberName,
       login: memberLogin,
-      url: memberUrl
+      url: memberUrl,
     });
   });
-}
+};
 
 export default {
   Query: {
     members: async (parent, args, { token }) => {
-      const login = parent.login;
+      const { login } = parent;
       const pagination = args.maxNumberOfMembers;
       const membersArray = [];
 

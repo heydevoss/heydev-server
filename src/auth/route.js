@@ -17,8 +17,8 @@ router.get('/login', (req, res) => {
   const queryString = querystring.stringify({
     client_id: config.github.clientId,
     redirect_uri: config.github.redirectUrl,
-    state: state,
-    scope: config.github.scope
+    state,
+    scope: config.github.scope,
   });
 
   const url = getAuthBaseURL(`/authorize?${queryString}`);
