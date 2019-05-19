@@ -3,7 +3,12 @@ const user =
     "me": {
         "id": "MDQ6VXNlcjEzNDg4MDI1",
         "login": "jadsonluan",
-        "totalRepos": 41
+        "totalRepos": 41,
+        "name": "Jadson Luan",
+        "location": "Campina Grande",
+        "bio": "A Computer Science undergraduate student.",
+        "email": "jadsonluan1@gmail.com",
+        "websiteUrl": ""
     }
 }
 

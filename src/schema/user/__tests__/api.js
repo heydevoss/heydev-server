@@ -13,7 +13,12 @@ const user = gql`
 query {
     me {
         id
-        login,
+        login
+        name
+        location
+        bio
+        email
+        websiteUrl
         totalRepos
     }
 }
