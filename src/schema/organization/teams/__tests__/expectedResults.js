@@ -2,861 +2,275 @@ const teams = {
   organization: {
     teams: [
       {
-        id: 'MDQ6VGVhbTMyMjA5NzA=',
-        name: 'blog',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/blog',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'blog',
+        id: 'MDQ6VGVhbTMxODcyNTM=',
+        name: 'Backend',
+        slug: 'backend',
+        url: 'https://github.com/orgs/panelinhadees/teams/backend',
+        totalMembers: 3,
+        repoLogin: 'panelinhadees',
+      },
+      {
+        id: 'MDQ6VGVhbTMxODcyNTQ=',
+        name: 'Frontend',
+        slug: 'frontend',
+        url: 'https://github.com/orgs/panelinhadees/teams/frontend',
+        totalMembers: 3,
+        repoLogin: 'panelinhadees',
+      },
+      {
+        id: 'MDQ6VGVhbTMxODcyNTI=',
+        name: 'Projeto Novo',
+        slug: 'projeto-novo',
+        url: 'https://github.com/orgs/panelinhadees/teams/projeto-novo',
+        totalMembers: 7,
+        repoLogin: 'panelinhadees',
+      },
+      {
+        id: 'MDQ6VGVhbTMxODcyNTU=',
+        name: 'Projeto Real',
+        slug: 'projeto-real',
+        url: 'https://github.com/orgs/panelinhadees/teams/projeto-real',
         totalMembers: 2,
-      },
-      {
-        id: 'MDQ6VGVhbTMxNDg2MzI=',
-        name: 'css',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/css',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'css',
-        totalMembers: 2,
-      },
-      {
-        id: 'MDQ6VGVhbTMxMTM2NTQ=',
-        name: 'glossario-ufcg',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/glossario-ufcg',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'glossario-ufcg',
-        totalMembers: 4,
-      },
-      {
-        id: 'MDQ6VGVhbTI5ODIyMTE=',
-        name: 'IssueAi',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/issueai',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'issueai',
-        totalMembers: 3,
-      },
-      {
-        id: 'MDQ6VGVhbTI5ODIyNDg=',
-        name: 'Racharia',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/racharia',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'racharia',
-        totalMembers: 3,
-      },
-      {
-        id: 'MDQ6VGVhbTI5OTMwMDM=',
-        name: 'react',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/react',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'react',
-        totalMembers: 5,
-      },
-      {
-        id: 'MDQ6VGVhbTMxMTEzMzA=',
-        name: 'RoadMap',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/roadmap',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'roadmap',
-        totalMembers: 2,
-      },
-      {
-        id: 'MDQ6VGVhbTMxMzMyNjg=',
-        name: 'site',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/site',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'site',
-        totalMembers: 3,
-      },
-      {
-        id: 'MDQ6VGVhbTI5ODYyNDk=',
-        name: 'Tamburetei',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/tamburetei',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'tamburetei',
-        totalMembers: 3,
-      },
-      {
-        id: 'MDQ6VGVhbTI5OTMwMDA=',
-        name: 'vue',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/vue',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'vue',
-        totalMembers: 4,
-      },
-    ],
-  },
-};
-const teamsName = {
-  organization: {
-    teams: [
-      {
-        name: 'blog',
-      },
-      {
-        name: 'css',
-      },
-      {
-        name: 'glossario-ufcg',
-      },
-      {
-        name: 'IssueAi',
-      },
-      {
-        name: 'Racharia',
-      },
-      {
-        name: 'react',
-      },
-      {
-        name: 'RoadMap',
-      },
-      {
-        name: 'site',
-      },
-      {
-        name: 'Tamburetei',
-      },
-      {
-        name: 'vue',
-      },
-    ],
-  },
-};
-const teamsIdUrl = {
-  organization: {
-    teams: [
-      {
-        id: 'MDQ6VGVhbTMyMjA5NzA=',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/blog',
-      },
-      {
-        id: 'MDQ6VGVhbTMxNDg2MzI=',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/css',
-      },
-      {
-        id: 'MDQ6VGVhbTMxMTM2NTQ=',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/glossario-ufcg',
-      },
-      {
-        id: 'MDQ6VGVhbTI5ODIyMTE=',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/issueai',
-      },
-      {
-        id: 'MDQ6VGVhbTI5ODIyNDg=',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/racharia',
-      },
-      {
-        id: 'MDQ6VGVhbTI5OTMwMDM=',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/react',
-      },
-      {
-        id: 'MDQ6VGVhbTMxMTEzMzA=',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/roadmap',
-      },
-      {
-        id: 'MDQ6VGVhbTMxMzMyNjg=',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/site',
-      },
-      {
-        id: 'MDQ6VGVhbTI5ODYyNDk=',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/tamburetei',
-      },
-      {
-        id: 'MDQ6VGVhbTI5OTMwMDA=',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/vue',
-      },
-    ],
-  },
-};
-
-const teamsSlugTotalMembersRepoLogin = {
-  organization: {
-    teams: [
-      {
-        repoLogin: 'OpenDevUFCG',
-        slug: 'blog',
-        totalMembers: 2,
-      },
-      {
-        repoLogin: 'OpenDevUFCG',
-        slug: 'css',
-        totalMembers: 2,
-      },
-      {
-        repoLogin: 'OpenDevUFCG',
-        slug: 'glossario-ufcg',
-        totalMembers: 4,
-      },
-      {
-        repoLogin: 'OpenDevUFCG',
-        slug: 'issueai',
-        totalMembers: 3,
-      },
-      {
-        repoLogin: 'OpenDevUFCG',
-        slug: 'racharia',
-        totalMembers: 3,
-      },
-      {
-        repoLogin: 'OpenDevUFCG',
-        slug: 'react',
-        totalMembers: 5,
-      },
-      {
-        repoLogin: 'OpenDevUFCG',
-        slug: 'roadmap',
-        totalMembers: 2,
-      },
-      {
-        repoLogin: 'OpenDevUFCG',
-        slug: 'site',
-        totalMembers: 3,
-      },
-      {
-        repoLogin: 'OpenDevUFCG',
-        slug: 'tamburetei',
-        totalMembers: 3,
-      },
-      {
-        repoLogin: 'OpenDevUFCG',
-        slug: 'vue',
-        totalMembers: 4,
-      },
-    ],
-  },
-};
-const teamsNameSlugTotalMembersRepoLogin = {
-  organization: {
-    teams: [
-      {
-        name: 'blog',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'blog',
-        totalMembers: 2,
-      },
-      {
-        name: 'css',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'css',
-        totalMembers: 2,
-      },
-      {
-        name: 'glossario-ufcg',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'glossario-ufcg',
-        totalMembers: 4,
-      },
-      {
-        name: 'IssueAi',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'issueai',
-        totalMembers: 3,
-      },
-      {
-        name: 'Racharia',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'racharia',
-        totalMembers: 3,
-      },
-      {
-        name: 'react',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'react',
-        totalMembers: 5,
-      },
-      {
-        name: 'RoadMap',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'roadmap',
-        totalMembers: 2,
-      },
-      {
-        name: 'site',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'site',
-        totalMembers: 3,
-      },
-      {
-        name: 'Tamburetei',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'tamburetei',
-        totalMembers: 3,
-      },
-      {
-        name: 'vue',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'vue',
-        totalMembers: 4,
-      },
-    ],
-  },
-};
-
-const teamsNameUrlSlugTotalMembersRepoLogin = {
-  organization: {
-    teams: [
-      {
-        name: 'blog',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/blog',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'blog',
-        totalMembers: 2,
-      },
-      {
-        name: 'css',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/css',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'css',
-        totalMembers: 2,
-      },
-      {
-        name: 'glossario-ufcg',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/glossario-ufcg',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'glossario-ufcg',
-        totalMembers: 4,
-      },
-      {
-        name: 'IssueAi',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/issueai',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'issueai',
-        totalMembers: 3,
-      },
-      {
-        name: 'Racharia',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/racharia',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'racharia',
-        totalMembers: 3,
-      },
-      {
-        name: 'react',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/react',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'react',
-        totalMembers: 5,
-      },
-      {
-        name: 'RoadMap',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/roadmap',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'roadmap',
-        totalMembers: 2,
-      },
-      {
-        name: 'site',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/site',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'site',
-        totalMembers: 3,
-      },
-      {
-        name: 'Tamburetei',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/tamburetei',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'tamburetei',
-        totalMembers: 3,
-      },
-      {
-        name: 'vue',
-        url: 'https://github.com/orgs/OpenDevUFCG/teams/vue',
-        repoLogin: 'OpenDevUFCG',
-        slug: 'vue',
-        totalMembers: 4,
+        repoLogin: 'panelinhadees',
       },
     ],
   },
 };
 
 const teamsMembers = {
-    "organization": {
-        "teams": [
+  organization: {
+    teams: [
+      {
+        name: 'Backend',
+        members: [
           {
-            "name": "blog",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjExNzI4NjU1",
-                "login": "JuanBarros2"
-              },
-              {
-                "id": "MDQ6VXNlcjIwNzE0MTQ4",
-                "login": "JRobsonJr"
-              }
-            ]
+            id: 'MDQ6VXNlcjEzNDg4MDI1',
+            login: 'jadsonluan',
           },
           {
-            "name": "css",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjMwNzAwNTk2",
-                "login": "hericlesme"
-              },
-              {
-                "id": "MDQ6VXNlcjM4NDMxMjE5",
-                "login": "pedroespindula"
-              }
-            ]
+            id: 'MDQ6VXNlcjE0MTEzNDgw',
+            login: 'fanny',
           },
           {
-            "name": "glossario-ufcg",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjExNzI4NzQ2",
-                "login": "JoseRenan"
-              },
-              {
-                "id": "MDQ6VXNlcjIzNzQ4MDcz",
-                "login": "juliobguedes"
-              },
-              {
-                "id": "MDQ6VXNlcjI1NTA2Mzg3",
-                "login": "paulojbleitao"
-              },
-              {
-                "id": "MDQ6VXNlcjM4NDMxMjE5",
-                "login": "pedroespindula"
-              }
-            ]
+            id: 'MDQ6VXNlcjE5MzkwODIw',
+            login: 'LukeHxH',
+          },
+        ],
+      },
+      {
+        name: 'Frontend',
+        members: [
+          {
+            id: 'MDQ6VXNlcjY4Njc5NTg=',
+            login: 'thayannevls',
           },
           {
-            "name": "IssueAi",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjY4Njc5NTg=",
-                "login": "thayannevls"
-              },
-              {
-                "id": "MDQ6VXNlcjExNzI4NzQ2",
-                "login": "JoseRenan"
-              },
-              {
-                "id": "MDQ6VXNlcjI1NTA2Mzg3",
-                "login": "paulojbleitao"
-              }
-            ]
+            id: 'MDQ6VXNlcjE0MTMwNjA5',
+            login: 'RaylaMedeiros',
           },
           {
-            "name": "Racharia",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjY4Njc5NTg=",
-                "login": "thayannevls"
-              },
-              {
-                "id": "MDQ6VXNlcjExNzI4NjU1",
-                "login": "JuanBarros2"
-              },
-              {
-                "id": "MDQ6VXNlcjE0MTEzNDgw",
-                "login": "fanny"
-              }
-            ]
+            id: 'MDQ6VXNlcjMzMjg2NDQy',
+            login: 'mateusoliveira2',
+          },
+        ],
+      },
+      {
+        name: 'Projeto Novo',
+        members: [
+          {
+            id: 'MDQ6VXNlcjY4Njc5NTg=',
+            login: 'thayannevls',
           },
           {
-            "name": "react",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjExNzI4NzQ2",
-                "login": "JoseRenan"
-              },
-              {
-                "id": "MDQ6VXNlcjIwNzE0MTQ4",
-                "login": "JRobsonJr"
-              },
-              {
-                "id": "MDQ6VXNlcjIzNzQ4MDcz",
-                "login": "juliobguedes"
-              },
-              {
-                "id": "MDQ6VXNlcjI1NTA2Mzg3",
-                "login": "paulojbleitao"
-              },
-              {
-                "id": "MDQ6VXNlcjMwNzAwNTk2",
-                "login": "hericlesme"
-              }
-            ]
+            id: 'MDQ6VXNlcjEzNDg4MDI1',
+            login: 'jadsonluan',
           },
           {
-            "name": "RoadMap",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjExNzI4NjU1",
-                "login": "JuanBarros2"
-              },
-              {
-                "id": "MDQ6VXNlcjE0MTEzNDgw",
-                "login": "fanny"
-              }
-            ]
+            id: 'MDQ6VXNlcjE0MTEzNDgw',
+            login: 'fanny',
           },
           {
-            "name": "site",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjY4Njc5NTg=",
-                "login": "thayannevls"
-              },
-              {
-                "id": "MDQ6VXNlcjExNzI4NjU1",
-                "login": "JuanBarros2"
-              },
-              {
-                "id": "MDQ6VXNlcjE5MzkwODIw",
-                "login": "LukeHxH"
-              }
-            ]
+            id: 'MDQ6VXNlcjE0MTMwNjA5',
+            login: 'RaylaMedeiros',
           },
           {
-            "name": "Tamburetei",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjY4Njc5NTg=",
-                "login": "thayannevls"
-              },
-              {
-                "id": "MDQ6VXNlcjE5MzkwODIw",
-                "login": "LukeHxH"
-              },
-              {
-                "id": "MDQ6VXNlcjMwMjQ3NTE5",
-                "login": "SpinnelSun"
-              }
-            ]
+            id: 'MDQ6VXNlcjE1Mzg5Mzg0',
+            login: 'vinifarias',
           },
           {
-            "name": "vue",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjY4Njc5NTg=",
-                "login": "thayannevls"
-              },
-              {
-                "id": "MDQ6VXNlcjExNzI4NjU1",
-                "login": "JuanBarros2"
-              },
-              {
-                "id": "MDQ6VXNlcjE0MTEzNDgw",
-                "login": "fanny"
-              },
-              {
-                "id": "MDQ6VXNlcjMwMjQ3NTE5",
-                "login": "SpinnelSun"
-              }
-            ]
-          }
-        ]
-    }
+            id: 'MDQ6VXNlcjE5MzkwODIw',
+            login: 'LukeHxH',
+          },
+          {
+            id: 'MDQ6VXNlcjMzMjg2NDQy',
+            login: 'mateusoliveira2',
+          },
+        ],
+      },
+      {
+        name: 'Projeto Real',
+        members: [
+          {
+            id: 'MDQ6VXNlcjMzNTAyODQ2',
+            login: 'jessescn',
+          },
+          {
+            id: 'MDQ6VXNlcjM0MjcyMDA1',
+            login: 'douglaslimaxx',
+          },
+        ],
+      },
+    ],
+  },
+};
+
+const teamsMembersId = {
+  organization: {
+    teams: [
+      {
+        name: 'Backend',
+        members: [
+          {
+            id: 'MDQ6VXNlcjEzNDg4MDI1',
+          },
+          {
+            id: 'MDQ6VXNlcjE0MTEzNDgw',
+          },
+          {
+            id: 'MDQ6VXNlcjE5MzkwODIw',
+          },
+        ],
+      },
+      {
+        name: 'Frontend',
+        members: [
+          {
+            id: 'MDQ6VXNlcjY4Njc5NTg=',
+          },
+          {
+            id: 'MDQ6VXNlcjE0MTMwNjA5',
+          },
+          {
+            id: 'MDQ6VXNlcjMzMjg2NDQy',
+          },
+        ],
+      },
+      {
+        name: 'Projeto Novo',
+        members: [
+          {
+            id: 'MDQ6VXNlcjY4Njc5NTg=',
+          },
+          {
+            id: 'MDQ6VXNlcjEzNDg4MDI1',
+          },
+          {
+            id: 'MDQ6VXNlcjE0MTEzNDgw',
+          },
+          {
+            id: 'MDQ6VXNlcjE0MTMwNjA5',
+          },
+          {
+            id: 'MDQ6VXNlcjE1Mzg5Mzg0',
+          },
+          {
+            id: 'MDQ6VXNlcjE5MzkwODIw',
+          },
+          {
+            id: 'MDQ6VXNlcjMzMjg2NDQy',
+          },
+        ],
+      },
+      {
+        name: 'Projeto Real',
+        members: [
+          {
+            id: 'MDQ6VXNlcjMzNTAyODQ2',
+          },
+          {
+            id: 'MDQ6VXNlcjM0MjcyMDA1',
+          },
+        ],
+      },
+    ],
+  },
 };
 
 const teamsMembersLogin = {
-    "organization": {
-        "teams": [
+  organization: {
+    teams: [
+      {
+        name: 'Backend',
+        members: [
           {
-            "name": "blog",
-            "members": [
-              {
-                "login": "JuanBarros2"
-              },
-              {
-                "login": "JRobsonJr"
-              }
-            ]
+            login: 'jadsonluan',
           },
           {
-            "name": "css",
-            "members": [
-              {
-                "login": "hericlesme"
-              },
-              {
-                "login": "pedroespindula"
-              }
-            ]
+            login: 'fanny',
           },
           {
-            "name": "glossario-ufcg",
-            "members": [
-              {
-                "login": "JoseRenan"
-              },
-              {
-                "login": "juliobguedes"
-              },
-              {
-                "login": "paulojbleitao"
-              },
-              {
-                "login": "pedroespindula"
-              }
-            ]
+            login: 'LukeHxH',
+          },
+        ],
+      },
+      {
+        name: 'Frontend',
+        members: [
+          {
+            login: 'thayannevls',
           },
           {
-            "name": "IssueAi",
-            "members": [
-              {
-                "login": "thayannevls"
-              },
-              {
-                "login": "JoseRenan"
-              },
-              {
-                "login": "paulojbleitao"
-              }
-            ]
+            login: 'RaylaMedeiros',
           },
           {
-            "name": "Racharia",
-            "members": [
-              {
-                "login": "thayannevls"
-              },
-              {
-                "login": "JuanBarros2"
-              },
-              {
-                "login": "fanny"
-              }
-            ]
+            login: 'mateusoliveira2',
+          },
+        ],
+      },
+      {
+        name: 'Projeto Novo',
+        members: [
+          {
+            login: 'thayannevls',
           },
           {
-            "name": "react",
-            "members": [
-              {
-                "login": "JoseRenan"
-              },
-              {
-                "login": "JRobsonJr"
-              },
-              {
-                "login": "juliobguedes"
-              },
-              {
-                "login": "paulojbleitao"
-              },
-              {
-                "login": "hericlesme"
-              }
-            ]
+            login: 'jadsonluan',
           },
           {
-            "name": "RoadMap",
-            "members": [
-              {
-                "login": "JuanBarros2"
-              },
-              {
-                "login": "fanny"
-              }
-            ]
+            login: 'fanny',
           },
           {
-            "name": "site",
-            "members": [
-              {
-                "login": "thayannevls"
-              },
-              {
-                "login": "JuanBarros2"
-              },
-              {
-                "login": "LukeHxH"
-              }
-            ]
+            login: 'RaylaMedeiros',
           },
           {
-            "name": "Tamburetei",
-            "members": [
-              {
-                "login": "thayannevls"
-              },
-              {
-                "login": "LukeHxH"
-              },
-              {
-                "login": "SpinnelSun"
-              }
-            ]
+            login: 'vinifarias',
           },
           {
-            "name": "vue",
-            "members": [
-              {
-                "login": "thayannevls"
-              },
-              {
-                "login": "JuanBarros2"
-              },
-              {
-                "login": "fanny"
-              },
-              {
-                "login": "SpinnelSun"
-              }
-            ]
-          }
-        ]
-    }
-};
-
-
-const teamsMembersId = {
-    "organization": {
-        "teams": [
-          {
-            "name": "blog",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjExNzI4NjU1",
-              },
-              {
-                "id": "MDQ6VXNlcjIwNzE0MTQ4",
-              }
-            ]
+            login: 'LukeHxH',
           },
           {
-            "name": "css",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjMwNzAwNTk2",
-              },
-              {
-                "id": "MDQ6VXNlcjM4NDMxMjE5",
-              }
-            ]
+            login: 'mateusoliveira2',
+          },
+        ],
+      },
+      {
+        name: 'Projeto Real',
+        members: [
+          {
+            login: 'jessescn',
           },
           {
-            "name": "glossario-ufcg",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjExNzI4NzQ2",
-              },
-              {
-                "id": "MDQ6VXNlcjIzNzQ4MDcz",
-              },
-              {
-                "id": "MDQ6VXNlcjI1NTA2Mzg3",
-              },
-              {
-                "id": "MDQ6VXNlcjM4NDMxMjE5",
-              }
-            ]
+            login: 'douglaslimaxx',
           },
-          {
-            "name": "IssueAi",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjY4Njc5NTg=",
-              },
-              {
-                "id": "MDQ6VXNlcjExNzI4NzQ2",
-              },
-              {
-                "id": "MDQ6VXNlcjI1NTA2Mzg3",
-              }
-            ]
-          },
-          {
-            "name": "Racharia",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjY4Njc5NTg=",
-              },
-              {
-                "id": "MDQ6VXNlcjExNzI4NjU1",
-              },
-              {
-                "id": "MDQ6VXNlcjE0MTEzNDgw",
-              }
-            ]
-          },
-          {
-            "name": "react",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjExNzI4NzQ2",
-              },
-              {
-                "id": "MDQ6VXNlcjIwNzE0MTQ4",
-              },
-              {
-                "id": "MDQ6VXNlcjIzNzQ4MDcz",
-              },
-              {
-                "id": "MDQ6VXNlcjI1NTA2Mzg3",
-              },
-              {
-                "id": "MDQ6VXNlcjMwNzAwNTk2",
-              }
-            ]
-          },
-          {
-            "name": "RoadMap",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjExNzI4NjU1",
-              },
-              {
-                "id": "MDQ6VXNlcjE0MTEzNDgw",
-              }
-            ]
-          },
-          {
-            "name": "site",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjY4Njc5NTg=",
-              },
-              {
-                "id": "MDQ6VXNlcjExNzI4NjU1",
-              },
-              {
-                "id": "MDQ6VXNlcjE5MzkwODIw",
-              }
-            ]
-          },
-          {
-            "name": "Tamburetei",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjY4Njc5NTg=",
-              },
-              {
-                "id": "MDQ6VXNlcjE5MzkwODIw",
-              },
-              {
-                "id": "MDQ6VXNlcjMwMjQ3NTE5",
-              }
-            ]
-          },
-          {
-            "name": "vue",
-            "members": [
-              {
-                "id": "MDQ6VXNlcjY4Njc5NTg=",
-              },
-              {
-                "id": "MDQ6VXNlcjExNzI4NjU1",
-              },
-              {
-                "id": "MDQ6VXNlcjE0MTEzNDgw",
-              },
-              {
-                "id": "MDQ6VXNlcjMwMjQ3NTE5",
-              }
-            ]
-          }
-        ]
-    }
+        ],
+      },
+    ],
+  },
 };
 
 export {
   teams,
-  teamsName,
-  teamsIdUrl,
-  teamsSlugTotalMembersRepoLogin,
-  teamsNameSlugTotalMembersRepoLogin,
-  teamsNameUrlSlugTotalMembersRepoLogin,
   teamsMembers,
-  teamsMembersLogin,
-  teamsMembersId
+  teamsMembersId,
+  teamsMembersLogin
 };
