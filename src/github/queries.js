@@ -37,7 +37,7 @@ const organization = login => {
     membersWithRole {
       totalCount
     }
-    repositories {
+    repositories(isFork: false) {
       totalCount
     }
     teams {
@@ -108,7 +108,7 @@ const organizationMembers = (login, pagination) => {
 const organizationRepositories = (login, pagination) => {
   const inputs = `$login: String! $pagination: Int!`;
   const data = `
-  repositories(first: $pagination) {
+  repositories(first: $pagination isFork: false) {
     nodes {
       id
       nameWithOwner
@@ -131,7 +131,7 @@ const organizationRepositories = (login, pagination) => {
 const totalPROrganization = (login, pagination) => {
   const inputs = `$login: String! $pagination: Int!`;
   const data = `
-    repositories(first: $pagination) {
+    repositories(first: $pagination isFork: false) {
       pageInfo {
         hasNextPage
         endCursor
@@ -151,7 +151,7 @@ const totalPROrganization = (login, pagination) => {
 const totalPROrganizationAfter = (login, pagination, cursor) => {
   const inputs = `$login: String! $pagination: Int! $cursor: String!`;
   const data = `
-    repositories(first: $pagination after: $cursor) {
+    repositories(first: $pagination after: $cursor isFork: false) {
       pageInfo {
         hasNextPage
         endCursor
@@ -171,7 +171,7 @@ const totalPROrganizationAfter = (login, pagination, cursor) => {
 const totalCommitsOrganization = (login, pagination) => {
   const inputs = `$login: String! $pagination: Int!`;
   const data = `
-    repositories(first: $pagination) {
+    repositories(first: $pagination isFork: false) {
       pageInfo {
         hasNextPage
         endCursor
@@ -195,7 +195,7 @@ const totalCommitsOrganization = (login, pagination) => {
 const totalCommitsOrganizationAfter = (login, pagination, cursor) => {
   const inputs = `$login: String! $pagination: Int! $cursor: String!`;
   const data = `
-    repositories(first: $pagination after: $cursor) {
+    repositories(first: $pagination after: $cursor isFork: false) {
       pageInfo {
         hasNextPage
         endCursor
@@ -219,7 +219,7 @@ const totalCommitsOrganizationAfter = (login, pagination, cursor) => {
 const totalIssuesOrganization = (login, pagination) => {
   const inputs = `$login: String! $pagination: Int!`;
   const data = `
-    repositories(first: $pagination) {
+    repositories(first: $pagination isFork: false) {
       pageInfo {
         hasNextPage
         endCursor
@@ -239,7 +239,7 @@ const totalIssuesOrganization = (login, pagination) => {
 const totalIssuesOrganizationAfter = (login, pagination, cursor) => {
   const inputs = `$login: String! $pagination: Int! $cursor: String!`;
   const data = `
-    repositories(first: $pagination after: $cursor) {
+    repositories(first: $pagination after: $cursor isFork: false) {
       pageInfo {
         hasNextPage
         endCursor
