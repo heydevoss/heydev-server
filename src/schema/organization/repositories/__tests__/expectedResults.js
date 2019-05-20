@@ -2,30 +2,61 @@ const repositoriesTotalCommits = {
   organization: {
     repositories: [
       {
-        totalCommits: 96,
+        totalCommits: 156,
       },
       {
-        totalCommits: 38,
+        totalCommits: 54,
       },
       {
-        totalCommits: 465,
+        totalCommits: 6,
       },
       {
-        totalCommits: 308,
-      },
-      {
-        totalCommits: 22,
-      },
-      {
-        totalCommits: 174,
-      },
-      {
-        totalCommits: 3,
+        totalCommits: 10,
       },
     ]
   }
 };
 
-export { 
-  repositoriesTotalCommits
+const repositories = {
+  organization: {
+    repositories: [
+      {
+        id: 'MDEwOlJlcG9zaXRvcnkxODM2MDg3ODI=',
+        name: 'panelinhadees/server',
+        viewerCanAdminister: true,
+        totalForks: 0,
+        totalOpenIssues: 16,
+        totalStars: 5,
+      },
+      {
+        id: 'MDEwOlJlcG9zaXRvcnkxODM3MjE3NDc=',
+        name: 'panelinhadees/client',
+        viewerCanAdminister: true,
+        totalForks: 0,
+        totalOpenIssues: 11,
+        totalStars: 6,
+      },
+      {
+        id: 'MDEwOlJlcG9zaXRvcnkxODM4MzMwMjk=',
+        name: 'panelinhadees/git-style-guide',
+        viewerCanAdminister: true,
+        totalForks: 0,
+        totalOpenIssues: 1,
+        totalStars: 1,
+      },
+      {
+        id: 'MDEwOlJlcG9zaXRvcnkxODUyOTI5NTI=',
+        name: 'panelinhadees/panelinha',
+        viewerCanAdminister: true,
+        totalForks: 0,
+        totalOpenIssues: 0,
+        totalStars: 0,
+      },
+    ],
+  },
+};
+
+export {
+  repositories,
+  repositoriesTotalCommits,
 };
