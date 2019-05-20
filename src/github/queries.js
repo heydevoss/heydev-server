@@ -37,7 +37,7 @@ const organization = login => {
     membersWithRole {
       totalCount
     }
-    repositories {
+    repositories (isFork: false) {
       totalCount
     }
     teams {
@@ -108,7 +108,7 @@ const organizationMembers = (login, pagination) => {
 const organizationRepositories = (login, pagination) => {
   const inputs = `$login: String! $pagination: Int!`;
   const data = `
-  repositories(first: $pagination) {
+  repositories(first: $pagination isFork: false) {
     nodes {
       id
       nameWithOwner
