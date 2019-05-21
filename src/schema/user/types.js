@@ -5,9 +5,10 @@ import {
   GraphQLInt,
 } from 'graphql';
 
-const UserType =  new GraphQLObjectType({
+const UserType = new GraphQLObjectType({
   name: 'User',
-  description: 'An individual account on GitHub that owns repositories and can make new content.',
+  description:
+    'An individual account on GitHub that owns repositories and can make new content.',
 
   fields: () => ({
     id: { type: GraphQLID },

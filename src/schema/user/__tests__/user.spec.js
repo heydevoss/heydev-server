@@ -36,10 +36,3 @@ describe('User type tests', () => {
     expect(response.data).toEqual(expectedResponse.userWebsiteUrl);
   });
 });
-
-
-
-
-
-
-

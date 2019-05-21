@@ -8,12 +8,12 @@ const organization = {
   args: {
     login: {
       type: new GraphQLNonNull(GraphQLString),
-      description: 'Organization login on Github'
-    }
+      description: 'Organization login on Github',
+    },
   },
-  resolve: resolvers.Query.organization
-}
+  resolve: resolvers.Query.organization,
+};
 
 export default {
   organization,
-}
+};

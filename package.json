@@ -48,6 +48,7 @@
     "graphql": "^14.2.1",
     "node-fetch": "^2.5.0",
     "querystring": "^0.2.0",
+    "ramda": "^0.26.1",
     "request": "^2.88.0"
   }
 }

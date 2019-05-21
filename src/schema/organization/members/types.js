@@ -1,8 +1,4 @@
-import {
-  GraphQLObjectType,
-  GraphQLID,
-  GraphQLString,
-} from 'graphql';
+import { GraphQLObjectType, GraphQLID, GraphQLString } from 'graphql';
 
 const OrganizationMemberType = new GraphQLObjectType({
   name: 'OrganizationMember',
@@ -13,9 +9,8 @@ const OrganizationMemberType = new GraphQLObjectType({
     name: { type: GraphQLString },
     login: { type: GraphQLString },
     role: { type: GraphQLString },
-    url: { type: GraphQLString }
-  })
+    url: { type: GraphQLString },
+  }),
 });
 
 export default OrganizationMemberType;
-

@@ -21,8 +21,8 @@ query {
         websiteUrl
         totalRepos
     }
-}
-`
+  }
+`;
 
 /**
  * Query for test the obtaining of one user atributter
@@ -129,7 +129,6 @@ query {
     }
 }
 `
-
 export {
     user,
     userLogin,
