@@ -1,3 +1,22 @@
+const repositoriesTotalCommits = {
+  organization: {
+    repositories: [
+      {
+        totalCommits: 156,
+      },
+      {
+        totalCommits: 54,
+      },
+      {
+        totalCommits: 6,
+      },
+      {
+        totalCommits: 10,
+      },
+    ]
+  }
+};
+
 const repositories = {
   organization: {
     repositories: [
@@ -6,7 +25,7 @@ const repositories = {
         name: 'panelinhadees/server',
         viewerCanAdminister: true,
         totalForks: 0,
-        totalOpenIssues: 17,
+        totalOpenIssues: 16,
         totalStars: 5,
       },
       {
@@ -37,4 +56,7 @@ const repositories = {
   },
 };
 
-export { repositories };
+export {
+  repositories,
+  repositoriesTotalCommits,
+};
