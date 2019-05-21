@@ -4,6 +4,11 @@ const me = () => {
       viewer {
         id
         login
+        name
+        location
+        bio
+        email
+        websiteUrl
         repositories {
           totalCount
         }

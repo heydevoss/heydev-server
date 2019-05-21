@@ -57,6 +57,7 @@ const requestAccessToken = (req, res) => {
     let url;
     if (!error && response.statusCode === 200) {
       const { access_token } = body;
+      
       url = getClientURL(`${config.client.successPath}/${access_token}`);
     } else {
       const queryString = querystring.stringify({ error: 'invalid_token' });
