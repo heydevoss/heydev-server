@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest src/schema/organization/contributors/__tests__/*.spec.js",
+    "test": "jest '.spec.js'",
     "start": "nodemon --exec babel-node src/index.js",
     "check-lint": "prettier --list-different 'src/*.js' && eslint 'src/*.js'",
     "lint": "prettier --write 'src/*.js' && eslint --fix 'src/*.js'"
