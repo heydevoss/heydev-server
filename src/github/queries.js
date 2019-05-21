@@ -30,6 +30,19 @@ const getOrganizationData = (inputs, data, variables) => {
   });
 };
 
+const getSearchData = (query, type, data) => {
+  return JSON.stringify({
+    query: `{
+      search(
+        query: "${query}"
+        type: ${type}
+      ) {
+        ${data}
+      }
+    }`
+  });
+}
+
 const organization = login => {
   const inputs = `$login: String!`;
   const data = `
@@ -42,7 +55,7 @@ const organization = login => {
     membersWithRole {
       totalCount
     }
-    repositories {
+    repositories(isFork: false) {
       totalCount
     }
     teams {
@@ -113,7 +126,7 @@ const organizationMembers = (login, pagination) => {
 const organizationRepositories = (login, pagination) => {
   const inputs = `$login: String! $pagination: Int!`;
   const data = `
-  repositories(first: $pagination) {
+  repositories(first: $pagination isFork: false) {
     nodes {
       id
       nameWithOwner
@@ -133,6 +146,20 @@ const organizationRepositories = (login, pagination) => {
   return getOrganizationData(inputs, data, variables);
 };
 
+const organizationTotalPullRequests = (login) => {
+  const query = `org:${login} type:pr`;
+  const data = "issueCount";
+
+  return getSearchData(query, "ISSUE", data);
+}
+
+const organizationTotalIssues = (login) => {
+  const query = `org:${login} type:issue`;
+  const data = "issueCount";
+
+  return getSearchData(query, "ISSUE", data);
+}
+
 export default {
   me,
   organization,
@@ -140,4 +167,6 @@ export default {
   organizationMembers,
   organizationRepositories,
   organizationTeamMembers,
+  organizationTotalPullRequests,
+  organizationTotalIssues,
 };
