@@ -16,6 +16,7 @@ const RepositoryType = new GraphQLObjectType({
     viewerCanAdminister: { type: GraphQLBoolean },
     totalForks: { type: GraphQLInt },
     totalOpenIssues: { type: GraphQLInt },
+    totalOpenPullRequests: { type: GraphQLInt },
     totalStars: { type: GraphQLInt },
     totalCommits: { type: GraphQLInt },
   }),

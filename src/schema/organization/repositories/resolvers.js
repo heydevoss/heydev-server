@@ -8,6 +8,7 @@ const addReposToArray = (repos, reposArray) => {
     const repoForks = repo.forkCount;
     const repoViewerAdmin = repo.viewerCanAdminister;
     const repoIssues = repo.issues.totalCount;
+    const repoPullRequests = repo.pullRequests.totalCount;
     const repoStars = repo.stargazers.totalCount;
 
     const numberofCommits = repo.object.history.totalCount;
@@ -18,6 +19,7 @@ const addReposToArray = (repos, reposArray) => {
       viewerCanAdminister: repoViewerAdmin,
       totalForks: repoForks,
       totalOpenIssues: repoIssues,
+      totalOpenPullRequests: repoPullRequests,
       totalStars: repoStars,
       totalCommits: numberofCommits,
     });
