@@ -17,6 +17,79 @@ const me = () => {
   });
 };
 
+const getContributorsData = (data, info) => {
+  const inputs = `
+    $orgID: ID!, 
+    $login: String!, 
+    $firstRepos: Int!, 
+    $firstUsers: Int!, 
+    $afterRepos: String,
+    $afterUsers: String,
+  `;
+
+  const { id: orgID, login } = info.organization;
+  const { after: afterRepos, first: firstRepos } = info.repoArgs;
+  const { after: afterUsers, first: firstUsers } = info.userArgs;
+
+  const variables = {orgID, login, firstRepos, firstUsers, afterRepos, afterUsers};
+
+  const query = `
+    query getFirstContributionDate(${inputs}) {
+      organization(login: $login) {
+        repositories(first: $firstRepos after: $afterRepos) {
+          nodes {
+            mentionableUsers(first: $firstUsers after: $afterUsers) {
+              nodes {
+                ${data}
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  return JSON.stringify({query, variables});
+}
+
+/**
+ * Fetch contributors from the specified organization
+ * @param {object} organization
+ * @param {object} repositoryArgs object with args (first, after, etc) to filter repositories
+ * @param {object} userArgs object with args (first, after, etc) to filter metionableUsers
+ */
+const contributors = (organization, repoArgs, userArgs) => {
+  const data = `
+    id
+    name
+    bio
+    location
+    email
+    login
+    websiteUrl
+    contributionsCollection(organizationID: $orgID) {
+      pullRequestContributions(last: 1) {
+        nodes {
+          firstContributionDate: occurredAt
+        }
+      }
+      issueContributions(last: 1) {
+        nodes {
+          firstContributionDate: occurredAt
+        }
+      }
+      pullRequestReviewContributions(last: 1) {
+        nodes {
+          firstContributionDate: occurredAt
+        }
+      }
+    }
+  `;
+
+  const info = {organization, repoArgs, userArgs};
+  return getContributorsData(data, info);
+}
+
 const getOrganizationData = (inputs, data, variables) => {
   return JSON.stringify({
     query: `query getRepoOwner(${inputs}) {
@@ -140,4 +213,5 @@ export default {
   organizationMembers,
   organizationRepositories,
   organizationTeamMembers,
+  contributors
 };

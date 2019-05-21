@@ -8,6 +8,7 @@ import {
 import members from './members/queries';
 import repositories from './repositories/queries';
 import teams from './teams/queries';
+import contributors from './contributors/queries';
 
 const OrganizationType = new GraphQLObjectType({
   name: 'Organization',
@@ -27,6 +28,7 @@ const OrganizationType = new GraphQLObjectType({
     teams,
     members,
     repositories,
+    contributors
   }),
 });
 
