@@ -12,13 +12,13 @@ export default {
       return data.total_count;
     },
     issues: async (parent, args, { token }) => {
-      let body = githubQueries.totalIssuesOrganization(parent.login);
+      let body = githubQueries.organizationTotalIssues(parent.login);
       let data = await fetchData(body, token);
 
       return data.data.search.issueCount;
     },
     pullRequests : async (parent, args, { token }) => {
-      let body = githubQueries.totalPROrganization(parent.login);
+      let body = githubQueries.organizationTotalPullRequests(parent.login);
       let data = await fetchData(body, token);
 
       return data.data.search.issueCount;

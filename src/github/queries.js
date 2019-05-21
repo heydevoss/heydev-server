@@ -141,14 +141,14 @@ const organizationRepositories = (login, pagination) => {
   return getOrganizationData(inputs, data, variables);
 };
 
-const totalPROrganization = (login) => {
+const organizationTotalPullRequests = (login) => {
   const query = `org:${login} type:pr`;
   const data = "issueCount";
 
   return getSearchData(query, "ISSUE", data);
 }
 
-const totalIssuesOrganization = (login) => {
+const organizationTotalIssues = (login) => {
   const query = `org:${login} type:issue`;
   const data = "issueCount";
 
@@ -162,6 +162,6 @@ export default {
   organizationMembers,
   organizationRepositories,
   organizationTeamMembers,
-  totalPROrganization,
-  totalIssuesOrganization,
+  organizationTotalPullRequests,
+  organizationTotalIssues,
 };
