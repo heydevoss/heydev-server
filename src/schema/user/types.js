@@ -13,8 +13,13 @@ const UserType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     login: { type: GraphQLString },
-    totalRepos: { type: GraphQLInt },
-  }),
+    name: { type: GraphQLString },
+    location: { type: GraphQLString },
+    bio: { type: GraphQLString },
+    email: { type: GraphQLString },
+    websiteUrl: { type: GraphQLString },
+    totalRepos: { type: GraphQLInt }
+  })
 });
 
 export default UserType;

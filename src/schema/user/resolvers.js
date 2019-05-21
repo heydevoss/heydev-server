@@ -12,8 +12,13 @@ export default {
       return {
         id: viewer.id,
         login: viewer.login,
-        totalRepos: viewer.repositories.totalCount,
-      };
-    },
-  },
-};
+        name: viewer.name,
+        location: viewer.location,
+        bio: viewer.bio,
+        email: viewer.email,
+        websiteUrl: viewer.websiteUrl,
+        totalRepos: viewer.repositories.totalCount
+      }
+    }
+  }
+}
