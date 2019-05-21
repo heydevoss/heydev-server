@@ -77,4 +77,13 @@ describe('Repository type tests', () => {
       expectedResultRepositoriesIdTotalForksTotalOpenIssuesTotalStars
     );
   });
+
+  it('repositories { totalCommits }: Repository', async () => {
+    const { data } = await query({
+      query: queries.repositoriesTotalCommits,
+      variables: { login, maxNumberOfRepositories },
+    });
+
+    expect(data).toEqual(expectedResult.repositoriesTotalCommits);
+  });
 });

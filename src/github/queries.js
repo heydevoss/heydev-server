@@ -138,6 +138,13 @@ const organizationRepositories = (login, pagination) => {
       stargazers {
         totalCount
       }
+      object(expression: "master") {
+        ... on Commit {
+          history {
+            totalCount
+          }
+        }
+      }
     }
   }
   `;
