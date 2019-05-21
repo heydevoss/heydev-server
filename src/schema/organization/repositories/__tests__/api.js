@@ -132,16 +132,16 @@ const repositoriesIdTotalForksTotalOpenIssuesTotalStars = gql`
  *                      of the desired repository inside an organization.
  */
 const repositoriesTotalCommits = gql`
-query repositoriesTotalCommits(
-  $login: String!
-  $maxNumberOfRepositories: Int!
-) {
-  organization(login: $login) {
-    repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
-      totalCommits
+  query repositoriesTotalCommits(
+    $login: String!
+    $maxNumberOfRepositories: Int!
+  ) {
+    organization(login: $login) {
+      repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
+        totalCommits
+      }
     }
   }
-}
 `;
 
 export {
