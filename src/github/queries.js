@@ -25,6 +25,19 @@ const getOrganizationData = (inputs, data, variables) => {
   });
 };
 
+const getSearchData = (query, type, data) => {
+  return JSON.stringify({
+    query: `{
+      search(
+        query: "${query}"
+        type: ${type}
+      ) {
+        ${data}
+      }
+    }`
+  });
+}
+
 const organization = login => {
   const inputs = `$login: String!`;
   const data = `
@@ -128,132 +141,18 @@ const organizationRepositories = (login, pagination) => {
   return getOrganizationData(inputs, data, variables);
 };
 
-const totalPROrganization = (login, pagination) => {
-  const inputs = `$login: String! $pagination: Int!`;
-  const data = `
-    repositories(first: $pagination isFork: false) {
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
-      nodes {
-        pullRequests {
-          totalCount
-        }
-      }
-    }
-  `;
+const totalPROrganization = (login) => {
+  const query = `org:${login} type:pr`;
+  const data = "issueCount";
 
-  const variables = { login, pagination };
-  return getOrganizationData(inputs, data, variables);
+  return getSearchData(query, "ISSUE", data);
 }
 
-const totalPROrganizationAfter = (login, pagination, cursor) => {
-  const inputs = `$login: String! $pagination: Int! $cursor: String!`;
-  const data = `
-    repositories(first: $pagination after: $cursor isFork: false) {
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
-      nodes {
-        pullRequests {
-          totalCount
-        }
-      }
-    }
-  `;
+const totalIssuesOrganization = (login) => {
+  const query = `org:${login} type:issue`;
+  const data = "issueCount";
 
-  const variables = { login, pagination, cursor };
-  return getOrganizationData(inputs, data, variables);
-}
-
-const totalCommitsOrganization = (login, pagination) => {
-  const inputs = `$login: String! $pagination: Int!`;
-  const data = `
-    repositories(first: $pagination isFork: false) {
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
-      nodes {
-        object(expression: "master") {
-          ... on Commit {
-            history {
-              totalCount
-            }
-          }
-        }
-      }
-    }
-  `;
-
-  const variables = { login, pagination };
-  return getOrganizationData(inputs, data, variables);
-}
-
-const totalCommitsOrganizationAfter = (login, pagination, cursor) => {
-  const inputs = `$login: String! $pagination: Int! $cursor: String!`;
-  const data = `
-    repositories(first: $pagination after: $cursor isFork: false) {
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
-      nodes {
-        object(expression: "master") {
-          ... on Commit {
-            history {
-              totalCount
-            }
-          }
-        }
-      }
-    }
-  `;
-
-  const variables = { login, pagination, cursor };
-  return getOrganizationData(inputs, data, variables);
-}
-
-const totalIssuesOrganization = (login, pagination) => {
-  const inputs = `$login: String! $pagination: Int!`;
-  const data = `
-    repositories(first: $pagination isFork: false) {
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
-      nodes {
-        issues {
-          totalCount
-        }
-      }
-    }
-  `;
-
-  const variables = { login, pagination };
-  return getOrganizationData(inputs, data, variables);
-}
-
-const totalIssuesOrganizationAfter = (login, pagination, cursor) => {
-  const inputs = `$login: String! $pagination: Int! $cursor: String!`;
-  const data = `
-    repositories(first: $pagination after: $cursor isFork: false) {
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
-      nodes {
-        issues {
-          totalCount
-        }
-      }
-    }
-  `;
-
-  const variables = { login, pagination, cursor };
-  return getOrganizationData(inputs, data, variables);
+  return getSearchData(query, "ISSUE", data);
 }
 
 export default {
@@ -264,9 +163,5 @@ export default {
   organizationRepositories,
   organizationTeamMembers,
   totalPROrganization,
-  totalPROrganizationAfter,
-  totalCommitsOrganization,
-  totalCommitsOrganizationAfter,
   totalIssuesOrganization,
-  totalIssuesOrganizationAfter,
 };
