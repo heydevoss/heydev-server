@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest '.spec.js'",
+    "test": "jest src/schema/organization/contributors/__tests__/*.spec.js",
     "start": "nodemon --exec babel-node src/index.js",
     "check-lint": "prettier --list-different 'src/*.js' && eslint 'src/*.js'",
     "lint": "prettier --write 'src/*.js' && eslint --fix 'src/*.js'"
@@ -46,6 +46,7 @@
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "graphql": "^14.2.1",
+    "graphql-iso-date": "^3.6.1",
     "node-fetch": "^2.5.0",
     "querystring": "^0.2.0",
     "ramda": "^0.26.1",
