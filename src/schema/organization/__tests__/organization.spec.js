@@ -2,10 +2,12 @@ import { createTestClient } from 'apollo-server-testing';
 import * as queries from './api';
 import * as expectedResults from './expectedResults';
 import testServer from '../../../testUtils/integration/serverFactory';
+import { getPropsFromList } from '../../../testUtils/integration/dataExtractor';
 
 describe('Organization type tests', () => {
   const login = 'panelinhadees';
   const { query } = createTestClient(testServer);
+  const organizationPath = [];
 
   it('organization: Organization', async () => {
     const { data } = await(query({
@@ -20,7 +22,14 @@ describe('Organization type tests', () => {
       query: queries.organizationId,
       variables: { login },
     }));
-    expect(data).toEqual(expectedResults.organizationId);
+
+    const organizationIdExpectedResult = getPropsFromList(
+      expectedResults.organizationData,
+      organizationPath,
+      ['id'],
+    );
+
+    expect(data).toEqual(organizationIdExpectedResult);
   });
 
   it('organization: { login }: Organization', async () => {
@@ -28,7 +37,14 @@ describe('Organization type tests', () => {
       query: queries.organizationLogin,
       variables: { login },
     }));
-    expect(data).toEqual(expectedResults.organizationLogin);
+
+    const organizationLoginExpectedResult = getPropsFromList(
+      expectedResults.organizationData,
+      organizationPath,
+      ['login'],
+    );
+    
+    expect(data).toEqual(organizationLoginExpectedResult);
   });
 
   it('organization: { name }: Organization', async () => {
@@ -36,7 +52,14 @@ describe('Organization type tests', () => {
       query: queries.organizationName,
       variables: { login },
     }));
-    expect(data).toEqual(expectedResults.organizationName);
+    
+    const organizationNameExpectedResult = getPropsFromList(
+      expectedResults.organizationData,
+      organizationPath,
+      ['name'],
+    );
+    
+    expect(data).toEqual(organizationNameExpectedResult);
   });
 
   it('organization: { websiteUrl }: Organization', async () => {
@@ -44,7 +67,14 @@ describe('Organization type tests', () => {
       query: queries.organizationWebsiteUrl,
       variables: { login },
     }));
-    expect(data).toEqual(expectedResults.organizationWebsiteUrl);
+    
+    const organizationWebsiteUrlExpectedResult = getPropsFromList(
+      expectedResults.organizationData,
+      organizationPath,
+      ['websiteUrl'],
+    );
+    
+    expect(data).toEqual(organizationWebsiteUrlExpectedResult);
   });
 
   it('organization: { totalMembers }: Organization', async () => {
@@ -52,7 +82,14 @@ describe('Organization type tests', () => {
       query: queries.organizationTotalMembers,
       variables: { login },
     }));
-    expect(data).toEqual(expectedResults.organizationTotalMembers);
+    
+    const organizationTotalMembersExpectedResult = getPropsFromList(
+      expectedResults.organizationData,
+      organizationPath,
+      ['totalMembers'],
+    );
+    
+    expect(data).toEqual(organizationTotalMembersExpectedResult);
   });
 
   it('organization: { totalRepos }: Organization', async () => {
@@ -60,7 +97,14 @@ describe('Organization type tests', () => {
       query: queries.organizationTotalRepos,
       variables: { login },
     }));
-    expect(data).toEqual(expectedResults.organizationTotalRepos);
+    
+    const organizationTotalReposExpectedResult = getPropsFromList(
+      expectedResults.organizationData,
+      organizationPath,
+      ['totalRepos'],
+    );
+    
+    expect(data).toEqual(organizationTotalReposExpectedResult);
   });
 
   it('organization: { totalTeams }: Organization', async () => {
@@ -68,7 +112,14 @@ describe('Organization type tests', () => {
       query: queries.organizationTotalTeams,
       variables: { login },
     }));
-    expect(data).toEqual(expectedResults.organizationTotalTeams);
+    
+    const organizationTotalTeamsExpectedResult = getPropsFromList(
+      expectedResults.organizationData,
+      organizationPath,
+      ['totalTeams'],
+    );
+    
+    expect(data).toEqual(organizationTotalTeamsExpectedResult);
   });
 
   it('organization: { totalPullRequests }: Organization', async () => {
@@ -76,7 +127,14 @@ describe('Organization type tests', () => {
       query: queries.organizationTotalPullRequests,
       variables: { login },
     }));
-    expect(data).toEqual(expectedResults.organizationTotalPullRequests);
+    
+    const organizationTotalPullRequestsExpectedResult = getPropsFromList(
+      expectedResults.organizationData,
+      organizationPath,
+      ['totalPullRequests'],
+    );
+    
+    expect(data).toEqual(organizationTotalPullRequestsExpectedResult);
   });
 
   it('organization: { totalIssues }: Organization', async () => {
@@ -84,7 +142,14 @@ describe('Organization type tests', () => {
       query: queries.organizationTotalIssues,
       variables: { login },
     }));
-    expect(data).toEqual(expectedResults.organizationTotalIssues);
+    
+    const organizationTotalIssuesExpectedResult = getPropsFromList(
+      expectedResults.organizationData,
+      organizationPath,
+      ['totalIssues'],
+    );
+    
+    expect(data).toEqual(organizationTotalIssuesExpectedResult);
   });
 
   it('organization: { totalCommits }: Organization', async () => {
@@ -92,6 +157,13 @@ describe('Organization type tests', () => {
       query: queries.organizationTotalCommits,
       variables: { login },
     }));
-    expect(data).toEqual(expectedResults.organizationTotalCommits);
+    
+    const organizationTotalCommitsExpectedResult = getPropsFromList(
+      expectedResults.organizationData,
+      organizationPath,
+      ['totalCommits'],
+    );
+    
+    expect(data).toEqual(organizationTotalCommitsExpectedResult);
   });
 })
