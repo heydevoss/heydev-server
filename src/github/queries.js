@@ -135,6 +135,9 @@ const organizationRepositories = (login, pagination) => {
       issues(states: OPEN) {
         totalCount
       }
+      pullRequests(states: OPEN) {
+        totalCount
+      }
       stargazers {
         totalCount
       }

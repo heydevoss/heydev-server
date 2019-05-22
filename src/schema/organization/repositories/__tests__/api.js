@@ -12,6 +12,7 @@ import gql from 'graphql-tag';
  *                   `viewerCanAdminister`
  *                   `totalForks`
  *                   `totalOpenIssues`
+ *                   `totalOpenPullRequests`
  *                   `totalStars`
  *                   of the desired `organization`
  * */
@@ -24,6 +25,7 @@ const repositories = gql`
         viewerCanAdminister
         totalForks
         totalOpenIssues
+        totalOpenPullRequests
         totalStars
       }
     }
