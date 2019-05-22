@@ -2,10 +2,10 @@ const repositoriesTotalCommits = {
   organization: {
     repositories: [
       {
-        totalCommits: 156,
+        totalCommits: 195,
       },
       {
-        totalCommits: 54,
+        totalCommits: 55,
       },
       {
         totalCommits: 6,
@@ -25,7 +25,8 @@ const repositories = {
         name: 'panelinhadees/server',
         viewerCanAdminister: true,
         totalForks: 0,
-        totalOpenIssues: 16,
+        totalOpenIssues: 8,
+        totalOpenPullRequests: 3,
         totalStars: 5,
       },
       {
@@ -33,7 +34,8 @@ const repositories = {
         name: 'panelinhadees/client',
         viewerCanAdminister: true,
         totalForks: 0,
-        totalOpenIssues: 11,
+        totalOpenIssues: 13,
+        totalOpenPullRequests: 3,
         totalStars: 6,
       },
       {
@@ -42,6 +44,7 @@ const repositories = {
         viewerCanAdminister: true,
         totalForks: 0,
         totalOpenIssues: 1,
+        totalOpenPullRequests: 0,
         totalStars: 1,
       },
       {
@@ -50,6 +53,7 @@ const repositories = {
         viewerCanAdminister: true,
         totalForks: 0,
         totalOpenIssues: 0,
+        totalOpenPullRequests: 0, 
         totalStars: 0,
       },
     ],
