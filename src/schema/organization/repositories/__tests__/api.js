@@ -17,8 +17,8 @@ import gql from 'graphql-tag';
  *                   of the desired `organization`
  * */
 const repositories = gql`
-  query repositories($login: String!, $maxNumberOfRepositories: Int!) {
-    organization(login: $login) {
+  query repositories($maxNumberOfRepositories: Int!) {
+    organization {
       repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
         id
         name
@@ -41,8 +41,8 @@ const repositories = gql`
  *                   of the desired `organization`
  * */
 const repositoriesName = gql`
-  query repositoriesName($login: String!, $maxNumberOfRepositories: Int!) {
-    organization(login: $login) {
+  query repositoriesName($maxNumberOfRepositories: Int!) {
+    organization {
       repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
         name
       }
@@ -60,11 +60,8 @@ const repositoriesName = gql`
  *                   of the desired `organization`
  * */
 const repositoriesNameViewerCanAdminister = gql`
-  query repositoriesNameViewerCanAdminister(
-    $login: String!
-    $maxNumberOfRepositories: Int!
-  ) {
-    organization(login: $login) {
+  query repositoriesNameViewerCanAdminister($maxNumberOfRepositories: Int!) {
+    organization {
       repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
         name
         viewerCanAdminister
@@ -84,11 +81,8 @@ const repositoriesNameViewerCanAdminister = gql`
  *                   of the desired `organization`
  * */
 const repositoriesTotalForksTotalOpenIssuesTotalStars = gql`
-  query repositoriesTotalForksTotalOpenIssuesTotalStars(
-    $login: String!
-    $maxNumberOfRepositories: Int!
-  ) {
-    organization(login: $login) {
+  query repositoriesTotalForksTotalOpenIssuesTotalStars($maxNumberOfRepositories: Int!) {
+    organization {
       repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
         totalForks
         totalOpenIssues
@@ -110,11 +104,8 @@ const repositoriesTotalForksTotalOpenIssuesTotalStars = gql`
  *                   of the desired `organization`
  * */
 const repositoriesIdTotalForksTotalOpenIssuesTotalStars = gql`
-  query repositoriesIdTotalForksTotalOpenIssuesTotalStars(
-    $login: String!
-    $maxNumberOfRepositories: Int!
-  ) {
-    organization(login: $login) {
+  query repositoriesIdTotalForksTotalOpenIssuesTotalStars($maxNumberOfRepositories: Int!) {
+    organization {
       repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
         id
         totalForks
@@ -134,11 +125,8 @@ const repositoriesIdTotalForksTotalOpenIssuesTotalStars = gql`
  *                      of the desired repository inside an organization.
  */
 const repositoriesTotalCommits = gql`
-  query repositoriesTotalCommits(
-    $login: String!
-    $maxNumberOfRepositories: Int!
-  ) {
-    organization(login: $login) {
+  query repositoriesTotalCommits($maxNumberOfRepositories: Int!) {
+    organization {
       repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
         totalCommits
       }
