@@ -59,6 +59,8 @@ const getContributorsData = (data, info) => {
  * @param {object} userArgs object with args (first, after, etc) to filter metionableUsers
  */
 const contributors = (organization, repoArgs, userArgs) => {
+  const contributionInfo = 'nodes { firstContributionDate: occurredAt }';
+  const last = 1;
   const data = `
     id
     name
@@ -68,21 +70,9 @@ const contributors = (organization, repoArgs, userArgs) => {
     login
     websiteUrl
     contributionsCollection(organizationID: $orgID) {
-      pullRequestContributions(last: 1) {
-        nodes {
-          firstContributionDate: occurredAt
-        }
-      }
-      issueContributions(last: 1) {
-        nodes {
-          firstContributionDate: occurredAt
-        }
-      }
-      pullRequestReviewContributions(last: 1) {
-        nodes {
-          firstContributionDate: occurredAt
-        }
-      }
+      pullRequestContributions(last: ${last}) { ${contributionInfo} }
+      issueContributions(last: ${last}) { ${contributionInfo} }
+      pullRequestReviewContributions(last: ${last}) { ${contributionInfo} }
     }
   `;
 
