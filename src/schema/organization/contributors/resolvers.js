@@ -53,15 +53,14 @@ const processFirstContributionDate = (user) => {
     const contributions = [issuesNodes, pullRequestsNodes, reviewsNodes];
 
     const dates = [];
-    var firstContrib;
     contributions.forEach(contribution => {
       if (contribution && contribution.length > 0) {
-        firstContrib = contribution[0].occurredAt;
+        let firstContrib = contribution[0].occurredAt;
         dates.push(new Date(firstContrib)); 
       }
     });
 
-    var result = undefined;
+    let result = undefined;
     if (dates.length > 0)
       result = getOldestDate(dates);
     return result;
@@ -72,7 +71,7 @@ const firstContributionDateResolver = async(parent, args, { token }) => {
   const { login } = args;
   const body = githubQueries.firstContributionDate(login, parent.id);
   const data = await fetchData(body, token);
-  
+
   const result = processFirstContributionDate(data.data.user);
   return result;
 }
