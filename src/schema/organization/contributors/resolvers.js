@@ -105,7 +105,7 @@ export default {
     },
     contributor: async (parent, args, { token }, info) => {
       const { login } = args;
-      var loginIsValid = await validateLogin(login, parent.id, token);
+      const isValidLogin = await validateLogin(login, parent.id, token);
       var contributor;
 
       if (loginIsValid) {
