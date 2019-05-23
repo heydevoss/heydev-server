@@ -58,14 +58,16 @@ const processFirstContributionDate = (user) => {
     const dates = [];
     var firstContrib;
     contributions.forEach(contribution => {
-      if (contribution && contribution != []) {
+      if (contribution && contribution.length > 0) {
         firstContrib = contribution[0].occurredAt;
         dates.push(new Date(firstContrib)); 
       }
     });
 
-    const result = getOldestDate(dates);
-    return dates.length > 0 ? result : undefined;
+    var result = undefined;
+    if (dates.length > 0)
+      result = getOldestDate(dates);
+    return result;
   }
 }
 
@@ -76,6 +78,14 @@ const firstContributionDateResolver = async(parent, args, { token }) => {
   
   var result = processFirstContributionDate(data.data.user);
   return result;
+}
+
+const validateLogin = async (login, orgID, token) => {
+  const body = githubQueries.isContributor(login, orgID);
+  const data = await fetchData(body, token);
+  const { user } = data.data;
+  const isValid = (user && user.contributionsCollection.hasAnyContributions);
+  return isValid;
 }
 
 export default {
@@ -95,19 +105,26 @@ export default {
     },
     contributor: async (parent, args, { token }, info) => {
       const { login } = args;
+      var loginIsValid = await validateLogin(login, parent.id, token);
+      var contributor;
 
-      const body = githubQueries.contributor(login);
-      const data = await fetchData(body, token);
-      var contributor = data.data.user;
-
-      const { fieldNodes } = info;
-      const rootFields = (fieldNodes.filter(node => node.name.value == 'contributor')).pop();
-      const fields = rootFields.selectionSet.selections.map(node => node.name.value);
-
-      if (fields.includes('firstContributionDate')) {
-        contributor.firstContributionDate = firstContributionDateResolver(parent, args, { token });
+      if (loginIsValid) {
+        const body = githubQueries.contributor(login);
+        const data = await fetchData(body, token);
+        contributor = data.data.user;
+  
+        const { fieldNodes } = info;
+        const rootFields = (fieldNodes.filter(node => node.name.value == 'contributor')).pop();
+        const fields = rootFields.selectionSet.selections.map(node => node.name.value);
+  
+        if (fields.includes('firstContributionDate')) {
+          contributor.firstContributionDate = firstContributionDateResolver(parent, args, { token });
+        }
+      } else {
+        throw new Error(`User '${login}' may not be a GitHub User or a Contributor.`
+        );
       }
-      
+
       return contributor;
     },
   },

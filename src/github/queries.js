@@ -34,6 +34,17 @@ const contributor = (login) => {
   return getContributorData(inputs, data, variables);
 }
 
+const isContributor = (login, orgID) => {
+  const inputs = '$orgID: ID!';
+  const data = `
+    contributionsCollection(organizationID: $orgID) {
+      hasAnyContributions
+    }
+  `;
+  const variables = { login, orgID };
+  return getContributorData(inputs, data, variables);
+}
+
 /**
  * Format the json with the query string and variables needed by the query to
  * get the first contribution date from a contributor
@@ -278,6 +289,7 @@ export default {
   organizationTeamMembers,
   contributors,
   contributor,
+  isContributor,
   firstContributionDate,
   organizationTotalPullRequests,
   organizationTotalIssues,
