@@ -19,7 +19,6 @@ const me = () => {
 
 const getContributorsData = (data, info) => {
   const inputs = `
-    $orgID: ID!, 
     $login: String!, 
     $firstRepos: Int!, 
     $firstUsers: Int!, 
@@ -34,7 +33,7 @@ const getContributorsData = (data, info) => {
   const variables = {orgID, login, firstRepos, firstUsers, afterRepos, afterUsers};
 
   const query = `
-    query getFirstContributionDate(${inputs}) {
+    query getContributors(${inputs}) {
       organization(login: $login) {
         repositories(first: $firstRepos after: $afterRepos) {
           nodes {
@@ -59,8 +58,6 @@ const getContributorsData = (data, info) => {
  * @param {object} userArgs object with args (first, after, etc) to filter metionableUsers
  */
 const contributors = (organization, repoArgs, userArgs) => {
-  const contributionInfo = 'nodes { firstContributionDate: occurredAt }';
-  const last = 1;
   const data = `
     id
     name
@@ -69,11 +66,6 @@ const contributors = (organization, repoArgs, userArgs) => {
     email
     login
     websiteUrl
-    contributionsCollection(organizationID: $orgID) {
-      pullRequestContributions(last: ${last}) { ${contributionInfo} }
-      issueContributions(last: ${last}) { ${contributionInfo} }
-      pullRequestReviewContributions(last: ${last}) { ${contributionInfo} }
-    }
   `;
 
   const info = {organization, repoArgs, userArgs};
