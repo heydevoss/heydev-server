@@ -10,6 +10,6 @@
  */
 export const getOldestDate = (dates) => {
   const orderedDates = dates.sort();
-  const result = orderedDates[0];
+  const [result, ..._] = orderedDates;
   return new Date(result.getFullYear(), result.getMonth(), result.getDate());
 }
