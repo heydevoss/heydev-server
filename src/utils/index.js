@@ -9,7 +9,7 @@
  *  getOldestDate([new Date('2019-05-01'), new Date('2019-05-20')])
  */
 export const getOldestDate = (dates) => {
-  const orderedDates = dates.sort(function(a,b){
+   const orderedDates = dates.sort();
     return a > b;
   });
 
