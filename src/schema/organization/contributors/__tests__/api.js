@@ -173,6 +173,28 @@ const contributorsFirstFour = gql`
     }
 `;
 
+/**
+ * Query for test the obtaining the first four contributors from organization specified
+ *
+ * @returns {OrganizationObject} an object containing:
+ *                   `contributor` with all the information about the contributor
+ *                   of the token passed
+**/
+
+/**
+ * Query for test the obtaining the contributor with the specified `fields`
+ * @param {string} fields
+ */
+const contributor = fields => gql`
+    query getContributor($login:String!) {
+        organization {
+            contributor(login:$login) {
+                ${fields}
+            }
+        }
+    }
+`;
+
 export {
     contributorsFirstOne,
     contributorsFirstOneID,
@@ -183,4 +205,5 @@ export {
     contributorsFirstOneLocation,
     contributorsFirstOneBio,
     contributorsFirstFour,
+    contributor,
 }

@@ -40,6 +40,22 @@ const contributors = {
         ]
     }
 }
+
+const contributor = {
+    organization: {
+        contributor: {
+            id: "MDQ6VXNlcjEzNDg4MDI1",
+            name: "Jadson Luan",
+            login: "jadsonluan",
+            email: "jadsonluan1@gmail.com",
+            websiteUrl: "",
+            bio: "A Computer Science undergraduate student.",
+            location: "Campina Grande",
+            firstContributionDate: "2019-04-27",
+        }
+    }
+}
 export {
     contributors,
+    contributor,
 };
