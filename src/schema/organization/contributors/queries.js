@@ -30,7 +30,7 @@ export const contributor = {
   args: {
     login: {
       type: new GraphQLNonNull(GraphQLString),
-      description: 'Login of the contributor',
+      description: 'Login of the contributor. It will be null if the user is not a Contributor or GitHub User',
     },
   },
   resolve: resolvers.Query.contributor,
