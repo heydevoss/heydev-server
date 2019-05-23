@@ -4,6 +4,8 @@ import {
   GraphQLString,
 } from 'graphql';
 
+import { GraphQLDate } from 'graphql-iso-date';
+
 const ContributorType = new GraphQLObjectType({
   name: 'Contributor',
   description:
@@ -17,7 +19,8 @@ const ContributorType = new GraphQLObjectType({
     bio: { type: GraphQLString },
     email: { type: GraphQLString },
     websiteUrl: { type: GraphQLString },
-  })
+    firstContributionDate: { type: GraphQLDate },
+  }),
 });
 
 export default ContributorType;

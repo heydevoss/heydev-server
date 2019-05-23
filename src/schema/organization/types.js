@@ -8,7 +8,7 @@ import {
 import members from './members/queries';
 import repositories from './repositories/queries';
 import teams from './teams/queries';
-import contributors from './contributors/queries';
+import {contributors, contributor} from './contributors/queries';
 import resolvers from './resolvers';
 
 const OrganizationType = new GraphQLObjectType({
@@ -30,6 +30,7 @@ const OrganizationType = new GraphQLObjectType({
     members,
     repositories,
     contributors,
+    contributor,
     totalPullRequests: { 
       type: GraphQLInt,
       resolve: resolvers.Query.pullRequests,

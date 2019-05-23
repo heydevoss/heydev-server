@@ -17,6 +17,59 @@ const me = () => {
   });
 };
 
+const simpleContributorFields = `
+  id
+  name
+  bio
+  location
+  email
+  login
+  websiteUrl
+`;
+
+const contributor = (login) => {
+  const data = simpleContributorFields;
+  const variables = {login};
+  const inputs = '';
+  return getContributorData(inputs, data, variables);
+}
+
+/**
+ * Format the json with the query string and variables needed by the query to
+ * get the first contribution date from a contributor
+ * @param {string} login contributor login
+ * @param {string} orgID organization id
+ */
+const firstContributionDate = (login, orgID) => {
+  const inputs = '$orgID: ID!';
+  
+  const contributionFields = 'nodes { occurredAt }';
+  const data = `
+    ${simpleContributorFields}
+    contributionsCollection(organizationID: $orgID) {
+      issueContributions(last: 1) {${contributionFields}}
+      pullRequestContributions(last: 1) {${contributionFields}}
+      pullRequestReviewContributions(last: 1) {${contributionFields}}
+    }
+  `;
+  
+  const variables = {login, orgID};
+
+  return getContributorData(inputs, data, variables);
+}
+
+const getContributorData = (inputs, data, variables) => {
+  const query = `
+    query getContributor($login: String! ${inputs}) {
+      user(login: $login) {
+        ${data}
+      }
+    }
+  `;
+
+  return JSON.stringify({query, variables});
+}
+
 const getContributorsData = (data, info) => {
   const inputs = `
     $login: String!, 
@@ -58,16 +111,7 @@ const getContributorsData = (data, info) => {
  * @param {object} userArgs object with args (first, after, etc) to filter metionableUsers
  */
 const contributors = (organization, repoArgs, userArgs) => {
-  const data = `
-    id
-    name
-    bio
-    location
-    email
-    login
-    websiteUrl
-  `;
-
+  const data = simpleContributorFields;
   const info = {organization, repoArgs, userArgs};
   return getContributorsData(data, info);
 }
@@ -233,6 +277,8 @@ export default {
   organizationRepositories,
   organizationTeamMembers,
   contributors,
+  contributor,
+  firstContributionDate,
   organizationTotalPullRequests,
   organizationTotalIssues,
 };

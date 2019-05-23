@@ -2,7 +2,7 @@ import { GraphQLList, GraphQLInt, GraphQLNonNull, GraphQLString } from 'graphql'
 import ContributorType from './types';
 import resolvers from './resolvers';
 
-const contributors = {
+export const contributors = {
   type: new GraphQLList(ContributorType),
   args: {
     first: {
@@ -25,4 +25,13 @@ const contributors = {
   resolve: resolvers.Query.contributors
 };
 
-export default contributors;
+export const contributor = {
+  type: ContributorType,
+  args: {
+    login: {
+      type: new GraphQLNonNull(GraphQLString),
+      description: 'Login of the contributor',
+    },
+  },
+  resolve: resolvers.Query.contributor,
+}
