@@ -43,20 +43,17 @@ const process = (repositories) => {
 export default {
   Query: {
     contributors: async (parent, args, { token }) => {
-      const start = Date.now();
       const { first, last, after, before } = args;
-      const { id: orgID } = parent;
 
       const repoArgs = { first: parent.totalRepos }; 
       const userArgs = { first };
 
       const body = githubQueries.contributors(parent, repoArgs, userArgs);
       const data = await fetchData(body, token);
-      console.log(data);
+      
       var contributorsArray = process(data.data.organization.repositories.nodes);
       contributorsArray.length = first;
-      const end = Date.now();
-      console.log((end - start) / 1000.0);
+      
       return contributorsArray;
     },
   },
