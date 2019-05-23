@@ -1,6 +1,6 @@
 import fetchData from '../../../github/dataFetcher';
 import githubQueries from '../../../github/queries';
-import { GeneralSet, getOldestDate } from './util.js'
+import { GeneralSet, getOldestDate } from '../../../utils'
 
 /**
  * Process the repositories array to leave only the information the schema needs.
