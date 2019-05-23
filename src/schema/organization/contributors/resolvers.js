@@ -33,10 +33,7 @@ const processContributors = (repositories) => {
   const contributors = new ContributorSet();
 
   repositories.forEach(repository => {
-    repository.mentionableUsers.nodes.forEach(user => {
-      user.a = 1;
-      contributors.add(user);
-    });
+    repository.mentionableUsers.nodes.forEach(user => contributors.add(user));
   });
   
   return Array.from(contributors.values());
@@ -76,7 +73,7 @@ const firstContributionDateResolver = async(parent, args, { token }) => {
   const body = githubQueries.firstContributionDate(login, parent.id);
   const data = await fetchData(body, token);
   
-  var result = processFirstContributionDate(data.data.user);
+  const result = processFirstContributionDate(data.data.user);
   return result;
 }
 
@@ -99,19 +96,18 @@ export default {
       const body = githubQueries.contributors(parent, repoArgs, userArgs);
       const data = await fetchData(body, token);
       
-    const contributorsArray = processContributors(data.data.organization.repositories.nodes);
+      const contributorsArray = processContributors(data.data.organization.repositories.nodes);
       contributorsArray.length = first;
       return contributorsArray;
     },
     contributor: async (parent, args, { token }, info) => {
       const { login } = args;
       const isValidLogin = await validateLogin(login, parent.id, token);
-      var contributor;
 
-      if (loginIsValid) {
+      if (isValidLogin) {
         const body = githubQueries.contributor(login);
         const data = await fetchData(body, token);
-        contributor = data.data.user;
+        const contributor = data.data.user;
   
         const { fieldNodes } = info;
         const rootFields = (fieldNodes.filter(node => node.name.value == 'contributor')).pop();
@@ -120,12 +116,11 @@ export default {
         if (fields.includes('firstContributionDate')) {
           contributor.firstContributionDate = firstContributionDateResolver(parent, args, { token });
         }
-      } else {
-        throw new Error(`User '${login}' may not be a GitHub User or a Contributor.`
-        );
-      }
 
-      return contributor;
+        return contributor;
+      } else {
+        throw new Error(`User '${login}' may not be a GitHub User or a Contributor.`);
+      }
     },
   },
 };
