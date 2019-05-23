@@ -9,7 +9,6 @@ const contributors = {
                 websiteUrl: "https://thayannevls.github.io",
                 location: "Campina Grande - PB",
                 bio: "Coding for a better self and a better world.",
-                firstContributionDate: "2019-04-27"
             },
             {
                 id: "MDQ6VXNlcjEzNDg4MDI1",
@@ -19,7 +18,6 @@ const contributors = {
                 websiteUrl: "",
                 location: "Campina Grande",
                 bio: "A Computer Science undergraduate student.",
-                firstContributionDate: "2019-04-27"
             },
             {
                 id: "MDQ6VXNlcjE0MTEzNDgw",
@@ -29,7 +27,6 @@ const contributors = {
                 websiteUrl: "https://fannyvieira.github.io/portfolio/",
                 location: "Campina Grande, PB, Brazil.",
                 bio: "",
-                firstContributionDate: "2019-04-26"
             },
             {
                 id: "MDQ6VXNlcjE0MTMwNjA5",
@@ -39,7 +36,6 @@ const contributors = {
                 websiteUrl: "https://github.com/RaylaMedeiros",
                 location: "Campina Grande, PB, Brazil",
                 bio: "",
-                firstContributionDate: "2019-05-01"
             }
         ]
     }

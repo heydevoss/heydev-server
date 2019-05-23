@@ -102,18 +102,6 @@ describe('Contributor type tests', () => {
     expect(data).toEqual(expected);
   });
 
-  it('contributors(first: 1) { firstContributionDate } : Contributor', async () => {
-    const { data } = await query({
-      query: queries.contributorsFirstOneFirstContributionDate,
-    });
-
-    const queryExpected = expectedResult.contributors;
-    queryExpected.organization.contributors.length = 1;
-    
-    const expected = getPropsFromList(queryExpected, contributorsPath, ['firstContributionDate']);
-    expect(data).toEqual(expected);
-  });
-
   it('contributors(first: 4) : Contributor', async () => {
     const { data } = await query({
       query: queries.contributorsFirstOne,

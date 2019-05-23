@@ -19,7 +19,6 @@ const contributorsFirstOne = gql`
                 websiteUrl
                 location
                 bio
-                firstContributionDate
             }
         }
     }
@@ -152,24 +151,6 @@ const contributorsFirstOneEmail = gql`
 `;
 
 /**
- * Query for test the obtaining the first contributor from organization specified
- * with only the `firstContributionDate` field inside contributors
- *
- * @returns {OrganizationObject} an object containing:
- *                   `contributors`
- *                   of the token passed
-**/
-const contributorsFirstOneFirstContributionDate = gql`
-    query getContributors {
-        organization {
-            contributors(first: 1) {
-                firstContributionDate
-            }
-        }
-    }
-`;
-
-/**
  * Query for test the obtaining the first four contributors from organization specified
  *
  * @returns {OrganizationObject} an object containing:
@@ -187,7 +168,6 @@ const contributorsFirstFour = gql`
                 websiteUrl
                 location
                 bio
-                firstContributionDate
             }
         }
     }
@@ -202,6 +182,5 @@ export {
     contributorsFirstOneWebsiteUrl,
     contributorsFirstOneLocation,
     contributorsFirstOneBio,
-    contributorsFirstOneFirstContributionDate,
     contributorsFirstFour,
 }
