@@ -19,6 +19,7 @@ const ContributorType = new GraphQLObjectType({
     bio: { type: GraphQLString },
     email: { type: GraphQLString },
     websiteUrl: { type: GraphQLString },
+    avatarUrl: { type: GraphQLString },
     firstContributionDate: { type: GraphQLDate },
   }),
 });

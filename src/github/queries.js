@@ -25,6 +25,7 @@ const simpleContributorFields = `
   email
   login
   websiteUrl
+  avatarUrl
 `;
 
 const contributor = (login) => {
