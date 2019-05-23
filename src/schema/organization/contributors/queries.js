@@ -11,15 +11,15 @@ const contributors = {
     },
     last: {
       type: GraphQLInt,
-      description: 'Returns the last n elements from the list.'
+      description: '[NOT IMPLEMENTED YET] Returns the last n elements from the list.'
     },
     after: {
       type: GraphQLString,
-      description: 'Returns the elements in the list that come after the specified cursor.'
+      description: '[NOT IMPLEMENTED YET] Returns the elements in the list that come after the specified cursor.'
     },
     before: {
       type: GraphQLString,
-      description: 'Returns the elements in the list that come after the specified cursor.'
+      description: '[NOT IMPLEMENTED YET] Returns the elements in the list that come after the specified cursor.'
     }
   },
   resolve: resolvers.Query.contributors
