@@ -9,8 +9,8 @@ import gql from 'graphql-tag'
  *                   of the token passed
 **/
 const contributorsFirstOne = gql`
-    query getContributors($login: String!) {
-        organization(login: $login) {
+    query getContributors {
+        organization {
             contributors(first: 1) {
                 id
                 login
@@ -34,8 +34,8 @@ const contributorsFirstOne = gql`
  *                   of the token passed
 **/
 const contributorsFirstOneID = gql`
-    query getContributors($login: String!) {
-        organization(login: $login) {
+    query getContributors {
+        organization {
             contributors(first: 1) {
                 id
             }
@@ -52,8 +52,8 @@ const contributorsFirstOneID = gql`
  *                   of the token passed
 **/
 const contributorsFirstOneLogin = gql`
-    query getContributors($login: String!) {
-        organization(login: $login) {
+    query getContributors {
+        organization {
             contributors(first: 1) {
                 login
             }
@@ -70,8 +70,8 @@ const contributorsFirstOneLogin = gql`
  *                   of the token passed
 **/
 const contributorsFirstOneName = gql`
-    query getContributors($login: String!) {
-        organization(login: $login) {
+    query getContributors {
+        organization {
             contributors(first: 1) {
                 name
             }
@@ -88,8 +88,8 @@ const contributorsFirstOneName = gql`
  *                   of the token passed
 **/
 const contributorsFirstOneWebsiteUrl = gql`
-    query getContributors($login: String!) {
-        organization(login: $login) {
+    query getContributors {
+        organization {
             contributors(first: 1) {
                 websiteUrl
             }
@@ -106,8 +106,8 @@ const contributorsFirstOneWebsiteUrl = gql`
  *                   of the token passed
 **/
 const contributorsFirstOneLocation = gql`
-    query getContributors($login: String!) {
-        organization(login: $login) {
+    query getContributors {
+        organization {
             contributors(first: 1) {
                 location
             }
@@ -124,8 +124,8 @@ const contributorsFirstOneLocation = gql`
  *                   of the token passed
 **/
 const contributorsFirstOneBio = gql`
-    query getContributors($login: String!) {
-        organization(login: $login) {
+    query getContributors {
+        organization {
             contributors(first: 1) {
                 bio
             }
@@ -142,8 +142,8 @@ const contributorsFirstOneBio = gql`
  *                   of the token passed
 **/
 const contributorsFirstOneEmail = gql`
-    query getContributors($login: String!) {
-        organization(login: $login) {
+    query getContributors {
+        organization {
             contributors(first: 1) {
                 email
             }
@@ -160,8 +160,8 @@ const contributorsFirstOneEmail = gql`
  *                   of the token passed
 **/
 const contributorsFirstOneFirstContributionDate = gql`
-    query getContributors($login: String!) {
-        organization(login: $login) {
+    query getContributors {
+        organization {
             contributors(first: 1) {
                 firstContributionDate
             }
@@ -177,8 +177,8 @@ const contributorsFirstOneFirstContributionDate = gql`
  *                   of the token passed
 **/
 const contributorsFirstFour = gql`
-    query getContributors($login: String!) {
-        organization(login: $login) {
+    query getContributors {
+        organization {
             contributors(first: 4) {
                 id
                 login

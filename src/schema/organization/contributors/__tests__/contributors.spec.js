@@ -5,14 +5,12 @@ import { createTestClient } from 'apollo-server-testing'
 import { getPropsFromList } from '../../../../testUtils/integration/dataExtractor';
 
 describe('Contributor type tests', () => {
-  const login = 'panelinhadees';
   const contributorsPath = ['organization', 'contributors'];
   const { query } = createTestClient(testServer);
   
   it('contributors(first: 1) : Contributor', async () => {
     const { data } = await query({
-      query: queries.contributorsFirstOne,
-      variables: { login },
+      query: queries.contributorsFirstOne
     });
 
     const expected = expectedResult.contributors;
@@ -23,7 +21,6 @@ describe('Contributor type tests', () => {
   it('contributors(first: 1) { id } : Contributor', async () => {
     const { data } = await query({
       query: queries.contributorsFirstOneID,
-      variables: { login },
     });
 
     const queryExpected = expectedResult.contributors;
@@ -36,7 +33,6 @@ describe('Contributor type tests', () => {
   it('contributors(first: 1) { name } : Contributor', async () => {
     const { data } = await query({
       query: queries.contributorsFirstOneName,
-      variables: { login },
     });
 
     const queryExpected = expectedResult.contributors;
@@ -49,7 +45,6 @@ describe('Contributor type tests', () => {
   it('contributors(first: 1) { login } : Contributor', async () => {
     const { data } = await query({
       query: queries.contributorsFirstOneLogin,
-      variables: { login },
     });
 
     const queryExpected = expectedResult.contributors;
@@ -62,7 +57,6 @@ describe('Contributor type tests', () => {
   it('contributors(first: 1) { email } : Contributor', async () => {
     const { data } = await query({
       query: queries.contributorsFirstOneEmail,
-      variables: { login },
     });
 
     const queryExpected = expectedResult.contributors;
@@ -75,7 +69,6 @@ describe('Contributor type tests', () => {
   it('contributors(first: 1) { websiteUrl } : Contributor', async () => {
     const { data } = await query({
       query: queries.contributorsFirstOneWebsiteUrl,
-      variables: { login },
     });
 
     const queryExpected = expectedResult.contributors;
@@ -88,7 +81,6 @@ describe('Contributor type tests', () => {
   it('contributors(first: 1) { location } : Contributor', async () => {
     const { data } = await query({
       query: queries.contributorsFirstOneLocation,
-      variables: { login },
     });
 
     const queryExpected = expectedResult.contributors;
@@ -101,7 +93,6 @@ describe('Contributor type tests', () => {
   it('contributors(first: 1) { bio } : Contributor', async () => {
     const { data } = await query({
       query: queries.contributorsFirstOneBio,
-      variables: { login },
     });
 
     const queryExpected = expectedResult.contributors;
@@ -114,7 +105,6 @@ describe('Contributor type tests', () => {
   it('contributors(first: 1) { firstContributionDate } : Contributor', async () => {
     const { data } = await query({
       query: queries.contributorsFirstOneFirstContributionDate,
-      variables: { login },
     });
 
     const queryExpected = expectedResult.contributors;
@@ -127,7 +117,6 @@ describe('Contributor type tests', () => {
   it('contributors(first: 4) : Contributor', async () => {
     const { data } = await query({
       query: queries.contributorsFirstOne,
-      variables: { login },
     });
 
     const expected = expectedResult.contributors;
