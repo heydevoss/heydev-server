@@ -99,7 +99,7 @@ export default {
       const body = githubQueries.contributors(parent, repoArgs, userArgs);
       const data = await fetchData(body, token);
       
-      var contributorsArray = processContributors(data.data.organization.repositories.nodes);
+    const contributorsArray = processContributors(data.data.organization.repositories.nodes);
       contributorsArray.length = first;
       return contributorsArray;
     },
