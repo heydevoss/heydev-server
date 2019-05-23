@@ -14,8 +14,8 @@ import gql from 'graphql-tag';
  *                   of the desired `organization`
  * */
 const members = gql`
-  query members($login: String!, $maxNumberOfMembers: Int!) {
-    organization(login: $login) {
+  query members($maxNumberOfMembers: Int!) {
+    organization {
       members(maxNumberOfMembers: $maxNumberOfMembers) {
         id
         name
@@ -36,8 +36,8 @@ const members = gql`
  *                   of the desired `organization`
  * */
 const membersName = gql`
-  query membersName($login: String!, $maxNumberOfMembers: Int!) {
-    organization(login: $login) {
+  query membersName($maxNumberOfMembers: Int!) {
+    organization {
       members(maxNumberOfMembers: $maxNumberOfMembers) {
         name
       }
@@ -55,8 +55,8 @@ const membersName = gql`
  *                   of the desired `organization`
  * */
 const membersIdLogin = gql`
-  query membersIdLogin($login: String!, $maxNumberOfMembers: Int!) {
-    organization(login: $login) {
+  query membersIdLogin($maxNumberOfMembers: Int!) {
+    organization {
       members(maxNumberOfMembers: $maxNumberOfMembers) {
         id
         login
@@ -76,8 +76,8 @@ const membersIdLogin = gql`
  *                   of the desired `organization`
  * */
 const membersLoginRoleUrl = gql`
-  query membersLoginRoleUrl($login: String!, $maxNumberOfMembers: Int!) {
-    organization(login: $login) {
+  query membersLoginRoleUrl($maxNumberOfMembers: Int!) {
+    organization {
       members(maxNumberOfMembers: $maxNumberOfMembers) {
         role
         login
@@ -99,8 +99,8 @@ const membersLoginRoleUrl = gql`
  *                   of the desired `organization`
  * */
 const membersNameLoginRoleUrl = gql`
-  query membersNameLoginRoleUrl($login: String!, $maxNumberOfMembers: Int!) {
-    organization(login: $login) {
+  query membersNameLoginRoleUrl($maxNumberOfMembers: Int!) {
+    organization {
       members(maxNumberOfMembers: $maxNumberOfMembers) {
         name
         login

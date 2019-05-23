@@ -5,7 +5,6 @@ import testServer from '../../../../testUtils/integration/serverFactory';
 import { getPropsFromList } from '../../../../testUtils/integration/dataExtractor';
 
 describe('Team type tests', () => {
-  const login = 'panelinhadees';
   const maxNumberOfTeams = 10;
   const maxNumberOfMembers = 10;
   const teamsPath = ['organization', 'teams'];
@@ -14,7 +13,7 @@ describe('Team type tests', () => {
   it('teams: Team', async () => {
     const { data } = await query({
       query: queries.teams,
-      variables: { login, maxNumberOfTeams },
+      variables: { maxNumberOfTeams },
     });
     expect(data).toEqual(expectedResult.teams);
   });
@@ -22,7 +21,7 @@ describe('Team type tests', () => {
   it('teams { name }: Team', async () => {
     const { data } = await query({
       query: queries.teamsName,
-      variables: { login, maxNumberOfTeams },
+      variables: { maxNumberOfTeams },
     });
 
     const expectedResultTeamsName = getPropsFromList(
@@ -36,7 +35,7 @@ describe('Team type tests', () => {
   it('teams { id, url }: Team', async () => {
     const { data } = await query({
       query: queries.teamsIdUrl,
-      variables: { login, maxNumberOfTeams },
+      variables: { maxNumberOfTeams },
     });
 
     const expectedResultTeamsIdUrl = getPropsFromList(
@@ -50,7 +49,7 @@ describe('Team type tests', () => {
   it('teams { slug, totalMembers, repoLogin }: Team', async () => {
     const { data } = await query({
       query: queries.teamsSlugTotalMembersRepoLogin,
-      variables: { login, maxNumberOfTeams },
+      variables: { maxNumberOfTeams },
     });
 
     const expectedResultTeamsSlugTotalMembersRepoLogin = getPropsFromList(
@@ -64,7 +63,7 @@ describe('Team type tests', () => {
   it('teams { name, slug, totalMembers, repoLogin }: Team', async () => {
     const { data } = await query({
       query: queries.teamsNameSlugTotalMembersRepoLogin,
-      variables: { login, maxNumberOfTeams },
+      variables: { maxNumberOfTeams },
     });
 
     const expectedResultTeamsNameSlugTotalMembersRepoLogin = getPropsFromList(
@@ -78,7 +77,7 @@ describe('Team type tests', () => {
   it('teams { name, url, slug, totalMembers, repoLogin }: Team', async () => {
     const { data } = await query({
       query: queries.teamsNameUrlSlugTotalMembersRepoLogin,
-      variables: { login, maxNumberOfTeams },
+      variables: { maxNumberOfTeams },
     });
 
     const expectedResultTeamsNameUrlSlugTotalMembersRepoLogin = getPropsFromList(
@@ -92,7 +91,7 @@ describe('Team type tests', () => {
   it('teams { name, members { id, login } }: Team', async () => {
     const { data } = await query({
       query: queries.teamsMembers,
-      variables: { login, maxNumberOfTeams, maxNumberOfMembers },
+      variables: { maxNumberOfTeams, maxNumberOfMembers },
     });
 
     expect(data).toEqual(expectedResult.teamsMembers);
@@ -101,7 +100,7 @@ describe('Team type tests', () => {
   it('teams { name, members { login } }: Team', async () => {
     const { data } = await query({
       query: queries.teamsMembersLogin,
-      variables: { login, maxNumberOfTeams, maxNumberOfMembers },
+      variables: { maxNumberOfTeams, maxNumberOfMembers },
     });
 
     expect(data).toEqual(expectedResult.teamsMembersLogin);
@@ -110,7 +109,7 @@ describe('Team type tests', () => {
   it('teams { name, members { id } }: Team', async () => {
     const { data } = await query({
       query: queries.teamsMembersId,
-      variables: { login, maxNumberOfTeams, maxNumberOfMembers },
+      variables: { maxNumberOfTeams, maxNumberOfMembers },
     });
 
     expect(data).toEqual(expectedResult.teamsMembersId);

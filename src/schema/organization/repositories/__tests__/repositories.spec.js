@@ -5,15 +5,14 @@ import testServer from '../../../../testUtils/integration/serverFactory';
 import { getPropsFromList } from '../../../../testUtils/integration/dataExtractor';
 
 describe('Repository type tests', () => {
-  const login = 'panelinhadees'
-  const maxNumberOfRepositories = 4;
+  const maxNumberOfRepositories = 5;
   const repositoriesPath =  ['organization', 'repositories'];
   const { query } = createTestClient(testServer);
 
   it('repositories: Repository', async () => {
     const { data } = await query({
       query: queries.repositories,
-      variables: { login, maxNumberOfRepositories },
+      variables: { maxNumberOfRepositories },
     });
     expect(data).toEqual(expectedResult.repositories);
   });
@@ -21,7 +20,7 @@ describe('Repository type tests', () => {
   it('repositories: { name }: Repository', async () => {
     const { data } = await query({
       query: queries.repositoriesName,
-      variables: { login, maxNumberOfRepositories },
+      variables: { maxNumberOfRepositories },
     });
 
     const expectedResultRepositoriesName = getPropsFromList(
@@ -35,7 +34,7 @@ describe('Repository type tests', () => {
   it('repositories: { name, viewerCanAdminister }: Repository', async () => {
     const { data } = await query({
       query: queries.repositoriesNameViewerCanAdminister,
-      variables: { login, maxNumberOfRepositories },
+      variables: { maxNumberOfRepositories },
     });
 
     const expectedResultRepositoriesNameViewerCanAdminister = getPropsFromList(
@@ -49,7 +48,7 @@ describe('Repository type tests', () => {
   it('repositories: { totalForks, totalOpenIssues, totalStars }: Repository', async () => {
     const { data } = await query({
       query: queries.repositoriesTotalForksTotalOpenIssuesTotalStars,
-      variables: { login, maxNumberOfRepositories },
+      variables: { maxNumberOfRepositories },
     });
 
     const expectedResultRepositoriesTotalForksTotalOpenIssuesTotalStars = getPropsFromList(
@@ -65,7 +64,7 @@ describe('Repository type tests', () => {
   it('repositories: { id, totalForks, totalOpenIssues, totalStars }: Repository', async () => {
     const { data } = await query({
       query: queries.repositoriesIdTotalForksTotalOpenIssuesTotalStars,
-      variables: { login, maxNumberOfRepositories },
+      variables: { maxNumberOfRepositories },
     });
 
     const expectedResultRepositoriesIdTotalForksTotalOpenIssuesTotalStars = getPropsFromList(
@@ -81,7 +80,7 @@ describe('Repository type tests', () => {
   it('repositories { totalCommits }: Repository', async () => {
     const { data } = await query({
       query: queries.repositoriesTotalCommits,
-      variables: { login, maxNumberOfRepositories },
+      variables: { maxNumberOfRepositories },
     });
 
     expect(data).toEqual(expectedResult.repositoriesTotalCommits);
