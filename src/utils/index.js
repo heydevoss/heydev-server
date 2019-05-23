@@ -1,19 +1,19 @@
 /**
  * Compare dates and get the oldest one.
- * It assumes that all strings on the array are valid.
+ * It assumes that all dates on the array are valid.
  * 
- * @param {string[]} dates array of date strings
+ * @param {Date[]} dates array of dates
  * @return oldest date of the parameters. Format: YYYY-MM-DD
  * 
  * @example
- *  getOldestDate(['2019-05-01', '2019-05-20'])
+ *  getOldestDate([new Date('2019-05-01'), new Date('2019-05-20')])
  */
 export const getOldestDate = (dates) => {
   const orderedDates = dates.sort(function(a,b){
-    return Date.parse(a) > Date.parse(b);
+    return a > b;
   });
 
-  const result = new Date(orderedDates[0]);
+  const result = orderedDates[0];
   return new Date(result.getFullYear(), result.getMonth(), result.getDate());
 }
 
