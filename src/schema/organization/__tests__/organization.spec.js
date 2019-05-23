@@ -5,14 +5,12 @@ import testServer from '../../../testUtils/integration/serverFactory';
 import { getPropsFromList } from '../../../testUtils/integration/dataExtractor';
 
 describe('Organization type tests', () => {
-  const login = 'panelinhadees';
   const { query } = createTestClient(testServer);
   const organizationPath = [];
 
   it('organization: Organization', async () => {
     const { data } = await(query({
       query: queries.organizationData,
-      variables: { login },
     }));
     expect(data).toEqual(expectedResults.organizationData);
   });
@@ -20,7 +18,6 @@ describe('Organization type tests', () => {
   it('organization: { id }: Organization', async () => {
     const { data } = await(query({
       query: queries.organizationId,
-      variables: { login },
     }));
 
     const organizationIdExpectedResult = getPropsFromList(
@@ -35,7 +32,6 @@ describe('Organization type tests', () => {
   it('organization: { login }: Organization', async () => {
     const { data } = await(query({
       query: queries.organizationLogin,
-      variables: { login },
     }));
 
     const organizationLoginExpectedResult = getPropsFromList(
@@ -50,7 +46,6 @@ describe('Organization type tests', () => {
   it('organization: { name }: Organization', async () => {
     const { data } = await(query({
       query: queries.organizationName,
-      variables: { login },
     }));
     
     const organizationNameExpectedResult = getPropsFromList(
@@ -65,7 +60,6 @@ describe('Organization type tests', () => {
   it('organization: { websiteUrl }: Organization', async () => {
     const { data } = await(query({
       query: queries.organizationWebsiteUrl,
-      variables: { login },
     }));
     
     const organizationWebsiteUrlExpectedResult = getPropsFromList(
@@ -80,7 +74,6 @@ describe('Organization type tests', () => {
   it('organization: { totalMembers }: Organization', async () => {
     const { data } = await(query({
       query: queries.organizationTotalMembers,
-      variables: { login },
     }));
     
     const organizationTotalMembersExpectedResult = getPropsFromList(
@@ -95,7 +88,6 @@ describe('Organization type tests', () => {
   it('organization: { totalRepos }: Organization', async () => {
     const { data } = await(query({
       query: queries.organizationTotalRepos,
-      variables: { login },
     }));
     
     const organizationTotalReposExpectedResult = getPropsFromList(
@@ -110,7 +102,6 @@ describe('Organization type tests', () => {
   it('organization: { totalTeams }: Organization', async () => {
     const { data } = await(query({
       query: queries.organizationTotalTeams,
-      variables: { login },
     }));
     
     const organizationTotalTeamsExpectedResult = getPropsFromList(
@@ -125,7 +116,6 @@ describe('Organization type tests', () => {
   it('organization: { totalPullRequests }: Organization', async () => {
     const { data } = await(query({
       query: queries.organizationTotalPullRequests,
-      variables: { login },
     }));
     
     const organizationTotalPullRequestsExpectedResult = getPropsFromList(
@@ -140,7 +130,6 @@ describe('Organization type tests', () => {
   it('organization: { totalIssues }: Organization', async () => {
     const { data } = await(query({
       query: queries.organizationTotalIssues,
-      variables: { login },
     }));
     
     const organizationTotalIssuesExpectedResult = getPropsFromList(
@@ -155,7 +144,6 @@ describe('Organization type tests', () => {
   it('organization: { totalCommits }: Organization', async () => {
     const { data } = await(query({
       query: queries.organizationTotalCommits,
-      variables: { login },
     }));
     
     const organizationTotalCommitsExpectedResult = getPropsFromList(

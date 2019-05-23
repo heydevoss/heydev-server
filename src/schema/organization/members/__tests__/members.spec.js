@@ -5,7 +5,6 @@ import testServer from '../../../../testUtils/integration/serverFactory';
 import { getPropsFromList } from '../../../../testUtils/integration/dataExtractor';
 
 describe('Member type tests', () => {
-  const login = 'panelinhadees';
   const maxNumberOfMembers = 10;
   const membersPath = ['organization', 'members'];
   const { query } = createTestClient(testServer);
@@ -13,7 +12,7 @@ describe('Member type tests', () => {
   it('members: OrganizationMember', async () => {
     const { data } = await query({
       query: queries.members,
-      variables: { login, maxNumberOfMembers },
+      variables: { maxNumberOfMembers },
     });
     expect(data).toEqual(expectedResult.members);
   });
@@ -21,7 +20,7 @@ describe('Member type tests', () => {
   it('members: { name }: OrganizationMember', async () => {
     const { data } = await query({
       query: queries.membersName,
-      variables: { login, maxNumberOfMembers },
+      variables: { maxNumberOfMembers },
     });
     
     const expectedResultMembersName = getPropsFromList(
@@ -35,7 +34,7 @@ describe('Member type tests', () => {
   it('members: { id, login }: OrganizationMember', async () => {
     const { data } = await query({
       query: queries.membersIdLogin,
-      variables: { login, maxNumberOfMembers },
+      variables: { maxNumberOfMembers },
     });
 
     const expectedResultMembersIdLogin = getPropsFromList(
@@ -49,7 +48,7 @@ describe('Member type tests', () => {
   it('members: { login, role, url }: OrganizationMember', async () => {
     const { data } = await query({
       query: queries.membersLoginRoleUrl,
-      variables: { login, maxNumberOfMembers },
+      variables: { maxNumberOfMembers },
     });
 
     const expectedResultMembersLoginRoleUrl = getPropsFromList(
@@ -60,10 +59,10 @@ describe('Member type tests', () => {
     expect(data).toEqual(expectedResultMembersLoginRoleUrl);
   });
 
-  it('members: { name, login, role, url }: OrganizationMember', async () => {
+  it('members: { login, name, role, url }: OrganizationMember', async () => {
     const { data } = await query({
       query: queries.membersNameLoginRoleUrl,
-      variables: { login, maxNumberOfMembers },
+      variables: { maxNumberOfMembers },
     });
 
     const expectedResultMembersNameLoginRoleUrl = getPropsFromList(

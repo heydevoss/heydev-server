@@ -2,6 +2,9 @@ import fetchData from '../../github/dataFetcher';
 import fetchRestData from '../../github/restDataFetcher';
 import githubQueries from '../../github/queries';
 
+import 'dotenv/config';
+import config from '../../config';
+
 export default {
   Query: {
     commits: async (parent, args, { token }) => {
@@ -24,7 +27,8 @@ export default {
       return data.data.search.issueCount;
     },
     organization: async (parent, args, { token }) => {
-      const body = githubQueries.organization(args.login);
+      const login = config.github.organization;
+      const body = githubQueries.organization(login);
       const data = await fetchData(body, token);
 
       const org = data.data.repositoryOwner;

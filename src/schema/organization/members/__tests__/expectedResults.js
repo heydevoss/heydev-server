@@ -33,7 +33,7 @@ const members = {
         id: 'MDQ6VXNlcjE1Mzg5Mzg0',
         name: 'Marcus Vinícius',
         login: 'vinifarias',
-        role: 'MEMBER',
+        role: 'ADMIN',
         url: 'https://github.com/vinifarias',
       },
       {
@@ -47,14 +47,14 @@ const members = {
         id: 'MDQ6VXNlcjMwMjQ3NTE5',
         name: 'Matheus Alves',
         login: 'SpinnelSun',
-        role: 'MEMBER',
+        role: 'ADMIN',
         url: 'https://github.com/SpinnelSun',
       },
       {
         id: 'MDQ6VXNlcjMzMjg2NDQy',
         name: 'Mateus Oliveira',
         login: 'mateusoliveira2',
-        role: 'MEMBER',
+        role: 'ADMIN',
         url: 'https://github.com/mateusoliveira2',
       },
       {

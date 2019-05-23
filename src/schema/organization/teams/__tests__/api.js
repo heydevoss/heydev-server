@@ -15,8 +15,8 @@ import gql from 'graphql-tag';
  *                   of the desired `organization`
  * */
 const teams = gql`
-  query teams($login: String!, $maxNumberOfTeams: Int!) {
-    organization(login: $login) {
+  query teams($maxNumberOfTeams: Int!) {
+    organization {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
         id
         name
@@ -39,8 +39,8 @@ const teams = gql`
  *                   of the desired `organization`
  * */
 const teamsName = gql`
-  query teamsName($login: String!, $maxNumberOfTeams: Int!) {
-    organization(login: $login) {
+  query teamsName($maxNumberOfTeams: Int!) {
+    organization {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
         name
       }
@@ -58,8 +58,8 @@ const teamsName = gql`
  *                   of the desired `organization`
  * */
 const teamsIdUrl = gql`
-  query teamsIdUrl($login: String!, $maxNumberOfTeams: Int!) {
-    organization(login: $login) {
+  query teamsIdUrl($maxNumberOfTeams: Int!) {
+    organization {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
         id
         url
@@ -79,11 +79,8 @@ const teamsIdUrl = gql`
  *                   of the desired `organization`
  * */
 const teamsSlugTotalMembersRepoLogin = gql`
-  query teamsSlugTotalMembersRepoLogin(
-    $login: String!
-    $maxNumberOfTeams: Int!
-  ) {
-    organization(login: $login) {
+  query teamsSlugTotalMembersRepoLogin($maxNumberOfTeams: Int!) {
+    organization {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
         slug
         totalMembers
@@ -105,11 +102,8 @@ const teamsSlugTotalMembersRepoLogin = gql`
  *                   of the desired `organization`
  * */
 const teamsNameSlugTotalMembersRepoLogin = gql`
-  query teamsNameSlugTotalMembersRepoLogin(
-    $login: String!
-    $maxNumberOfTeams: Int!
-  ) {
-    organization(login: $login) {
+  query teamsNameSlugTotalMembersRepoLogin($maxNumberOfTeams: Int!) {
+    organization {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
         name
         slug
@@ -133,11 +127,8 @@ const teamsNameSlugTotalMembersRepoLogin = gql`
  *                   of the desired `organization`
  * */
 const teamsNameUrlSlugTotalMembersRepoLogin = gql`
-  query teamsNameUrlSlugTotalMembersRepoLogin(
-    $login: String!
-    $maxNumberOfTeams: Int!
-  ) {
-    organization(login: $login) {
+  query teamsNameUrlSlugTotalMembersRepoLogin($maxNumberOfTeams: Int!) {
+    organization {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
         name
         url
@@ -160,11 +151,10 @@ const teamsNameUrlSlugTotalMembersRepoLogin = gql`
  * */
 const teamsMembers = gql`
   query teamsMembers(
-    $login: String!
     $maxNumberOfTeams: Int!
     $maxNumberOfMembers: Int!
   ) {
-    organization(login: $login) {
+    organization {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
         name
         members(maxNumberOfMembers: $maxNumberOfMembers) {
@@ -186,11 +176,10 @@ const teamsMembers = gql`
  * */
 const teamsMembersLogin = gql`
   query teamsMembersLogin(
-    $login: String!
     $maxNumberOfTeams: Int!
     $maxNumberOfMembers: Int!
   ) {
-    organization(login: $login) {
+    organization {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
         name
         members(maxNumberOfMembers: $maxNumberOfMembers) {
@@ -211,11 +200,10 @@ const teamsMembersLogin = gql`
  * */
 const teamsMembersId = gql`
   query teamsMembersId(
-    $login: String!
     $maxNumberOfTeams: Int!
     $maxNumberOfMembers: Int!
   ) {
-    organization(login: $login) {
+    organization {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
         name
         members(maxNumberOfMembers: $maxNumberOfMembers) {

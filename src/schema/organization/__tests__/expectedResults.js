@@ -8,11 +8,11 @@ const organizationData =
     url: "https://github.com/panelinhadees",
     websiteUrl: null,
     totalMembers: 10,
-    totalRepos: 4,
+    totalRepos: 5,
     totalTeams: 4,
     totalPullRequests: 59,
-    totalCommits: 270,
-    totalIssues: 84,
+    totalCommits: 275,
+    totalIssues: 85,
   }
 }
 
