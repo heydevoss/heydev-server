@@ -14,8 +14,14 @@ const TeamMemberType = new GraphQLObjectType({
   description: 'A user who is a member of a team.',
 
   fields: () => ({
-    id: { type: GraphQLID },
-    login: { type: GraphQLString },
+    id: {
+      type: GraphQLID,
+      description: 'Team member ID.',
+    },
+    login: {
+      type: GraphQLString,
+      description: 'Team member login.',
+    },
   }),
 });
 
@@ -24,12 +30,30 @@ const TeamType = new GraphQLObjectType({
   description: 'A team of users in an organization.',
 
   fields: () => ({
-    id: { type: GraphQLID },
-    name: { type: GraphQLString },
-    slug: { type: GraphQLString },
-    url: { type: GraphQLString },
-    totalMembers: { type: GraphQLInt },
-    repoLogin: { type: GraphQLString },
+    id: {
+      type: GraphQLID,
+      description: 'Team ID.',
+    },
+    name: {
+      type: GraphQLString,
+      description: 'Team name.',
+    },
+    slug: {
+      type: GraphQLString,
+      description: 'The slug corresponding to the team.',
+    },
+    url: {
+      type: GraphQLString,
+      description: 'The HTTP URL for this team.',
+    },
+    totalMembers: {
+      type: GraphQLInt,
+      description: `The team's total number of members.`,
+    },
+    orgLogin: {
+      type: GraphQLString,
+      description: 'The login of the organization which this team belongs.',
+    },
     members: {
       type: new GraphQLList(TeamMemberType),
       args: {
@@ -39,6 +63,7 @@ const TeamType = new GraphQLObjectType({
         },
       },
       resolve: resolvers.Query.teamMembers,
+      description: 'A list of members in this team.',
     },
   }),
 });

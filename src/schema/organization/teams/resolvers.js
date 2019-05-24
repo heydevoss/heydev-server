@@ -22,7 +22,7 @@ const addTeamsToArray = (teams, teamsArray, login) => {
       id: teamId,
       name: teamName,
       url: teamUrl,
-      repoLogin: login,
+      orgLogin: login,
       slug: teamSlug,
       totalMembers: teamTotalMembers,
     });
@@ -46,7 +46,7 @@ export default {
     },
 
     teamMembers: async (parent, args, { token }) => {
-      const login = parent.repoLogin;
+      const login = parent.orgLogin;
       const { slug } = parent;
       const pagination = args.maxNumberOfMembers;
       const teamMembersArray = [];

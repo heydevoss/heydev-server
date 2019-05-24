@@ -11,14 +11,38 @@ const UserType = new GraphQLObjectType({
     'An individual account on GitHub that owns repositories and can make new content.',
 
   fields: () => ({
-    id: { type: GraphQLID },
-    login: { type: GraphQLString },
-    name: { type: GraphQLString },
-    location: { type: GraphQLString },
-    bio: { type: GraphQLString },
-    email: { type: GraphQLString },
-    websiteUrl: { type: GraphQLString },
-    totalRepos: { type: GraphQLInt }
+    id: {
+      type: GraphQLID,
+      description: 'Logged user ID.',
+    },
+    login: {
+      type: GraphQLString,
+      description: 'Logged user username used to login.',
+    },
+    name: {
+      type: GraphQLString,
+      description: 'Logged user name.',
+    },
+    location: {
+      type: GraphQLString,
+      description: `The logged user's public profile location.`,
+    },
+    bio: {
+      type: GraphQLString,
+      description: `The logged user's public profile bio.`,
+    },
+    email: {
+      type: GraphQLString,
+      description: `The logged user's publicly visible profile email.`,
+    },
+    websiteUrl: {
+      type: GraphQLString,
+      description: `A URL pointing to the logged user's public website.`,
+    },
+    totalRepos: {
+      type: GraphQLInt,
+      description: `The logged user's total number of repositories.`,
+    },
   })
 });
 

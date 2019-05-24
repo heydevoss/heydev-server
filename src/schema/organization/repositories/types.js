@@ -11,14 +11,38 @@ const RepositoryType = new GraphQLObjectType({
   description: 'A repository contains the content for a project.',
 
   fields: () => ({
-    id: { type: GraphQLID },
-    name: { type: GraphQLString },
-    viewerCanAdminister: { type: GraphQLBoolean },
-    totalForks: { type: GraphQLInt },
-    totalOpenIssues: { type: GraphQLInt },
-    totalOpenPullRequests: { type: GraphQLInt },
-    totalStars: { type: GraphQLInt },
-    totalCommits: { type: GraphQLInt },
+    id: {
+      type: GraphQLID,
+      description: 'Repository ID.',
+    },
+    name: {
+      type: GraphQLString,
+      description: 'Repository name.',
+    },
+    viewerCanAdminister: {
+      type: GraphQLBoolean,
+      description: 'Indicates whether the viewer has admin permissions on the repository.',
+    },
+    totalForks: {
+      type: GraphQLInt,
+      description: `The repository's total number of forks.`,
+    },
+    totalOpenIssues: {
+      type: GraphQLInt,
+      description: `The repository's total number of open issues.`,
+    },
+    totalOpenPullRequests: {
+      type: GraphQLInt,
+      description: `The repository's total number of open pull requests.`,
+    },
+    totalStars: {
+      type: GraphQLInt,
+      description: `The repository's total number of stars.`,
+    },
+    totalCommits: {
+      type: GraphQLInt,
+      description: `The repository's total number of commits.`,
+    },
   }),
 });
 
