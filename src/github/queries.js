@@ -26,12 +26,15 @@ const simpleContributorFields = `
   login
   websiteUrl
   avatarUrl
+  contributionsCollection(organizationID: $orgID) {
+    totalCommitContributions
+  }
 `;
 
-const contributor = (login) => {
+const contributor = (login, orgID) => {
   const data = simpleContributorFields;
-  const variables = {login};
-  const inputs = '';
+  const variables = {login, orgID};
+  const inputs = '$orgID: ID!';
   return getContributorData(inputs, data, variables);
 }
 
@@ -44,6 +47,34 @@ const isContributor = (login, orgID) => {
   `;
   const variables = { login, orgID };
   return getContributorData(inputs, data, variables);
+}
+
+const contributorTotalIssuesOpen = (login, orgLogin) => {
+  const query = `org:${orgLogin} type:issue state:open author:${login}`;
+  const data = "issueCount";
+
+  return getSearchData(query, "ISSUE", data);
+}
+
+const contributorTotalIssuesClosed = (login, orgLogin) => {
+  const query = `org:${orgLogin} type:issue state:closed author:${login}`;
+  const data = "issueCount";
+
+  return getSearchData(query, "ISSUE", data);
+}
+
+const contributorTotalPullRequestsOpen = (login, orgLogin) => {
+  const query = `org:${orgLogin} type:pr state:open author:${login}`;
+  const data = "issueCount";
+
+  return getSearchData(query, "ISSUE", data);
+}
+
+const contributorTotalPullRequestsClosed = (login, orgLogin) => {
+  const query = `org:${orgLogin} type:pr state:closed author:${login}`;
+  const data = "issueCount";
+
+  return getSearchData(query, "ISSUE", data);
 }
 
 /**
@@ -291,6 +322,10 @@ export default {
   contributors,
   contributor,
   isContributor,
+  contributorTotalIssuesOpen,
+  contributorTotalIssuesClosed,
+  contributorTotalPullRequestsOpen,
+  contributorTotalPullRequestsClosed,
   firstContributionDate,
   organizationTotalPullRequests,
   organizationTotalIssues,

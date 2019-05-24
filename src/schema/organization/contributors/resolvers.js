@@ -2,6 +2,9 @@ import fetchData from '../../../github/dataFetcher';
 import githubQueries from '../../../github/queries';
 import { getOldestDate } from '../../../utils';
 
+import 'dotenv/config';
+import config from '../../../config';
+
 /**
  * @class A variant of Set, which the difference is on the equality condition of objects
  */
@@ -101,12 +104,14 @@ export default {
     },
     contributor: async (parent, args, { token }, info) => {
       const { login } = args;
-      const isValidLogin = await validateLogin(login, parent.id, token);
+      const { id } = parent;
+      const isValidLogin = await validateLogin(login, id, token);
 
       if (isValidLogin) {
-        const body = githubQueries.contributor(login);
+        const body = githubQueries.contributor(login, id);
         const data = await fetchData(body, token);
         const contributor = data.data.user;
+        const totalCommits = contributor.contributionsCollection.totalCommitContributions;
   
         const { fieldNodes } = info;
         const rootFields = (fieldNodes.filter(node => node.name.value == 'contributor')).pop();
@@ -116,10 +121,50 @@ export default {
           contributor.firstContributionDate = firstContributionDateResolver(parent, args, { token });
         }
 
+        if (fields.includes('totalCommits')) {
+          contributor.totalCommits = totalCommits;
+        }
+
         return contributor;
       } else {
         throw new Error(`User '${login}' may not be a GitHub User or a Contributor.`);
       }
+    },
+    openIssues: async (parent, args, { token }) => {
+      const { login } = parent;
+
+      const body = githubQueries.contributorTotalIssuesOpen(login, config.github.organization);
+      const data = await fetchData(body, token);
+      const totalOpenIssues = data.data.search.issueCount;
+
+      return totalOpenIssues;
+    },
+    closedIssues: async (parent, args, { token }) => {
+      const { login } = parent;
+
+      const body = githubQueries.contributorTotalIssuesClosed(login, config.github.organization);
+      const data = await fetchData(body, token);
+      const totalClosedIssues = data.data.search.issueCount;
+
+      return totalClosedIssues;
+    },
+    openPullRequests: async (parent, args, { token }) => {
+      const { login } = parent;
+
+      const body = githubQueries.contributorTotalPullRequestsOpen(login, config.github.organization);
+      const data = await fetchData(body, token);
+      const totalOpenIssues = data.data.search.issueCount;
+
+      return totalOpenIssues;
+    },
+    closedPullRequests: async (parent, args, { token }) => {
+      const { login } = parent;
+
+      const body = githubQueries.contributorTotalPullRequestsClosed(login, config.github.organization);
+      const data = await fetchData(body, token);
+      const totalClosedIssues = data.data.search.issueCount;
+
+      return totalClosedIssues;
     },
   },
 };
