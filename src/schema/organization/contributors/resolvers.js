@@ -36,7 +36,19 @@ const processContributors = (repositories) => {
   const contributors = new ContributorSet();
 
   repositories.forEach(repository => {
-    repository.mentionableUsers.nodes.forEach(user => contributors.add(user));
+    repository.mentionableUsers.nodes.forEach(contributor => {
+      const { 
+        totalPullRequestContributions: totalPullRequests,
+        totalIssueContributions: totalIssues,
+        totalCommitContributions: totalCommits
+      } = contributor.contributionsCollection;
+
+      contributor.totalPullRequests = totalPullRequests;
+      contributor.totalIssues = totalIssues;
+      contributor.totalCommits = totalCommits;
+
+      contributors.add(contributor)
+    });
   });
   
   return Array.from(contributors.values());
@@ -111,18 +123,30 @@ export default {
         const body = githubQueries.contributor(login, id);
         const data = await fetchData(body, token);
         const contributor = data.data.user;
-        const totalCommits = contributor.contributionsCollection.totalCommitContributions;
-  
+
+        const { 
+          totalPullRequestContributions: totalPullRequests,
+          totalIssueContributions: totalIssues,
+          totalCommitContributions: totalCommits
+        } = contributor.contributionsCollection;
+
+        contributor.totalPullRequests = totalPullRequests;
+        contributor.totalIssues = totalIssues;
+        contributor.totalCommits = totalCommits;
+
+        /**
+         * Get the query's fields
+         */
         const { fieldNodes } = info;
         const rootFields = (fieldNodes.filter(node => node.name.value == 'contributor')).pop();
         const fields = rootFields.selectionSet.selections.map(node => node.name.value);
   
+        /**
+         * Because the field 'firstContributionDate' doesnt come on contributors query, we will
+         * only resolve it if is really necessary.
+         */
         if (fields.includes('firstContributionDate')) {
           contributor.firstContributionDate = firstContributionDateResolver(parent, args, { token });
-        }
-
-        if (fields.includes('totalCommits')) {
-          contributor.totalCommits = totalCommits;
         }
 
         return contributor;
