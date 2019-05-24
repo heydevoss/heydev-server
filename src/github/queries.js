@@ -28,6 +28,8 @@ const simpleContributorFields = `
   avatarUrl
   contributionsCollection(organizationID: $orgID) {
     totalCommitContributions
+    totalIssueContributions
+    totalPullRequestContributions
   }
 `;
 
@@ -113,21 +115,7 @@ const getContributorData = (inputs, data, variables) => {
   return JSON.stringify({query, variables});
 }
 
-const getContributorsData = (data, info) => {
-  const inputs = `
-    $login: String!, 
-    $firstRepos: Int!, 
-    $firstUsers: Int!, 
-    $afterRepos: String,
-    $afterUsers: String,
-  `;
-
-  const { id: orgID, login } = info.organization;
-  const { after: afterRepos, first: firstRepos } = info.repoArgs;
-  const { after: afterUsers, first: firstUsers } = info.userArgs;
-
-  const variables = {orgID, login, firstRepos, firstUsers, afterRepos, afterUsers};
-
+const getContributorsData = (inputs, data, variables) => {
   const query = `
     query getContributors(${inputs}) {
       organization(login: $login) {
@@ -154,9 +142,23 @@ const getContributorsData = (data, info) => {
  * @param {object} userArgs object with args (first, after, etc) to filter metionableUsers
  */
 const contributors = (organization, repoArgs, userArgs) => {
+  const inputs = `
+    $login: String!, 
+    $orgID: ID!,
+    $firstRepos: Int!, 
+    $firstUsers: Int!, 
+    $afterRepos: String,
+    $afterUsers: String,
+  `;
+
   const data = simpleContributorFields;
-  const info = {organization, repoArgs, userArgs};
-  return getContributorsData(data, info);
+
+  const { id: orgID, login } = organization;
+  const { after: afterRepos, first: firstRepos } = repoArgs;
+  const { after: afterUsers, first: firstUsers } = userArgs;
+  const variables = {orgID, login, firstRepos, firstUsers, afterRepos, afterUsers};
+
+  return getContributorsData(inputs, data, variables);
 }
 
 const getOrganizationData = (inputs, data, variables) => {

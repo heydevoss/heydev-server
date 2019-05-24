@@ -24,6 +24,8 @@ const ContributorType = new GraphQLObjectType({
     avatarUrl: { type: GraphQLString },
     firstContributionDate: { type: GraphQLDate },
     totalCommits: { type: GraphQLInt },
+    totalIssues: { type: GraphQLInt },
+    totalPullRequests: { type: GraphQLInt },
     totalIssuesOpen: {
       type: GraphQLInt,
       resolve: resolvers.Query.openIssues,
