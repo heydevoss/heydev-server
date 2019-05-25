@@ -41,7 +41,7 @@ const UserType = new GraphQLObjectType({
     },
     avatarUrl: {
       type: GraphQLString,
-      description: 'User profile picture (avatar) URL.',
+      description: `The logged user's profile picture (avatar) URL.`,
     },
     totalRepos: {
       type: GraphQLInt,
