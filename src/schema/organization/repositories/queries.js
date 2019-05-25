@@ -12,6 +12,7 @@ const repositories = {
     },
   },
   resolve: resolvers.Query.repositories,
+  description: 'A list of repositories in this organization.',
 };
 
 export default repositories;

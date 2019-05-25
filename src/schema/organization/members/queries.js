@@ -12,6 +12,7 @@ const members = {
     },
   },
   resolve: resolvers.Query.members,
+  description: 'A list of members in this organization.',
 };
 
 export default members;

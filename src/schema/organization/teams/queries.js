@@ -12,6 +12,7 @@ const teams = {
     },
   },
   resolve: resolvers.Query.teams,
+  description: 'A list of teams in this organization.',
 };
 
 export default teams;

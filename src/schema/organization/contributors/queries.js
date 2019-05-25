@@ -22,7 +22,8 @@ export const contributors = {
       description: '[NOT IMPLEMENTED YET] Returns the elements in the list that come after the specified cursor.'
     }
   },
-  resolve: resolvers.Query.contributors
+  resolve: resolvers.Query.contributors,
+  description: 'A list of contributors in this organization.',
 };
 
 export const contributor = {
@@ -34,4 +35,5 @@ export const contributor = {
     },
   },
   resolve: resolvers.Query.contributor,
+  description: `Find an organization's contributor by its login.`,
 }
