@@ -29,7 +29,7 @@ export class ContributorSet {
   }
 }
 
-const isValidContributor = contributor => !nonValidUsers.includes(contributor.login)
+const isValidContributor = contributor => !nonValidUsers.includes(contributor.login);
 
 /**
  * Process the repositories array to leave only the information the schema needs.
