@@ -5,7 +5,7 @@ import { getOldestDate } from '../../../utils';
 import 'dotenv/config';
 import config from '../../../config';
 
-const nonValidUsers = ['gitter-badger']
+const nonValidUsers = ['gitter-badger'];
 
 /**
  * @class A variant of Set, which the difference is on the equality condition of objects
