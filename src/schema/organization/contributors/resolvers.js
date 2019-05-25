@@ -40,7 +40,7 @@ const processContributors = (repositories) => {
   const contributors = new ContributorSet();
 
   repositories.forEach(repository => {
-    const validContributors = repository.mentionableUsers.nodes.filter(isValidContributor)
+    const validContributors = repository.mentionableUsers.nodes.filter(isValidContributor);
     validContributors.forEach(contributor => {
       const {
         totalPullRequestContributions: totalPullRequests,
