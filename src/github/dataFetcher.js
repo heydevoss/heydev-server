@@ -22,7 +22,7 @@ const generateHeaders = authorization => {
 };
 
 const fetchData = async (body, authenticationToken) => {
-  if(authenticationToken) {
+  if(!authenticationToken) {
     authenticationToken = `Bearer ${config.test.token}`
   }
   const headers = generateHeaders(authenticationToken);
