@@ -5,6 +5,8 @@ import { getOldestDate } from '../../../utils';
 import 'dotenv/config';
 import config from '../../../config';
 
+const nonValidUsers = ['gitter-badger']
+
 /**
  * @class A variant of Set, which the difference is on the equality condition of objects
  */
@@ -27,6 +29,8 @@ export class ContributorSet {
   }
 }
 
+const isValidContributor = contributor => !nonValidUsers.includes(contributor.login)
+
 /**
  * Process the repositories array to leave only the information the schema needs.
  * @param {Array} repositories 
@@ -36,8 +40,9 @@ const processContributors = (repositories) => {
   const contributors = new ContributorSet();
 
   repositories.forEach(repository => {
-    repository.mentionableUsers.nodes.forEach(contributor => {
-      const { 
+    const validContributors = repository.mentionableUsers.nodes.filter(isValidContributor)
+    validContributors.forEach(contributor => {
+      const {
         totalPullRequestContributions: totalPullRequests,
         totalIssueContributions: totalIssues,
         totalCommitContributions: totalCommits
