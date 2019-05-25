@@ -9,6 +9,7 @@ const me = () => {
         bio
         email
         websiteUrl
+        avatarUrl
         repositories {
           totalCount
         }
