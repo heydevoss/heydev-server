@@ -39,8 +39,9 @@ describe('Contributor type tests', () => {
     const queryExpected = expectedResult.contributors;
     queryExpected.organization.contributors.length = 1;
 
-    const expected = getPropsFromList(queryExpected, contributorsPath,
-       ['name']);
+    const expected = getPropsFromList(queryExpected, contributorsPath, [
+      'name',
+    ]);
     expect(data).toEqual(expected);
   });
 
@@ -52,8 +53,9 @@ describe('Contributor type tests', () => {
     const queryExpected = expectedResult.contributors;
     queryExpected.organization.contributors.length = 1;
 
-    const expected = getPropsFromList(queryExpected, contributorsPath,
-       ['login']);
+    const expected = getPropsFromList(queryExpected, contributorsPath, [
+      'login',
+    ]);
     expect(data).toEqual(expected);
   });
 
@@ -65,8 +67,9 @@ describe('Contributor type tests', () => {
     const queryExpected = expectedResult.contributors;
     queryExpected.organization.contributors.length = 1;
 
-    const expected = getPropsFromList(queryExpected, contributorsPath,
-       ['email']);
+    const expected = getPropsFromList(queryExpected, contributorsPath, [
+      'email',
+    ]);
     expect(data).toEqual(expected);
   });
 
@@ -78,8 +81,9 @@ describe('Contributor type tests', () => {
     const queryExpected = expectedResult.contributors;
     queryExpected.organization.contributors.length = 1;
 
-    const expected = getPropsFromList(queryExpected, contributorsPath,
-       ['websiteUrl']);
+    const expected = getPropsFromList(queryExpected, contributorsPath, [
+      'websiteUrl',
+    ]);
     expect(data).toEqual(expected);
   });
 
@@ -91,8 +95,9 @@ describe('Contributor type tests', () => {
     const queryExpected = expectedResult.contributors;
     queryExpected.organization.contributors.length = 1;
 
-    const expected = getPropsFromList(queryExpected, contributorsPath,
-       ['location']);
+    const expected = getPropsFromList(queryExpected, contributorsPath, [
+      'location',
+    ]);
     expect(data).toEqual(expected);
   });
 
@@ -104,8 +109,7 @@ describe('Contributor type tests', () => {
     const queryExpected = expectedResult.contributors;
     queryExpected.organization.contributors.length = 1;
 
-    const expected = getPropsFromList(queryExpected, contributorsPath,
-       ['bio']);
+    const expected = getPropsFromList(queryExpected, contributorsPath, ['bio']);
     expect(data).toEqual(expected);
   });
 
@@ -120,8 +124,10 @@ describe('Contributor type tests', () => {
 
   it(`{ organization { contributor (login: '${login}') } } : Organization`, async () => {
     const { data } = await query({
-      query: queries.contributor('id name login email websiteUrl bio location firstContributionDate'),
-      variables: { login }
+      query: queries.contributor(
+        'id name login email websiteUrl bio location firstContributionDate'
+      ),
+      variables: { login },
     });
 
     const expected = expectedResult.contributor;

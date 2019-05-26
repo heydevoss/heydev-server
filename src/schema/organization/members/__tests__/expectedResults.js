@@ -75,4 +75,4 @@ const members = {
   },
 };
 
-export { members };
+export default members;

@@ -1,6 +1,6 @@
 import { createTestClient } from 'apollo-server-testing';
 import * as queries from './api';
-import * as expectedResult from './expectedResults';
+import expectedResultMembers from './expectedResults';
 import testServer from '../../../../testUtils/integration/serverFactory';
 import getPropsFromList from '../../../../testUtils/integration/dataExtractor';
 
@@ -14,7 +14,7 @@ describe('Member type tests', () => {
       query: queries.members,
       variables: { maxNumberOfMembers },
     });
-    expect(data).toEqual(expectedResult.members);
+    expect(data).toEqual(expectedResultMembers);
   });
 
   it('members: { name }: OrganizationMember', async () => {
@@ -22,9 +22,9 @@ describe('Member type tests', () => {
       query: queries.membersName,
       variables: { maxNumberOfMembers },
     });
-    
+
     const expectedResultMembersName = getPropsFromList(
-      expectedResult.members,
+      expectedResultMembers,
       membersPath,
       ['name']
     );
@@ -38,7 +38,7 @@ describe('Member type tests', () => {
     });
 
     const expectedResultMembersIdLogin = getPropsFromList(
-      expectedResult.members,
+      expectedResultMembers,
       membersPath,
       ['id', 'login']
     );
@@ -52,7 +52,7 @@ describe('Member type tests', () => {
     });
 
     const expectedResultMembersLoginRoleUrl = getPropsFromList(
-      expectedResult.members,
+      expectedResultMembers,
       membersPath,
       ['login', 'role', 'url']
     );
@@ -66,7 +66,7 @@ describe('Member type tests', () => {
     });
 
     const expectedResultMembersNameLoginRoleUrl = getPropsFromList(
-      expectedResult.members,
+      expectedResultMembers,
       membersPath,
       ['name', 'login', 'role', 'url']
     );
