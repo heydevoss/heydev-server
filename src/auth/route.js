@@ -10,7 +10,7 @@ import { generateRandomState, getAuthBaseURL, getClientURL } from './util';
 const router = express.Router();
 const stateKey = 'github-auth-state';
 
-router.get('/login', (req, res) => {
+router.get('/login', (_req, res) => {
   const state = generateRandomState(16);
   res.cookie(stateKey, state);
 
