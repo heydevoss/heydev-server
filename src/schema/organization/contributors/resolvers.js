@@ -12,8 +12,8 @@ const nonValidUsers = ['gitter-badger'];
  */
 export class ContributorSet {
   constructor() {
-      this.map = new Map();
-      this[Symbol.iterator] = this.values;
+    this.map = new Map();
+    this[Symbol.iterator] = this.values;
   }
 
   add(item) {
@@ -21,11 +21,11 @@ export class ContributorSet {
   }
 
   values() {
-      return this.map.values();
+    return this.map.values();
   }
 
   delete(item) {
-      return this.map.delete(item.login);
+    return this.map.delete(item.login);
   }
 }
 
@@ -33,10 +33,10 @@ const isValidContributor = contributor => !nonValidUsers.includes(contributor.lo
 
 /**
  * Process the repositories array to leave only the information the schema needs.
- * @param {Array} repositories 
+ * @param {Array} repositories
  * @return processed repositories array
  */
-const processContributors = (repositories) => {
+const processContributors = repositories => {
   const contributors = new ContributorSet();
 
   repositories.forEach(repository => {
@@ -45,47 +45,44 @@ const processContributors = (repositories) => {
       const {
         totalPullRequestContributions: totalPullRequests,
         totalIssueContributions: totalIssues,
-        totalCommitContributions: totalCommits
+        totalCommitContributions: totalCommits,
       } = contributor.contributionsCollection;
 
       contributor.totalPullRequests = totalPullRequests;
       contributor.totalIssues = totalIssues;
       contributor.totalCommits = totalCommits;
 
-      contributors.add(contributor)
+      contributors.add(contributor);
     });
   });
-  
+
   return Array.from(contributors.values());
 };
 
 /**
  * Process the user object and returns the Date of the first contribution or undefined
  * if the user has no contributions.
- * @param {Object} user 
+ * @param {Object} user
  * @return {Date} first contribution date
  */
-const processFirstContributionDate = (user) => {
+const processFirstContributionDate = user => {
   if (user) {
     const issuesNodes = user.contributionsCollection.issueContributions.nodes;
     const pullRequestsNodes = user.contributionsCollection.pullRequestContributions.nodes;
     const reviewsNodes = user.contributionsCollection.pullRequestReviewContributions.nodes;
-    const contributions = [issuesNodes, pullRequestsNodes, reviewsNodes];
+    const contributions = [...issuesNodes, ...pullRequestsNodes, ...reviewsNodes];
 
     const dates = [];
     contributions.forEach(contribution => {
-      if (contribution && contribution.length > 0) {
-        let firstContrib = contribution[0].occurredAt;
-        dates.push(new Date(firstContrib)); 
-      }
+      const firstContrib = contribution.occurredAt;
+      dates.push(new Date(firstContrib));
     });
 
-    let result = undefined;
-    if (dates.length > 0)
-      result = getOldestDate(dates);
+    let result;
+    if (dates.length > 0) result = getOldestDate(dates);
     return result;
   }
-}
+};
 
 const firstContributionDateResolver = async(parent, args, { token }) => {
   const { login } = args;
@@ -94,27 +91,27 @@ const firstContributionDateResolver = async(parent, args, { token }) => {
 
   const result = processFirstContributionDate(data.data.user);
   return result;
-}
+};
 
 const validateLogin = async (login, orgID, token) => {
   const body = githubQueries.isContributor(login, orgID);
   const data = await fetchData(body, token);
   const { user } = data.data;
-  const isValid = (user && user.contributionsCollection.hasAnyContributions);
+  const isValid = user && user.contributionsCollection.hasAnyContributions;
   return isValid;
-}
+};
 
 export default {
   Query: {
     contributors: async (parent, args, { token }) => {
       const { first, last, after, before } = args;
 
-      const repoArgs = { first: parent.totalRepos }; 
+      const repoArgs = { first: parent.totalRepos };
       const userArgs = { first };
 
       const body = githubQueries.contributors(parent, repoArgs, userArgs);
       const data = await fetchData(body, token);
-      
+
       const contributorsArray = processContributors(data.data.organization.repositories.nodes);
       contributorsArray.length = first;
       return contributorsArray;
@@ -143,9 +140,9 @@ export default {
          * Get the query's fields
          */
         const { fieldNodes } = info;
-        const rootFields = (fieldNodes.filter(node => node.name.value == 'contributor')).pop();
+        const rootFields = (fieldNodes.filter(node => node.name.value === 'contributor')).pop();
         const fields = rootFields.selectionSet.selections.map(node => node.name.value);
-  
+
         /**
          * Because the field 'firstContributionDate' doesnt come on contributors query, we will
          * only resolve it if is really necessary.

@@ -2,7 +2,7 @@ import {
   GraphQLObjectType,
   GraphQLID,
   GraphQLString,
-  GraphQLInt
+  GraphQLInt,
 } from 'graphql';
 
 import { GraphQLDate } from 'graphql-iso-date';
@@ -48,39 +48,47 @@ const ContributorType = new GraphQLObjectType({
     },
     firstContributionDate: {
       type: GraphQLDate,
-      description: 'Date of the first time the contributor has contributed to the organization.',
+      description:
+        'Date of the first time the contributor has contributed to the organization.',
     },
     totalCommits: {
       type: GraphQLInt,
-      description: 'How many commits were made by the contributor in the organization.',
+      description:
+        'How many commits were made by the contributor in the organization.',
     },
     totalIssues: {
       type: GraphQLInt,
-      description: 'How many issues were opened by the contributor in the organization.',
+      description:
+        'How many issues were opened by the contributor in the organization.',
     },
     totalPullRequests: {
       type: GraphQLInt,
-      description: 'How many pull requests were opened by the contributor in the organization.',
+      description:
+        'How many pull requests were opened by the contributor in the organization.',
     },
     totalIssuesOpen: {
       type: GraphQLInt,
       resolve: resolvers.Query.openIssues,
-      description: 'How many issues were opened by the contributor in the organization and are still open.',
+      description:
+        'How many issues were opened by the contributor in the organization and are still open.',
     },
     totalIssuesClosed: {
       type: GraphQLInt,
       resolve: resolvers.Query.closedIssues,
-      description: 'How many issues were opened by the contributor in the organization and were closed.',
+      description:
+        'How many issues were opened by the contributor in the organization and were closed.',
     },
     totalPullRequestsOpen: {
       type: GraphQLInt,
       resolve: resolvers.Query.openPullRequests,
-      description: 'How many pull requests were opened by the contributor in the organization and are still open.',
+      description:
+        'How many pull requests were opened by the contributor in the organization and are still open.',
     },
     totalPullRequestsClosed: {
       type: GraphQLInt,
       resolve: resolvers.Query.closedPullRequests,
-      description: 'How many pull requests were opened by the contributor in the organization and were closed.',
+      description:
+        'How many pull requests were opened by the contributor in the organization and were closed.',
     },
   }),
 });
