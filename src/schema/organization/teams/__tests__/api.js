@@ -1,5 +1,4 @@
 import gql from 'graphql-tag';
-// TODO: test for two or more oganizations.
 
 /**
  * Query for test the obtaining of all teams atributtes
@@ -150,10 +149,7 @@ const teamsNameUrlSlugTotalMembersRepoLogin = gql`
  *                    of the desired `team`
  * */
 const teamsMembers = gql`
-  query teamsMembers(
-    $maxNumberOfTeams: Int!
-    $maxNumberOfMembers: Int!
-  ) {
+  query teamsMembers($maxNumberOfTeams: Int!, $maxNumberOfMembers: Int!) {
     organization {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
         name
@@ -175,10 +171,7 @@ const teamsMembers = gql`
  *                    of the desired `team`
  * */
 const teamsMembersLogin = gql`
-  query teamsMembersLogin(
-    $maxNumberOfTeams: Int!
-    $maxNumberOfMembers: Int!
-  ) {
+  query teamsMembersLogin($maxNumberOfTeams: Int!, $maxNumberOfMembers: Int!) {
     organization {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
         name
@@ -199,10 +192,7 @@ const teamsMembersLogin = gql`
  *                    of the desired `team`
  * */
 const teamsMembersId = gql`
-  query teamsMembersId(
-    $maxNumberOfTeams: Int!
-    $maxNumberOfMembers: Int!
-  ) {
+  query teamsMembersId($maxNumberOfTeams: Int!, $maxNumberOfMembers: Int!) {
     organization {
       teams(maxNumberOfTeams: $maxNumberOfTeams) {
         name
