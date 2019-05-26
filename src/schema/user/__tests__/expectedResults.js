@@ -41,11 +41,4 @@ const userWebsiteUrl = {
   },
 };
 
-export {
-  user,
-  userName,
-  userLocation,
-  userBio,
-  userEmail,
-  userWebsiteUrl,
-};
+export { user, userName, userLocation, userBio, userEmail, userWebsiteUrl };

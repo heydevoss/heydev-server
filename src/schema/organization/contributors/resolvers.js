@@ -134,50 +134,47 @@ export default {
       const { id } = parent;
       const isValidLogin = await validateLogin(login, id, token);
 
-      if (isValidLogin) {
-        const body = githubQueries.contributor(login, id);
-        const data = await fetchData(body, token);
-        const contributor = data.data.user;
-
-        const {
-          totalPullRequestContributions: totalPullRequests,
-          totalIssueContributions: totalIssues,
-          totalCommitContributions: totalCommits,
-        } = contributor.contributionsCollection;
-
-        contributor.totalPullRequests = totalPullRequests;
-        contributor.totalIssues = totalIssues;
-        contributor.totalCommits = totalCommits;
-
-        /**
-         * Get the query's fields
-         */
-        const { fieldNodes } = info;
-        const rootFields = fieldNodes
-          .filter(node => node.name.value === 'contributor')
-          .pop();
-        const fields = rootFields.selectionSet.selections.map(
-          node => node.name.value
-        );
-
-        /**
-         * Because the field 'firstContributionDate' doesnt come on contributors query, we will
-         * only resolve it if is really necessary.
-         */
-        if (fields.includes('firstContributionDate')) {
-          contributor.firstContributionDate = firstContributionDateResolver(
-            parent,
-            args,
-            { token }
-          );
-        }
-
-        return contributor;
-      } else {
+      if (!isValidLogin) {
         throw new Error(
           `User ${login} may not be a GitHub User or a Contributor.`
         );
       }
+      const body = githubQueries.contributor(login, id);
+      const data = await fetchData(body, token);
+      const contributor = data.data.user;
+
+      const {
+        totalPullRequestContributions: totalPullRequests,
+        totalIssueContributions: totalIssues,
+        totalCommitContributions: totalCommits,
+      } = contributor.contributionsCollection;
+
+      contributor.totalPullRequests = totalPullRequests;
+      contributor.totalIssues = totalIssues;
+      contributor.totalCommits = totalCommits;
+
+      // Get the query's fields
+      const { fieldNodes } = info;
+      const rootFields = fieldNodes
+        .filter(node => node.name.value === 'contributor')
+        .pop();
+      const fields = rootFields.selectionSet.selections.map(
+        node => node.name.value
+      );
+
+      /*
+      Because the field 'firstContributionDate' doesnt come on contributors query, we will
+      only resolve it if is really necessary.
+      */
+      if (fields.includes('firstContributionDate')) {
+        contributor.firstContributionDate = firstContributionDateResolver(
+          parent,
+          args,
+          { token }
+        );
+      }
+
+      return contributor;
     },
     openIssues: async (parent, _args, { token }) => {
       const { login } = parent;

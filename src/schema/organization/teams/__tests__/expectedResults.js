@@ -268,9 +268,4 @@ const teamsMembersLogin = {
   },
 };
 
-export {
-  teams,
-  teamsMembers,
-  teamsMembersId,
-  teamsMembersLogin
-};
+export { teams, teamsMembers, teamsMembersId, teamsMembersLogin };
