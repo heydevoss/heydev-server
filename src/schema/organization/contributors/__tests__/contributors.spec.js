@@ -2,7 +2,7 @@ import * as queries from './api';
 import * as expectedResult from './expectedResults'
 import testServer from '../../../../testUtils/integration/serverFactory'
 import { createTestClient } from 'apollo-server-testing'
-import { getPropsFromList } from '../../../../testUtils/integration/dataExtractor';
+import getPropsFromList from '../../../../testUtils/integration/dataExtractor';
 
 describe('Contributor type tests', () => {
   const contributorsPath = ['organization', 'contributors'];

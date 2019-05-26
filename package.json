@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest '.spec.js'",
+    "test": "jest 'contributors.spec.js'",
     "start": "nodemon --exec babel-node src/index.js",
-    "check-lint": "prettier --list-different 'src/*.js' && eslint 'src/*.js'",
+    "check-lint": "eslint --ext .js --ignore-path .gitignore .",
     "lint": "prettier --write 'src/*.js' && eslint --fix 'src/*.js'"
   },
   "repository": {

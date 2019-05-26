@@ -1,6 +1,6 @@
 import fetchData from '../../../github/dataFetcher';
 import githubQueries from '../../../github/queries';
-import { getOldestDate } from '../../../utils';
+import getOldestDate from '../../../utils';
 
 import 'dotenv/config';
 import config from '../../../config';
