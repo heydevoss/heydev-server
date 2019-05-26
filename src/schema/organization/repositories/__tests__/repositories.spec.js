@@ -6,7 +6,7 @@ import getPropsFromList from '../../../../testUtils/integration/dataExtractor';
 
 describe('Repository type tests', () => {
   const maxNumberOfRepositories = 5;
-  const repositoriesPath =  ['organization', 'repositories'];
+  const repositoriesPath = ['organization', 'repositories'];
   const { query } = createTestClient(testServer);
 
   it('repositories: Repository', async () => {
