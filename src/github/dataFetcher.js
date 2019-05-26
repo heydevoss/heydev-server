@@ -14,19 +14,17 @@ const makePostRequest = async (url, headers, body) => {
 };
 
 const generateHeaders = authorization => {
+  const authorizationHeader = authorization || `Bearer ${config.test.token}`;
   const headers = {
-    authorization,
+    authorization: authorizationHeader,
   };
 
   return headers;
 };
 
 const fetchData = async (body, authenticationToken) => {
-  if(!authenticationToken) {
-    authenticationToken = `Bearer ${config.test.token}`;
-  }
   const headers = generateHeaders(authenticationToken);
-  return await makePostRequest('https://api.github.com/graphql', headers, body);
+  return makePostRequest('https://api.github.com/graphql', headers, body);
 };
 
 export default fetchData;

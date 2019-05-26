@@ -25,19 +25,6 @@ router.get('/login', (req, res) => {
   res.redirect(url);
 });
 
-router.get('/callback', (req, res) => {
-  const storedState = req.cookies ? req.cookies[stateKey] : null;
-  const { state } = req.query;
-
-  if (state && storedState === state) {
-    requestAccessToken(req, res);
-  } else {
-    const queryString = querystring.stringify({ error: 'state_mismatch' });
-    const url = getClientURL(`${config.client.errorPath}?${queryString}`);
-    res.redirect(url);
-  }
-});
-
 const requestAccessToken = (req, res) => {
   res.clearCookie(stateKey);
   const { code } = req.query;
@@ -57,7 +44,7 @@ const requestAccessToken = (req, res) => {
     let url;
     if (!error && response.statusCode === 200) {
       const { access_token } = body;
-      
+
       url = getClientURL(`${config.client.successPath}/${access_token}`);
     } else {
       const queryString = querystring.stringify({ error: 'invalid_token' });
@@ -66,5 +53,18 @@ const requestAccessToken = (req, res) => {
     res.redirect(url);
   });
 };
+
+router.get('/callback', (req, res) => {
+  const storedState = req.cookies ? req.cookies[stateKey] : null;
+  const { state } = req.query;
+
+  if (state && storedState === state) {
+    requestAccessToken(req, res);
+  } else {
+    const queryString = querystring.stringify({ error: 'state_mismatch' });
+    const url = getClientURL(`${config.client.errorPath}?${queryString}`);
+    res.redirect(url);
+  }
+});
 
 export default router;
