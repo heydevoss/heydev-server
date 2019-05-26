@@ -7,7 +7,7 @@
     "test": "jest 'contributors.spec.js'",
     "start": "nodemon --exec babel-node src/index.js",
     "check-lint": "eslint --ext .js --ignore-path .gitignore .",
-    "lint": "prettier --write 'src/*.js' && eslint --fix 'src/*.js'"
+    "lint": "prettier --write 'src/schema/user/*.js' && eslint --fix 'src/schema/user/*.js'"
   },
   "repository": {
     "type": "git",

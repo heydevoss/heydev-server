@@ -18,8 +18,8 @@ export default {
         email: viewer.email,
         avatarUrl: viewer.avatarUrl,
         websiteUrl: viewer.websiteUrl,
-        totalRepos: viewer.repositories.totalCount
-      }
-    }
-  }
-}
+        totalRepos: viewer.repositories.totalCount,
+      };
+    },
+  },
+};
