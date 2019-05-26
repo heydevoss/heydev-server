@@ -47,7 +47,4 @@ const contributor = {
   description: `Find an organization's contributor by its login.`,
 };
 
-export {
-  contributors,
-  contributor
-};
+export { contributors, contributor };

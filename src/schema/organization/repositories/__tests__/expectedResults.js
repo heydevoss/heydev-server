@@ -72,7 +72,4 @@ const repositories = {
   },
 };
 
-export {
-  repositories,
-  repositoriesTotalCommits,
-};
+export { repositories, repositoriesTotalCommits };

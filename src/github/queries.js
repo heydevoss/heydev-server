@@ -184,7 +184,14 @@ const contributors = (organization, repoArgs, userArgs) => {
   const { id: orgID, login } = organization;
   const { after: afterRepos, first: firstRepos } = repoArgs;
   const { after: afterUsers, first: firstUsers } = userArgs;
-  const variables = {orgID, login, firstRepos, firstUsers, afterRepos, afterUsers};
+  const variables = {
+    orgID,
+    login,
+    firstRepos,
+    firstUsers,
+    afterRepos,
+    afterUsers,
+  };
 
   return getContributorsData(inputs, data, variables);
 };

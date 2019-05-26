@@ -55,7 +55,5 @@ const contributor = {
     },
   },
 };
-export {
-    contributors,
-    contributor,
-};
+
+export { contributors, contributor };
