@@ -11,7 +11,7 @@ const makeGetRequest = async (url, headers) => {
   return data;
 }
 
-const generateHeaders = authorization => {
+const generateHeaders = () => {
   const headers = {
     accept: "application/vnd.github.cloak-preview",
   };
