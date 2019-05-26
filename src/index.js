@@ -18,7 +18,7 @@ app.use('/auth', authRouter);
 const server = new ApolloServer({
   schema,
   context: ({ req }) => {
-    const token = req.headers.authorization || '';
+    const token = req.headers.authorization || `Bearer ${config.test.token}`;
     return { token };
   },
 });

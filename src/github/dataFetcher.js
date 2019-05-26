@@ -14,9 +14,8 @@ const makePostRequest = async (url, headers, body) => {
 };
 
 const generateHeaders = authorization => {
-  const authorizationHeader = authorization || `Bearer ${config.test.token}`;
   const headers = {
-    authorization: authorizationHeader,
+    authorization,
   };
 
   return headers;
