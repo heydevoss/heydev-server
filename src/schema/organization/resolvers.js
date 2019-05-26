@@ -7,26 +7,26 @@ import config from '../../config';
 
 export default {
   Query: {
-    commits: async (parent, args, { token }) => {
+    commits: async (parent, _args, _context) => {
       const { login } = parent;
       const url = `https://api.github.com/search/commits?q=is:public+org:${login}`;
       const data = await fetchRestData(url);
 
       return data.total_count;
     },
-    issues: async (parent, args, { token }) => {
+    issues: async (parent, _args, { token }) => {
       const body = githubQueries.organizationTotalIssues(parent.login);
       const data = await fetchData(body, token);
 
       return data.data.search.issueCount;
     },
-    pullRequests: async (parent, args, { token }) => {
+    pullRequests: async (parent, _args, { token }) => {
       const body = githubQueries.organizationTotalPullRequests(parent.login);
       const data = await fetchData(body, token);
 
       return data.data.search.issueCount;
     },
-    organization: async (parent, args, { token }) => {
+    organization: async (_parent, _args, { token }) => {
       const login = config.github.organization;
       const body = githubQueries.organization(login);
       const data = await fetchData(body, token);

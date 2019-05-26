@@ -1,5 +1,4 @@
 import fetch from 'node-fetch';
-import config from '../config';
 
 const makePostRequest = async (url, headers, body) => {
   const response = await fetch(url, {
@@ -9,7 +8,6 @@ const makePostRequest = async (url, headers, body) => {
   });
 
   const data = await response.json();
-
   return data;
 };
 
