@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest 'contributors.spec.js'",
+    "test": "jest --coverage '.spec.js'",
     "start": "nodemon --exec babel-node src/index.js",
     "check-lint": "eslint --ext .js --ignore-path .gitignore .",
     "lint": "eslint --fix --ext .js --ignore-path .gitignore ."

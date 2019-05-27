@@ -1,7 +1,7 @@
 import { createTestClient } from 'apollo-server-testing';
 import * as queries from './api';
 import * as expectedResponse from './expectedResults';
-import testServer from '../../../testUtils/integration/serverFactory';
+import testServer from '../../../e2eHelpers/serverFactory';
 
 describe('User type tests', () => {
   const { query } = createTestClient(testServer);
