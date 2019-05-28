@@ -1,8 +1,8 @@
 import { createTestClient } from 'apollo-server-testing';
 import * as queries from './api';
 import * as expectedResult from './expectedResults';
-import testServer from '../../../../testUtils/integration/serverFactory';
-import { getPropsFromList } from '../../../../testUtils/integration/dataExtractor';
+import testServer from '../../../../e2eHelpers/serverFactory';
+import getPropsFromList from '../../../../e2eHelpers/dataExtractor';
 
 describe('Team type tests', () => {
   const maxNumberOfTeams = 10;

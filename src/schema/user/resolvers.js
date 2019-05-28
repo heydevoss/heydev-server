@@ -3,7 +3,7 @@ import githubQueries from '../../github/queries';
 
 export default {
   Query: {
-    me: async (parent, args, { token }) => {
+    me: async (_parent, _args, { token }) => {
       const body = githubQueries.me();
       const data = await fetchData(body, token);
 
@@ -18,8 +18,8 @@ export default {
         email: viewer.email,
         avatarUrl: viewer.avatarUrl,
         websiteUrl: viewer.websiteUrl,
-        totalRepos: viewer.repositories.totalCount
-      }
-    }
-  }
-}
+        totalRepos: viewer.repositories.totalCount,
+      };
+    },
+  },
+};

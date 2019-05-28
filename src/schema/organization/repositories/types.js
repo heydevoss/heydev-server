@@ -21,7 +21,8 @@ const RepositoryType = new GraphQLObjectType({
     },
     viewerCanAdminister: {
       type: GraphQLBoolean,
-      description: 'Indicates whether the viewer has admin permissions on the repository.',
+      description:
+        'Indicates whether the viewer has admin permissions on the repository.',
     },
     totalForks: {
       type: GraphQLInt,

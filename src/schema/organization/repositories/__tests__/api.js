@@ -81,7 +81,9 @@ const repositoriesNameViewerCanAdminister = gql`
  *                   of the desired `organization`
  * */
 const repositoriesTotalForksTotalOpenIssuesTotalStars = gql`
-  query repositoriesTotalForksTotalOpenIssuesTotalStars($maxNumberOfRepositories: Int!) {
+  query repositoriesTotalForksTotalOpenIssuesTotalStars(
+    $maxNumberOfRepositories: Int!
+  ) {
     organization {
       repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
         totalForks
@@ -104,7 +106,9 @@ const repositoriesTotalForksTotalOpenIssuesTotalStars = gql`
  *                   of the desired `organization`
  * */
 const repositoriesIdTotalForksTotalOpenIssuesTotalStars = gql`
-  query repositoriesIdTotalForksTotalOpenIssuesTotalStars($maxNumberOfRepositories: Int!) {
+  query repositoriesIdTotalForksTotalOpenIssuesTotalStars(
+    $maxNumberOfRepositories: Int!
+  ) {
     organization {
       repositories(maxNumberOfRepositories: $maxNumberOfRepositories) {
         id
@@ -119,7 +123,7 @@ const repositoriesIdTotalForksTotalOpenIssuesTotalStars = gql`
 /**
  * Query for testing the obtaining of the total number of commits of one
  * organazation's repositories.
- * 
+ *
  * @returns {RepositoryObject} an object containing:
  *                      `totalCommits`
  *                      of the desired repository inside an organization.

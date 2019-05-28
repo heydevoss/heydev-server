@@ -10,7 +10,7 @@ import { generateRandomState, getAuthBaseURL, getClientURL } from './util';
 const router = express.Router();
 const stateKey = 'github-auth-state';
 
-router.get('/login', (req, res) => {
+router.get('/login', (_req, res) => {
   const state = generateRandomState(16);
   res.cookie(stateKey, state);
 
@@ -23,19 +23,6 @@ router.get('/login', (req, res) => {
 
   const url = getAuthBaseURL(`/authorize?${queryString}`);
   res.redirect(url);
-});
-
-router.get('/callback', (req, res) => {
-  const storedState = req.cookies ? req.cookies[stateKey] : null;
-  const { state } = req.query;
-
-  if (state && storedState === state) {
-    requestAccessToken(req, res);
-  } else {
-    const queryString = querystring.stringify({ error: 'state_mismatch' });
-    const url = getClientURL(`${config.client.errorPath}?${queryString}`);
-    res.redirect(url);
-  }
 });
 
 const requestAccessToken = (req, res) => {
@@ -56,9 +43,9 @@ const requestAccessToken = (req, res) => {
   request.post(requestOptions, (error, response, body) => {
     let url;
     if (!error && response.statusCode === 200) {
-      const { access_token } = body;
-      
-      url = getClientURL(`${config.client.successPath}/${access_token}`);
+      const { access_token: accessToken } = body;
+
+      url = getClientURL(`${config.client.successPath}/${accessToken}`);
     } else {
       const queryString = querystring.stringify({ error: 'invalid_token' });
       url = getClientURL(`${config.client.errorPath}?${queryString}`);
@@ -66,5 +53,18 @@ const requestAccessToken = (req, res) => {
     res.redirect(url);
   });
 };
+
+router.get('/callback', (req, res) => {
+  const storedState = req.cookies ? req.cookies[stateKey] : null;
+  const { state } = req.query;
+
+  if (state && storedState === state) {
+    requestAccessToken(req, res);
+  } else {
+    const queryString = querystring.stringify({ error: 'state_mismatch' });
+    const url = getClientURL(`${config.client.errorPath}?${queryString}`);
+    res.redirect(url);
+  }
+});
 
 export default router;

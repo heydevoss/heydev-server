@@ -16,8 +16,8 @@ const repositoriesTotalCommits = {
       {
         totalCommits: 2,
       },
-    ]
-  }
+    ],
+  },
 };
 
 const repositories = {
@@ -56,12 +56,12 @@ const repositories = {
         viewerCanAdminister: true,
         totalForks: 0,
         totalOpenIssues: 0,
-        totalOpenPullRequests: 0, 
+        totalOpenPullRequests: 0,
         totalStars: 0,
       },
       {
-        id: "MDEwOlJlcG9zaXRvcnkxODgwNzMyNzY=",
-        name: "panelinhadees/formal-specification",
+        id: 'MDEwOlJlcG9zaXRvcnkxODgwNzMyNzY=',
+        name: 'panelinhadees/formal-specification',
         viewerCanAdminister: true,
         totalForks: 2,
         totalOpenIssues: 0,
@@ -72,7 +72,4 @@ const repositories = {
   },
 };
 
-export {
-  repositories,
-  repositoriesTotalCommits,
-};
+export { repositories, repositoriesTotalCommits };

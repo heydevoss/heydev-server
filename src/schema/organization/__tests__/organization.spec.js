@@ -1,157 +1,157 @@
 import { createTestClient } from 'apollo-server-testing';
 import * as queries from './api';
-import * as expectedResults from './expectedResults';
-import testServer from '../../../testUtils/integration/serverFactory';
-import { getPropsFromList } from '../../../testUtils/integration/dataExtractor';
+import expectedResultOrganizationData from './expectedResults';
+import testServer from '../../../e2eHelpers/serverFactory';
+import getPropsFromList from '../../../e2eHelpers/dataExtractor';
 
 describe('Organization type tests', () => {
   const { query } = createTestClient(testServer);
   const organizationPath = [];
 
   it('organization: Organization', async () => {
-    const { data } = await(query({
+    const { data } = await query({
       query: queries.organizationData,
-    }));
-    expect(data).toEqual(expectedResults.organizationData);
+    });
+    expect(data).toEqual(expectedResultOrganizationData);
   });
 
   it('organization: { id }: Organization', async () => {
-    const { data } = await(query({
+    const { data } = await query({
       query: queries.organizationId,
-    }));
+    });
 
     const organizationIdExpectedResult = getPropsFromList(
-      expectedResults.organizationData,
+      expectedResultOrganizationData,
       organizationPath,
-      ['id'],
+      ['id']
     );
 
     expect(data).toEqual(organizationIdExpectedResult);
   });
 
   it('organization: { login }: Organization', async () => {
-    const { data } = await(query({
+    const { data } = await query({
       query: queries.organizationLogin,
-    }));
+    });
 
     const organizationLoginExpectedResult = getPropsFromList(
-      expectedResults.organizationData,
+      expectedResultOrganizationData,
       organizationPath,
-      ['login'],
+      ['login']
     );
-    
+
     expect(data).toEqual(organizationLoginExpectedResult);
   });
 
   it('organization: { name }: Organization', async () => {
-    const { data } = await(query({
+    const { data } = await query({
       query: queries.organizationName,
-    }));
-    
+    });
+
     const organizationNameExpectedResult = getPropsFromList(
-      expectedResults.organizationData,
+      expectedResultOrganizationData,
       organizationPath,
-      ['name'],
+      ['name']
     );
-    
+
     expect(data).toEqual(organizationNameExpectedResult);
   });
 
   it('organization: { websiteUrl }: Organization', async () => {
-    const { data } = await(query({
+    const { data } = await query({
       query: queries.organizationWebsiteUrl,
-    }));
-    
+    });
+
     const organizationWebsiteUrlExpectedResult = getPropsFromList(
-      expectedResults.organizationData,
+      expectedResultOrganizationData,
       organizationPath,
-      ['websiteUrl'],
+      ['websiteUrl']
     );
-    
+
     expect(data).toEqual(organizationWebsiteUrlExpectedResult);
   });
 
   it('organization: { totalMembers }: Organization', async () => {
-    const { data } = await(query({
+    const { data } = await query({
       query: queries.organizationTotalMembers,
-    }));
-    
+    });
+
     const organizationTotalMembersExpectedResult = getPropsFromList(
-      expectedResults.organizationData,
+      expectedResultOrganizationData,
       organizationPath,
-      ['totalMembers'],
+      ['totalMembers']
     );
-    
+
     expect(data).toEqual(organizationTotalMembersExpectedResult);
   });
 
   it('organization: { totalRepos }: Organization', async () => {
-    const { data } = await(query({
+    const { data } = await query({
       query: queries.organizationTotalRepos,
-    }));
-    
+    });
+
     const organizationTotalReposExpectedResult = getPropsFromList(
-      expectedResults.organizationData,
+      expectedResultOrganizationData,
       organizationPath,
-      ['totalRepos'],
+      ['totalRepos']
     );
-    
+
     expect(data).toEqual(organizationTotalReposExpectedResult);
   });
 
   it('organization: { totalTeams }: Organization', async () => {
-    const { data } = await(query({
+    const { data } = await query({
       query: queries.organizationTotalTeams,
-    }));
-    
+    });
+
     const organizationTotalTeamsExpectedResult = getPropsFromList(
-      expectedResults.organizationData,
+      expectedResultOrganizationData,
       organizationPath,
-      ['totalTeams'],
+      ['totalTeams']
     );
-    
+
     expect(data).toEqual(organizationTotalTeamsExpectedResult);
   });
 
   it('organization: { totalPullRequests }: Organization', async () => {
-    const { data } = await(query({
+    const { data } = await query({
       query: queries.organizationTotalPullRequests,
-    }));
-    
+    });
+
     const organizationTotalPullRequestsExpectedResult = getPropsFromList(
-      expectedResults.organizationData,
+      expectedResultOrganizationData,
       organizationPath,
-      ['totalPullRequests'],
+      ['totalPullRequests']
     );
-    
+
     expect(data).toEqual(organizationTotalPullRequestsExpectedResult);
   });
 
   it('organization: { totalIssues }: Organization', async () => {
-    const { data } = await(query({
+    const { data } = await query({
       query: queries.organizationTotalIssues,
-    }));
-    
+    });
+
     const organizationTotalIssuesExpectedResult = getPropsFromList(
-      expectedResults.organizationData,
+      expectedResultOrganizationData,
       organizationPath,
-      ['totalIssues'],
+      ['totalIssues']
     );
-    
+
     expect(data).toEqual(organizationTotalIssuesExpectedResult);
   });
 
   it('organization: { totalCommits }: Organization', async () => {
-    const { data } = await(query({
+    const { data } = await query({
       query: queries.organizationTotalCommits,
-    }));
-    
+    });
+
     const organizationTotalCommitsExpectedResult = getPropsFromList(
-      expectedResults.organizationData,
+      expectedResultOrganizationData,
       organizationPath,
-      ['totalCommits'],
+      ['totalCommits']
     );
-    
+
     expect(data).toEqual(organizationTotalCommitsExpectedResult);
   });
-})
+});

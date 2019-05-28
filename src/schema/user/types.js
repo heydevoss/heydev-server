@@ -47,7 +47,7 @@ const UserType = new GraphQLObjectType({
       type: GraphQLInt,
       description: `The logged user's total number of repositories.`,
     },
-  })
+  }),
 });
 
 export default UserType;

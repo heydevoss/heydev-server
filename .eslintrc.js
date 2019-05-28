@@ -12,6 +12,7 @@ module.exports = {
     "node": true
   },
   "rules": {
+    "no-unused-vars": [2, {"args": "all", "argsIgnorePattern": "^_"}],
     "jsx-a11y/href-no-hash": ["off"],
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "max-len": [
@@ -25,7 +26,7 @@ module.exports = {
         "ignoreUrls": true,
         "ignoreStrings": true,
         "ignoreTemplateLiterals": true,
-        "ignoreRegExpLiterals": true
+        "ignoreRegExpLiterals": true,
       }
     ]
   }

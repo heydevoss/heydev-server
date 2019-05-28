@@ -1,17 +1,17 @@
+import { createTestClient } from 'apollo-server-testing';
 import * as queries from './api';
-import * as expectedResult from './expectedResults'
-import testServer from '../../../../testUtils/integration/serverFactory'
-import { createTestClient } from 'apollo-server-testing'
-import { getPropsFromList } from '../../../../testUtils/integration/dataExtractor';
+import * as expectedResult from './expectedResults';
+import testServer from '../../../../e2eHelpers/serverFactory';
+import getPropsFromList from '../../../../e2eHelpers/dataExtractor';
 
 describe('Contributor type tests', () => {
   const contributorsPath = ['organization', 'contributors'];
   const { query } = createTestClient(testServer);
   const login = 'jadsonluan';
-  
+
   it('{ organization { contributors(first: 1) } : Organization', async () => {
     const { data } = await query({
-      query: queries.contributorsFirstOne
+      query: queries.contributorsFirstOne,
     });
 
     const expected = expectedResult.contributors;
@@ -26,7 +26,7 @@ describe('Contributor type tests', () => {
 
     const queryExpected = expectedResult.contributors;
     queryExpected.organization.contributors.length = 1;
-    
+
     const expected = getPropsFromList(queryExpected, contributorsPath, ['id']);
     expect(data).toEqual(expected);
   });
@@ -38,8 +38,10 @@ describe('Contributor type tests', () => {
 
     const queryExpected = expectedResult.contributors;
     queryExpected.organization.contributors.length = 1;
-    
-    const expected = getPropsFromList(queryExpected, contributorsPath, ['name']);
+
+    const expected = getPropsFromList(queryExpected, contributorsPath, [
+      'name',
+    ]);
     expect(data).toEqual(expected);
   });
 
@@ -50,8 +52,10 @@ describe('Contributor type tests', () => {
 
     const queryExpected = expectedResult.contributors;
     queryExpected.organization.contributors.length = 1;
-    
-    const expected = getPropsFromList(queryExpected, contributorsPath, ['login']);
+
+    const expected = getPropsFromList(queryExpected, contributorsPath, [
+      'login',
+    ]);
     expect(data).toEqual(expected);
   });
 
@@ -62,8 +66,10 @@ describe('Contributor type tests', () => {
 
     const queryExpected = expectedResult.contributors;
     queryExpected.organization.contributors.length = 1;
-    
-    const expected = getPropsFromList(queryExpected, contributorsPath, ['email']);
+
+    const expected = getPropsFromList(queryExpected, contributorsPath, [
+      'email',
+    ]);
     expect(data).toEqual(expected);
   });
 
@@ -74,8 +80,10 @@ describe('Contributor type tests', () => {
 
     const queryExpected = expectedResult.contributors;
     queryExpected.organization.contributors.length = 1;
-    
-    const expected = getPropsFromList(queryExpected, contributorsPath, ['websiteUrl']);
+
+    const expected = getPropsFromList(queryExpected, contributorsPath, [
+      'websiteUrl',
+    ]);
     expect(data).toEqual(expected);
   });
 
@@ -86,8 +94,10 @@ describe('Contributor type tests', () => {
 
     const queryExpected = expectedResult.contributors;
     queryExpected.organization.contributors.length = 1;
-    
-    const expected = getPropsFromList(queryExpected, contributorsPath, ['location']);
+
+    const expected = getPropsFromList(queryExpected, contributorsPath, [
+      'location',
+    ]);
     expect(data).toEqual(expected);
   });
 
@@ -98,7 +108,7 @@ describe('Contributor type tests', () => {
 
     const queryExpected = expectedResult.contributors;
     queryExpected.organization.contributors.length = 1;
-    
+
     const expected = getPropsFromList(queryExpected, contributorsPath, ['bio']);
     expect(data).toEqual(expected);
   });
@@ -114,8 +124,10 @@ describe('Contributor type tests', () => {
 
   it(`{ organization { contributor (login: '${login}') } } : Organization`, async () => {
     const { data } = await query({
-      query: queries.contributor('id name login email websiteUrl bio location firstContributionDate'),
-      variables: { login }
+      query: queries.contributor(
+        'id name login email websiteUrl bio location firstContributionDate'
+      ),
+      variables: { login },
     });
 
     const expected = expectedResult.contributor;

@@ -1,8 +1,8 @@
 import 'dotenv/config';
 
 import { ApolloServer } from 'apollo-server-express';
-import schema from '../../schema';
-import config from '../../config';
+import schema from '../schema';
+import config from '../config';
 
 const testServer = new ApolloServer({
   schema,

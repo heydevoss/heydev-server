@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 
 /**
  * Query for test the obtaining the first contributor from organization specified
@@ -7,21 +7,21 @@ import gql from 'graphql-tag'
  * @returns {OrganizationObject} an object containing:
  *                   `contributors`
  *                   of the token passed
-**/
+ * */
 const contributorsFirstOne = gql`
-    query getContributors {
-        organization {
-            contributors(first: 1) {
-                id
-                login
-                name
-                email
-                websiteUrl
-                location
-                bio
-            }
-        }
+  query getContributors {
+    organization {
+      contributors(first: 1) {
+        id
+        login
+        name
+        email
+        websiteUrl
+        location
+        bio
+      }
     }
+  }
 `;
 
 /**
@@ -31,15 +31,15 @@ const contributorsFirstOne = gql`
  * @returns {OrganizationObject} an object containing:
  *                   `contributors`
  *                   of the token passed
-**/
+ * */
 const contributorsFirstOneID = gql`
-    query getContributors {
-        organization {
-            contributors(first: 1) {
-                id
-            }
-        }
+  query getContributors {
+    organization {
+      contributors(first: 1) {
+        id
+      }
     }
+  }
 `;
 
 /**
@@ -49,15 +49,15 @@ const contributorsFirstOneID = gql`
  * @returns {OrganizationObject} an object containing:
  *                   `contributors`
  *                   of the token passed
-**/
+ * */
 const contributorsFirstOneLogin = gql`
-    query getContributors {
-        organization {
-            contributors(first: 1) {
-                login
-            }
-        }
+  query getContributors {
+    organization {
+      contributors(first: 1) {
+        login
+      }
     }
+  }
 `;
 
 /**
@@ -67,15 +67,15 @@ const contributorsFirstOneLogin = gql`
  * @returns {OrganizationObject} an object containing:
  *                   `contributors`
  *                   of the token passed
-**/
+ * */
 const contributorsFirstOneName = gql`
-    query getContributors {
-        organization {
-            contributors(first: 1) {
-                name
-            }
-        }
+  query getContributors {
+    organization {
+      contributors(first: 1) {
+        name
+      }
     }
+  }
 `;
 
 /**
@@ -85,15 +85,15 @@ const contributorsFirstOneName = gql`
  * @returns {OrganizationObject} an object containing:
  *                   `contributors`
  *                   of the token passed
-**/
+ * */
 const contributorsFirstOneWebsiteUrl = gql`
-    query getContributors {
-        organization {
-            contributors(first: 1) {
-                websiteUrl
-            }
-        }
+  query getContributors {
+    organization {
+      contributors(first: 1) {
+        websiteUrl
+      }
     }
+  }
 `;
 
 /**
@@ -103,15 +103,15 @@ const contributorsFirstOneWebsiteUrl = gql`
  * @returns {OrganizationObject} an object containing:
  *                   `contributors`
  *                   of the token passed
-**/
+ * */
 const contributorsFirstOneLocation = gql`
-    query getContributors {
-        organization {
-            contributors(first: 1) {
-                location
-            }
-        }
+  query getContributors {
+    organization {
+      contributors(first: 1) {
+        location
+      }
     }
+  }
 `;
 
 /**
@@ -121,15 +121,15 @@ const contributorsFirstOneLocation = gql`
  * @returns {OrganizationObject} an object containing:
  *                   `contributors`
  *                   of the token passed
-**/
+ * */
 const contributorsFirstOneBio = gql`
-    query getContributors {
-        organization {
-            contributors(first: 1) {
-                bio
-            }
-        }
+  query getContributors {
+    organization {
+      contributors(first: 1) {
+        bio
+      }
     }
+  }
 `;
 
 /**
@@ -139,15 +139,15 @@ const contributorsFirstOneBio = gql`
  * @returns {OrganizationObject} an object containing:
  *                   `contributors`
  *                   of the token passed
-**/
+ * */
 const contributorsFirstOneEmail = gql`
-    query getContributors {
-        organization {
-            contributors(first: 1) {
-                email
-            }
-        }
+  query getContributors {
+    organization {
+      contributors(first: 1) {
+        email
+      }
     }
+  }
 `;
 
 /**
@@ -156,21 +156,21 @@ const contributorsFirstOneEmail = gql`
  * @returns {OrganizationObject} an object containing:
  *                   `contributors`
  *                   of the token passed
-**/
+ * */
 const contributorsFirstFour = gql`
-    query getContributors {
-        organization {
-            contributors(first: 4) {
-                id
-                login
-                name
-                email
-                websiteUrl
-                location
-                bio
-            }
-        }
+  query getContributors {
+    organization {
+      contributors(first: 4) {
+        id
+        login
+        name
+        email
+        websiteUrl
+        location
+        bio
+      }
     }
+  }
 `;
 
 /**
@@ -179,31 +179,29 @@ const contributorsFirstFour = gql`
  * @returns {OrganizationObject} an object containing:
  *                   `contributor` with all the information about the contributor
  *                   of the token passed
-**/
-
-/**
+ *
  * Query for test the obtaining the contributor with the specified `fields`
  * @param {string} fields
- */
+ * */
 const contributor = fields => gql`
-    query getContributor($login:String!) {
-        organization {
-            contributor(login:$login) {
-                ${fields}
-            }
-        }
+  query getContributor($login:String!) {
+    organization {
+      contributor(login:$login) {
+        ${fields}
+      }
     }
+  }
 `;
 
 export {
-    contributorsFirstOne,
-    contributorsFirstOneID,
-    contributorsFirstOneName,
-    contributorsFirstOneEmail,
-    contributorsFirstOneLogin,
-    contributorsFirstOneWebsiteUrl,
-    contributorsFirstOneLocation,
-    contributorsFirstOneBio,
-    contributorsFirstFour,
-    contributor,
-}
+  contributorsFirstOne,
+  contributorsFirstOneID,
+  contributorsFirstOneName,
+  contributorsFirstOneEmail,
+  contributorsFirstOneLogin,
+  contributorsFirstOneWebsiteUrl,
+  contributorsFirstOneLocation,
+  contributorsFirstOneBio,
+  contributorsFirstFour,
+  contributor,
+};

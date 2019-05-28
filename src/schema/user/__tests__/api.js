@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 
 /**
  * Query for test the obtaining of all user atributtes
@@ -8,18 +8,18 @@ import gql from 'graphql-tag'
  *                   `login`
  *                   `totalRepos`
  *                   of the token passed
-**/
+ * */
 const user = gql`
-query {
+  query {
     me {
-        id
-        login
-        name
-        location
-        bio
-        email
-        websiteUrl
-        totalRepos
+      id
+      login
+      name
+      location
+      bio
+      email
+      websiteUrl
+      totalRepos
     }
   }
 `;
@@ -30,14 +30,14 @@ query {
  * @returns {UserObject} an object containing:
  *                   `login`
  *                   of the token passed
-**/
+ * */
 const userLogin = gql`
-query {
+  query {
     me {
-        login
+      login
     }
-}
-`
+  }
+`;
 
 /**
  * Query for test the obtaining the `name` from User
@@ -45,14 +45,14 @@ query {
  * @returns {UserObject} an object containing:
  *                   `name`
  *                   of the token passed
-**/
+ * */
 const userName = gql`
-query {
+  query {
     me {
-        name
+      name
     }
-}
-`
+  }
+`;
 
 /**
  * Query for test the obtaining `location` from User
@@ -60,14 +60,14 @@ query {
  * @returns {UserObject} an object containing:
  *                   `location`
  *                   of the token passed
-**/
+ * */
 const userLocation = gql`
-query {
+  query {
     me {
-        location
+      location
     }
-}
-`
+  }
+`;
 
 /**
  * Query for test the obtaining `bio` from User
@@ -75,14 +75,14 @@ query {
  * @returns {UserObject} an object containing:
  *                   `bio`
  *                   of the token passed
-**/
+ * */
 const userBio = gql`
-query {
+  query {
     me {
-        bio
+      bio
     }
-}
-`
+  }
+`;
 
 /**
  * Query for test the obtaining `email` from User
@@ -90,14 +90,14 @@ query {
  * @returns {UserObject} an object containing:
  *                   `email`
  *                   of the token passed
-**/
+ * */
 const userEmail = gql`
-query {
+  query {
     me {
-        email
+      email
     }
-}
-`
+  }
+`;
 
 /**
  * Query for test the obtaining `websiteUrl` from User
@@ -105,14 +105,15 @@ query {
  * @returns {UserObject} an object containing:
  *                   `websiteUrl`
  *                   of the token passed
-**/
+ * */
 const userWebsiteUrl = gql`
-query {
+  query {
     me {
-        websiteUrl
+      websiteUrl
     }
-}
-`
+  }
+`;
+
 /**
  * Query for test the obtaining of two user atributtes
  *
@@ -120,22 +121,23 @@ query {
  *                   `login`
  *                   `totalRepos`
  *                   of the token passed
-**/
+ * */
 const userLoginTotalRepos = gql`
-query {
+  query {
     me {
-        login,
-        totalRepos
+      login
+      totalRepos
     }
-}
-`
+  }
+`;
+
 export {
-    user,
-    userLogin,
-    userName,
-    userLocation,
-    userBio,
-    userEmail,
-    userWebsiteUrl,
-    userLoginTotalRepos
-}
+  user,
+  userLogin,
+  userName,
+  userLocation,
+  userBio,
+  userEmail,
+  userWebsiteUrl,
+  userLoginTotalRepos,
+};
