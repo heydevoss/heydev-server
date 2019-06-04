@@ -41,3 +41,4 @@ You can access the endpoint `http://localhost:5000/graphql` to access graphql pl
 Some useful documentations you can use to learn about the tecnologies used on this server development:
 - [Github GraphQL API](https://developer.github.com/v4/)
 - [GraphQL](https://graphql.org/code/)
+- [GitHub Authentication Flow](https://github.com/panelinhadees/panelinha/blob/master/auth/tutorial.md#configurando-o-servidor)
